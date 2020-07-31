@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
-import { getAllCategories } from '../services/foodApi';
+import PropTypes from 'prop-types';
+import getAllCategories from '../services/foodApi';
 
 export const RecipeContext = createContext();
 
@@ -15,6 +16,13 @@ const ProviderRecipe = ({ children }) => {
   };
 
   return <RecipeContext.Provider value={context}>{children}</RecipeContext.Provider>;
+};
+
+ProviderRecipe.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.element),
+    PropTypes.element,
+  ]).isRequired,
 };
 
 export default ProviderRecipe;

@@ -1,15 +1,10 @@
 import React from 'react';
-import './App.css';
-// import { Switch, Route } from 'react-router-dom';
-import ProviderRecipe from './context';
+import { Switch, Route } from 'react-router-dom';
 
 function App() {
   return (
     <div>
-      <ProviderRecipe>
-        <h2>ddad</h2>
-      </ProviderRecipe>
-      {/* <Switch>
+      <Switch>
         <Route exact path="/" component={LoginScreen} />
         <Route exact path="/comidas" component={FoodScreen} />
         <Route exact path="/bebidas" component={DrinkScreen} />
@@ -27,7 +22,7 @@ function App() {
         <Route exact path="/receitas-feitas" component={RecipesDone} />
         <Route exact path="/receitas-favoritas" component={RecipesFavorites} />
         <Route path="/" component={NotFound} />
-      </Switch> */}
+      </Switch>
     </div>
   );
 }
