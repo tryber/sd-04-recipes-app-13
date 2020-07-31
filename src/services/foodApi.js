@@ -48,4 +48,5 @@ export default {
   getByFirstLetter,
   getByIngredients,
   getByCategory,
+  getByArea,
 };
