@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import Icons from '../Icons';
@@ -5,7 +6,6 @@ import ProfileIcon from '../../images/profileIcon.svg';
 import SearchIcon from '../../images/searchIcon.svg';
 
 const Header = ({ title, search }) => {
-
   const profileBtn = () => <Redirect to="/perfil" />;
 
   const searchBtn = () => {
@@ -34,6 +34,15 @@ const Header = ({ title, search }) => {
       </div>
     </header>
   );
+};
+
+Header.defaultProps = {
+  search: false,
+};
+
+Header.propTypes = {
+  search: PropTypes.bool,
+  title: PropTypes.string.isRequired,
 };
 
 export default Header;
