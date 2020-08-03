@@ -25,14 +25,16 @@ const FoodScreen = () => {
     return setName(strCategory);
   };
 
-  return foods === null ? (
-    <div>
-      <h2>Nada cadastrado</h2>
-      <button onClick={() => setName('')}>Voltar</button>
-    </div>
-  ) : foods.length === 0 ? (
-    <Loading />
-  ) : (
+  return;
+  if (foods === null)
+    return (
+      <div>
+        <h2>Nada cadastrado</h2>
+        <button onClick={() => setName('')}>Voltar</button>
+      </div>
+    );
+  if (foods.length === 0) return <Loading />;
+  return (
     <div>
       <Header title="Comidas" />
       <button onClick={() => setName('')}>All</button>
