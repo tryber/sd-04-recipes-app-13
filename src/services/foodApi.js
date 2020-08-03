@@ -1,9 +1,16 @@
+import { func } from 'prop-types';
+
 const URL = 'https://www.themealdb.com/api/json/v1/1';
 
 // Pega a lista completa e detalhada de todas as categorias
 export async function getAllCategories() {
   const category = await fetch(`${URL}/categories.php`).then((r) => r.json());
   return category.categories;
+}
+
+export async function listAllCategories() {
+  const categories = await fetch(`${URL}/list.php?c=list`).then((r) => r.json());
+  return categories.meals;
 }
 
 // Call a single random meal

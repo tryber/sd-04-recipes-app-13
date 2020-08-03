@@ -18,8 +18,4 @@ async function getByIngredients(ingredient) {
   return drink.drinks;
 }
 
-export default {
-  getByName,
-  getByFirstLetter,
-  getByIngredients,
-};
+export { getByName, getByFirstLetter, getByIngredients };
