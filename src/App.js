@@ -1,15 +1,13 @@
-import React, { useContext } from 'react';
-import { Switch, Route } from 'react-router-dom';
-import Footer from './components/Footer';
-// import * as Pg from './Pages/index';
-import { RecipeContext } from './context';
-import FoodScreen from './Pages/FoodScreen';
+import React from 'react';
+import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import * as Pg from './Pages/index';
+
 
 function App() {
   const { data } = useContext(RecipeContext);
   console.log(data);
   return (
-    <div>
+    <BrowserRouter>
       <h1>começando a bagaça</h1>
       <Switch>
         <Route exact path="/comidas" component={FoodScreen} />
@@ -30,8 +28,7 @@ function App() {
         <Route exact path="/receitas-favoritas" component={Pg.RecipesFavorites} />
         <Route path="/" component={Pg.NotFound} /> */}
       </Switch>
-      <Footer />
-    </div>
+    </BrowserRouter>
   );
 }
 

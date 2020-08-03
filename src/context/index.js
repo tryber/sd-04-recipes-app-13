@@ -1,12 +1,13 @@
 import React, { createContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import getAllCategories from '../services/foodApi';
+import { getAllCategories } from '../services/foodApi';
 
-export const RecipeContext = createContext();
+const RecipeContext = createContext();
 
 const ProviderRecipe = ({ children }) => {
   const [data, setData] = useState([]);
 
+  console.log(RecipeContext);
   useEffect(() => {
     getAllCategories().then((result) => setData(result));
   }, []);
