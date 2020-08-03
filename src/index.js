@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './styles/reset.css';
 import App from './App';
 import { RecipeContext } from './context/index';
 import * as serviceWorker from './serviceWorker';
