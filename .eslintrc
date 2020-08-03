@@ -5,13 +5,11 @@
     "no-alert": "off",
     "prefer-arrow-callback": "off",
     "func-names": "off",
+    "react/jsx-fragments": ["off"],
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [
-          ".js",
-          ".jsx"
-        ]
+        "extensions": [".js", ".jsx"]
       }
     ],
     "react/prefer-stateless-function": 0,

@@ -1,10 +1,18 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './styles/reset.css';
 import App from './App';
+import { RecipeContext } from './context/index';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <BrowserRouter>
+    <RecipeContext.Consumer>
+      <App />
+    </RecipeContext.Consumer>
+  </BrowserRouter>,
+  document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
