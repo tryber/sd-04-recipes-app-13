@@ -1,6 +1,5 @@
 import React from 'react';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
-import Footer from './components/Footer';
 import * as Pg from './Pages/index';
 
 function App() {
