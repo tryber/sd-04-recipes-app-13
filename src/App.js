@@ -26,7 +26,6 @@ function App() {
         <Route exact path="/receitas-favoritas" component={Pg.RecipesFavorites} />
         <Route path="/" component={Pg.NotFound} />
       </Switch>
-      <Footer />
     </BrowserRouter>
   );
 }
