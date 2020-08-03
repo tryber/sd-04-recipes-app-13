@@ -5,8 +5,6 @@ import { getByName, listAllCategories } from '../services/drinkApi';
 import Loading from '../components/Loading';
 import FoodAndDrinkCard from '../components/FoodAndDrinkCard';
 
-const searchCategory = () => {};
-
 const DrinkScreen = () => {
   const [drinks, setDrinks] = useState([]);
   const [name, setName] = useState('');

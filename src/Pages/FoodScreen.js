@@ -4,7 +4,6 @@ import Header from '../components/Header/Header';
 import { getByName, listAllCategories } from '../services/foodApi';
 import Loading from '../components/Loading';
 import FoodAndDrinkCard from '../components/FoodAndDrinkCard';
-import { Redirect } from 'react-router-dom';
 
 const FoodScreen = () => {
   const [foods, setFoods] = useState([]);

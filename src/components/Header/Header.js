@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { Redirect, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import Icons from '../Icons';
 import ProfileIcon from '../../images/profileIcon.svg';
 import SearchIcon from '../../images/searchIcon.svg';
