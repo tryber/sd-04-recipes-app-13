@@ -35,23 +35,25 @@ const FoodScreen = () => {
     );
   }
   if (foods.length === 0) return <Loading />;
-  return (
-    <div>
-      <Header title="Comidas" />
-      <button onClick={() => setName('')}>All</button>
-      {categories.slice(0, 5).map(({ strCategory }) => (
-        <button
-          onClick={() => changeCategory(strCategory)}
-          data-tesid={`${strCategory}-category-filter`}
-          key={strCategory}
-        >
-          {strCategory}
-        </button>
-      ))}
-      <FoodAndDrinkCard data={foods} info="food" />
-      <Footer />
-    </div>
-  );
+  else {
+    return (
+      <div>
+        <Header title="Comidas" />
+        <button onClick={() => setName('')}>All</button>
+        {categories.slice(0, 5).map(({ strCategory }) => (
+          <button
+            onClick={() => changeCategory(strCategory)}
+            data-tesid={`${strCategory}-category-filter`}
+            key={strCategory}
+          >
+            {strCategory}
+          </button>
+        ))}
+        <FoodAndDrinkCard data={foods} info="food" />
+        <Footer />
+      </div>
+    );
+  }
 };
 
 export default FoodScreen;
