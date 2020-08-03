@@ -1,0 +1,23 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15rem;
+}
+
+header h1 {
+  flex-grow: 3;
+  font-size: 35rem;
+  text-align: center;
+}
+
+header h1 ~ div {
+  width: 62rem;
+}
+
+header button {
+  padding: 0 15rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}

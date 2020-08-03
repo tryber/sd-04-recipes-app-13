@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import Icons from '../Icons';
 import ProfileIcon from '../../images/profileIcon.svg';
 import SearchIcon from '../../images/searchIcon.svg';
+import './styles.css';
 
 const Header = ({ title, search }) => {
   const profileBtn = () => <Redirect to="/perfil" />;
@@ -15,23 +16,23 @@ const Header = ({ title, search }) => {
 
   return (
     <header>
-      <div>
+      <Icons
+        testid="profile-top-btn"
+        src={ProfileIcon}
+        alt="Ícone do Perfil"
+        onClick={profileBtn()}
+      />
+      <h1 data-testid="page-title">{title}</h1>
+      {search ? (
         <Icons
-          testid="profile-top-btn"
-          src={ProfileIcon}
-          alt="Ícone do Perfil"
-          onClick={profileBtn}
+          testid="search-top-btn"
+          src={SearchIcon}
+          alt="Ícone de Pesquisa"
+          onClick={searchBtn}
         />
-        <h1 data-testid="page-title">{title}</h1>
-        {search ? (
-          <Icons
-            testid="search-top-btn"
-            src={SearchIcon}
-            alt="Ícone de Pesquisa"
-            onClick={searchBtn}
-          />
-        ) : null}
-      </div>
+      ) : (
+        <div />
+      )}
     </header>
   );
 };

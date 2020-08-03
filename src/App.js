@@ -1,9 +1,11 @@
 import React from 'react';
+import Header from './components/Header/Header';
 // import { Switch, Route } from 'react-router-dom';
 
 function App() {
   return (
     <div>
+      <Header title="Inicio" search />
       {/* <Switch>
         <Route exact path="/" component={LoginScreen} />
         <Route exact path="/comidas" component={FoodScreen} />
