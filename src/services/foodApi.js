@@ -12,31 +12,31 @@ export async function getRandomMeal() {
   return meal.meals;
 }
 // Search meal by name
-async function getByName(name) {
+export async function getByName(name) {
   const meal = await fetch(`${URL}/search.php?s=${name}`).then((r) => r.json());
   return meal.meals;
 }
 
 // List all meals by first letter
-async function getByFirstLetter(letter) {
+export async function getByFirstLetter(letter) {
   const meal = await fetch(`${URL}/search.php?f=${letter}`).then((r) => r.json());
   return meal.meals;
 }
 
 // Filter by main ingredient
-async function getByIngredients(ingredient) {
+export async function getByIngredients(ingredient) {
   const meal = await fetch(`${URL}/filter.php?i=${ingredient}`).then((r) => r.json());
   return meal.meals;
 }
 
 // Filter by Category
-async function getByCategory(category) {
+export async function getByCategory(category) {
   const meal = await fetch(`${URL}/filter.php?c=${category}`).then((r) => r.json());
   return meal.meals;
 }
 
 // Filter by Area
-async function getByArea(area) {
+export async function getByArea(area) {
   const meal = await fetch(`${URL}/filter.php?a=${area}`).then((r) => r.json());
   return meal.meals;
 }
