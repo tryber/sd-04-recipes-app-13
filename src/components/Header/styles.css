@@ -6,12 +6,12 @@ header {
   padding: 0 15rem;
 }
 
-h1.pageTitle {
+.pageTitle {
   font-size: 35rem;
   text-align: center;
 }
 
-h1.pageTitle ~ div {
+.pageTitle ~ div {
   width: 60rem;
 }
 

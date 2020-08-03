@@ -43,7 +43,7 @@ const Header = ({ title, search }) => {
       <div id="barSearch" className="hidden">
         Barra de Busca
       </div>
-    </>
+    </Fragment>
   );
 };
 
