@@ -14,6 +14,7 @@ export async function getRandomMeal() {
 // Search meal by name
 export async function getByName(name) {
   const meal = await fetch(`${URL}/search.php?s=${name}`).then((r) => r.json());
+  console.log(meal);
   return meal.meals;
 }
 

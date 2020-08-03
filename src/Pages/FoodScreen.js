@@ -1,16 +1,17 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import Footer from '../components/Footer';
 import Header from '../components/Header/Header';
-import getByName from '../services/foodApi';
+import { getByName } from '../services/foodApi';
 import Loading from '../components/Loading';
 import FoodCard from '../components/FoodCard';
 
 const FoodScreen = () => {
+  const [foods, setFoods] = useState([]);
+
   useEffect(() => {
-    getByName()
+    getByName('')
       .then((data) => {
-        console.log(data);
-        const foods = data;
+        setFoods(data);
       })
       .catch((err) => console.error(err));
   }, []);
@@ -18,12 +19,11 @@ const FoodScreen = () => {
   return (
     <div>
       <h2>Food Screen</h2>
-      <FoodCard foods />
-      <Header />
+      <Header title="Comidas" />
+      <FoodCard data={foods} info="food" />
       <Footer />
     </div>
   );
 };
-
 
 export default FoodScreen;

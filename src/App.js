@@ -4,14 +4,14 @@ import * as Pg from './Pages/index';
 
 
 function App() {
-  const { data } = useContext(RecipeContext);
-  console.log(data);
+  // const { data } = useContext(RecipeContext);
+  // console.log(data);
   return (
     <BrowserRouter>
       <h1>começando a bagaça</h1>
       <Switch>
-        <Route exact path="/comidas" component={FoodScreen} />
-        {/* <Route exact path="/" component={Pg.LoginScreen} />
+        <Route exact path="/comidas" component={Pg.FoodScreen} />
+        <Route exact path="/" component={Pg.LoginScreen} />
         <Route exact path="/bebidas" component={Pg.DrinkScreen} />
         <Route exact path="/comidas/:id" component={Pg.FoodDetails} />
         <Route exact path="/bebidas/:id" component={Pg.DrinkDetails} />
@@ -26,7 +26,7 @@ function App() {
         <Route exact path="/perfil" component={Pg.ProfileScreen} />
         <Route exact path="/receitas-feitas" component={Pg.RecipesDone} />
         <Route exact path="/receitas-favoritas" component={Pg.RecipesFavorites} />
-        <Route path="/" component={Pg.NotFound} /> */}
+        <Route path="/" component={Pg.NotFound} />
       </Switch>
     </BrowserRouter>
   );
