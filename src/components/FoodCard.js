@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const FoodCard = ({ data, info }) => {
   if (info === 'food') {
@@ -12,18 +13,22 @@ const FoodCard = ({ data, info }) => {
         ))}
       </div>
     );
-  } else {
-    return (
-      <div>
-        {data.slice(0, 12).map((food) => (
-          <div>
-            <h3>{food.strDrink}</h3>
-            <img src={food.strDrinkThumb} alt={food.strDrink} width={'60px'} />
-          </div>
-        ))}
-      </div>
-    );
   }
+  return (
+    <div>
+      {data.slice(0, 12).map((food) => (
+        <div>
+          <h3>{food.strDrink}</h3>
+          <img src={food.strDrinkThumb} alt={food.strDrink} width={'60px'} />
+        </div>
+      ))}
+    </div>
+  );
+};
+
+FoodCard.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
+  info: PropTypes.string.isRequired,
 };
 
 export default FoodCard;

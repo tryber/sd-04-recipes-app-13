@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Footer from '../components/Footer';
 import Header from '../components/Header/Header';
 import { getByName } from '../services/foodApi';
@@ -16,7 +16,9 @@ const FoodScreen = () => {
       .catch((err) => console.error(err));
   }, []);
 
-  return (
+  return foods.length === 0 ? (
+    <Loading />
+  ) : (
     <div>
       <h2>Food Screen</h2>
       <Header title="Comidas" />
