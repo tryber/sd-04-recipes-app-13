@@ -13,7 +13,7 @@ ruby , section , summary , time , mark , audio , video {
   vertical-align: baseline;
 }
 
-article , aside , details , figcaption , figure , footer , header , hgroup , menu , 
+article , aside , details , figcaption , figure , footer , header , hgroup , menu ,
 nav , section {
   display: block;
 }
@@ -22,15 +22,20 @@ body {
   line-height: 1;
 }
 
-ol , ul {
+ol,
+ul {
   list-style: none;
 }
 
-blockquote , q {
+blockquote,
+q {
   quotes: none;
 }
 
-blockquote:before , blockquote:after , q:before , q:after {
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
   content: none;
 }
 
@@ -39,7 +44,8 @@ table {
   border-spacing: 0;
 }
 
-html , body {
+html,
+body {
   box-sizing: border-box;
   font-size: 1px;
   height: 100vh;

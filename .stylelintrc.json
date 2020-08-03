@@ -98,7 +98,7 @@
     "selector-combinator-space-before": "always",
     "selector-descendant-combinator-no-non-space": true,
     "selector-list-comma-space-after": "never-single-line",
-    "selector-list-comma-space-before": "never-single-line",
+    "selector-list-comma-space-before": "always-single-line",
     "selector-max-attribute": 3,
     "selector-max-class": 5,
     "selector-max-combinators": 3,
