@@ -21,3 +21,16 @@ header button {
   border: none;
   cursor: pointer;
 }
+
+header button:focus {
+  outline: none;
+}
+
+div #barSearch {
+  font-size: 40rem;
+  background: rgb(211, 69, 69);
+}
+
+div .hidden {
+  display: none;
+}

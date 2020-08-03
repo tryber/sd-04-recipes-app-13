@@ -10,30 +10,38 @@ const Header = ({ title, search }) => {
   const profileBtn = () => <Redirect to="/perfil" />;
 
   const searchBtn = () => {
-    // Ao clicar no botão de busca pela primeira vez a barra de busca aparece;
-    // Ao clicar no botão de busca pela segunda vez a barra de busca desaparece.
+    if (document.getElementById('barSearch').style.display === 'block') {
+      document.getElementById('barSearch').style.display = 'none';
+    } else {
+      document.getElementById('barSearch').style.display = 'block';
+    }
   };
 
   return (
-    <header>
-      <Icons
-        testid="profile-top-btn"
-        src={ProfileIcon}
-        alt="Ícone do Perfil"
-        onClick={profileBtn()}
-      />
-      <h1 data-testid="page-title">{title}</h1>
-      {search ? (
+    <>
+      <header>
         <Icons
-          testid="search-top-btn"
-          src={SearchIcon}
-          alt="Ícone de Pesquisa"
-          onClick={searchBtn}
+          testid="profile-top-btn"
+          src={ProfileIcon}
+          alt="Ícone do Perfil"
+          onClick={profileBtn()}
         />
-      ) : (
-        <div />
-      )}
-    </header>
+        <h1 data-testid="page-title">{title}</h1>
+        {search ? (
+          <Icons
+            testid="search-top-btn"
+            src={SearchIcon}
+            alt="Ícone de Pesquisa"
+            onClick={searchBtn}
+          />
+        ) : (
+          <div />
+        )}
+      </header>
+      <div id="barSearch" className="hidden">
+        Barra de Busca
+      </div>
+    </>
   );
 };
 
