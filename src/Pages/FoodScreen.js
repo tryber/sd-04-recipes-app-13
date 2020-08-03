@@ -26,13 +26,14 @@ const FoodScreen = () => {
   };
 
   return;
-  if (foods === null)
+  if (foods === null) {
     return (
       <div>
         <h2>Nada cadastrado</h2>
         <button onClick={() => setName('')}>Voltar</button>
       </div>
     );
+  }
   if (foods.length === 0) return <Loading />;
   return (
     <div>
