@@ -1,5 +1,5 @@
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import React from 'react';
 import { Redirect } from 'react-router-dom';
 import Icons from '../Icons';
 import ProfileIcon from '../../images/profileIcon.svg';
@@ -18,7 +18,7 @@ const Header = ({ title, search }) => {
   };
 
   return (
-    <>
+    <Fragment>
       <header>
         <Icons
           testid="profile-top-btn"
@@ -26,7 +26,9 @@ const Header = ({ title, search }) => {
           alt="Ícone do Perfil"
           onClick={profileBtn()}
         />
-        <h1 data-testid="page-title">{title}</h1>
+        <h1 data-testid="page-title" className="pageTitle">
+          {title}
+        </h1>
         {search ? (
           <Icons
             testid="search-top-btn"

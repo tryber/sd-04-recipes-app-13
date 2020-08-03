@@ -1,36 +1,34 @@
 header {
+  align-items: center;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   margin-top: 15rem;
+  padding: 0 15rem;
 }
 
-header h1 {
-  flex-grow: 3;
+h1.pageTitle {
   font-size: 35rem;
   text-align: center;
 }
 
-header h1 ~ div {
-  width: 62rem;
+h1.pageTitle ~ div {
+  width: 60rem;
 }
 
 header button {
-  padding: 0 15rem;
   background: none;
   border: none;
   cursor: pointer;
+  padding: 10rem 15rem;
 }
 
 header button:focus {
+  background-color: #dbd5d5;
   outline: none;
 }
 
-div #barSearch {
-  font-size: 40rem;
-  background: rgb(211, 69, 69);
-}
-
 div .hidden {
+  background: rgb(211, 69, 69);
   display: none;
+  font-size: 40rem;
 }
