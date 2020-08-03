@@ -1,28 +1,32 @@
 import React from 'react';
-// import { Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
+import Footer from './components/Footer';
+import * as Pg from './Pages/index';
 
 function App() {
   return (
     <div>
-      {/* <Switch>
-        <Route exact path="/" component={LoginScreen} />
-        <Route exact path="/comidas" component={FoodScreen} />
-        <Route exact path="/bebidas" component={DrinkScreen} />
-        <Route exact path="/comidas/:id" component={FoodDetails} />
-        <Route exact path="/bebidas/:id" component={DrinkDetails} />
-        <Route exact path="/comidas/:id/in-progress" component={FoodProgress} />
-        <Route exact path="/bebidas/:id/in-progress" component={DrinkProgress} />
-        <Route exact path="/explorar" component={ExploreScreen} />
-        <Route exact path="/explorar/comidas" component={ExploreFoods} />
-        <Route exact path="/explorar/bebidas" component={ExploreDrinks} />
-        <Route exact path="/explorar/comidas/ingredientes" component={IngredientsFoods} />
-        <Route exact path="/explorar/bebidas/ingredientes" component={IngredientsDrink} />
-        <Route exact path="/explorar/comidas/area" component={FoodArea} />
-        <Route exact path="/perfil" component={ProfileScreen} />
-        <Route exact path="/receitas-feitas" component={RecipesDone} />
-        <Route exact path="/receitas-favoritas" component={RecipesFavorites} />
-        <Route path="/" component={NotFound} />
-      </Switch> */}
+      <h1>começando a bagaça</h1>
+      <Switch>
+        <Route exact path="/" component={Pg.LoginScreen} />
+        <Route exact path="/comidas" component={Pg.FoodScreen} />
+        <Route exact path="/bebidas" component={Pg.DrinkScreen} />
+        <Route exact path="/comidas/:id" component={Pg.FoodDetails} />
+        <Route exact path="/bebidas/:id" component={Pg.DrinkDetails} />
+        <Route exact path="/comidas/:id/in-progress" component={Pg.FoodProgress} />
+        <Route exact path="/bebidas/:id/in-progress" component={Pg.DrinkProgress} />
+        <Route exact path="/explorar" component={Pg.ExploreScreen} />
+        <Route exact path="/explorar/comidas" component={Pg.ExploreFoods} />
+        <Route exact path="/explorar/bebidas" component={Pg.ExploreDrinks} />
+        <Route exact path="/explorar/comidas/ingredientes" component={Pg.IngredientsFoods} />
+        <Route exact path="/explorar/bebidas/ingredientes" component={Pg.IngredientsDrinks} />
+        <Route exact path="/explorar/comidas/area" component={Pg.FoodArea} />
+        <Route exact path="/perfil" component={Pg.ProfileScreen} />
+        <Route exact path="/receitas-feitas" component={Pg.RecipesDone} />
+        <Route exact path="/receitas-favoritas" component={Pg.RecipesFavorites} />
+        <Route path="/" component={Pg.NotFound} />
+      </Switch>
+      <Footer />
     </div>
   );
 }
