@@ -1,13 +1,13 @@
 const URL = 'https://www.themealdb.com/api/json/v1/1';
 
 // Pega a lista completa e detalhada de todas as categorias
-async function getAllCategories() {
+export async function getAllCategories() {
   const category = await fetch(`${URL}/categories.php`).then((r) => r.json());
   return category.categories;
 }
 
 // Call a single random meal
-async function getRandomMeal() {
+export async function getRandomMeal() {
   const meal = await fetch(`${URL}/random.php`).then((r) => r.json());
   return meal.meals;
 }
@@ -40,13 +40,3 @@ async function getByArea(area) {
   const meal = await fetch(`${URL}/filter.php?a=${area}`).then((r) => r.json());
   return meal.meals;
 }
-
-export default {
-  getAllCategories,
-  getRandomMeal,
-  getByName,
-  getByFirstLetter,
-  getByIngredients,
-  getByCategory,
-  getByArea,
-};

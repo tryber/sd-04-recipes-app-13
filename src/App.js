@@ -1,11 +1,11 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import Footer from './components/Footer';
 import * as Pg from './Pages/index';
 
 function App() {
   return (
-    <div>
+    <BrowserRouter>
       <h1>começando a bagaça</h1>
       <Switch>
         <Route exact path="/" component={Pg.LoginScreen} />
@@ -27,7 +27,7 @@ function App() {
         <Route path="/" component={Pg.NotFound} />
       </Switch>
       <Footer />
-    </div>
+    </BrowserRouter>
   );
 }
 
