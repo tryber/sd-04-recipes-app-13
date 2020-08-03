@@ -4,6 +4,7 @@ import Header from '../components/Header/Header';
 import { getByName, listAllCategories } from '../services/foodApi';
 import Loading from '../components/Loading';
 import FoodAndDrinkCard from '../components/FoodAndDrinkCard';
+import { Redirect } from 'react-router-dom';
 
 const FoodScreen = () => {
   const [foods, setFoods] = useState([]);
@@ -20,16 +21,25 @@ const FoodScreen = () => {
     });
   }, [name]);
 
+  const changeCategory = (strCategory) => {
+    if (name === strCategory) return setName('');
+    return setName(strCategory);
+  };
+
   return foods === null ? (
-    <h2>Nada cadastrado</h2>
+    <div>
+      <h2>Nada cadastrado</h2>
+      <button onClick={() => setName('')}>Voltar</button>
+    </div>
   ) : foods.length === 0 ? (
     <Loading />
   ) : (
     <div>
       <Header title="Comidas" />
+      <button onClick={() => setName('')}>All</button>
       {categories.slice(0, 5).map(({ strCategory }) => (
         <button
-          onClick={() => setName(strCategory)}
+          onClick={() => changeCategory(strCategory)}
           data-tesid={`${strCategory}-category-filter`}
           key={strCategory}
         >
