@@ -6,7 +6,7 @@ import { getByName } from '../services/drinkApi';
 
 async function alternateDrinks() {
   const Drinks = await getByName('').then((resp) => resp);
-  console.log(Drinks)
+  console.log(Drinks);
   return (
     <div>
       <h1>Recomended</h1>
