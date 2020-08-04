@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import ReactPlayer from 'react-player';
 import { getByName } from '../services/foodApi';
 import FoodAndDrinkCard from '../components/FoodAndDrinkCard';
 import { getById } from '../services/drinkApi';
