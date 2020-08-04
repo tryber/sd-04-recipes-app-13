@@ -16,7 +16,7 @@ function verifyFields(email, password) {
     && (dom.length > 1)) {
     valid = true;
   }
-  if (password.length > 5 && valid) {
+  if (password.length > 6 && valid) {
     disable = false;
   }
   return disable;
