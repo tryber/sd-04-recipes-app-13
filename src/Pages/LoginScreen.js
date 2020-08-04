@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { saveStorage } from '../services/localStorage'
 import '../styles/LoginScreen.css';
 
 function verifyFields(email, password) {
@@ -45,9 +46,9 @@ function LoginScreen() {
   }, [email, password]);
 
   const localSaves = () => {
-    localStorage.setItem('mealsToken', '1');
-    localStorage.setItem('cocktailsToken', '1');
-    localStorage.setItem('user', JSON.stringify({ email }));
+    saveStorage('mealsToken', '1');
+    saveStorage('cocktailsToken', '1');
+    saveStorage('user', { email });
   };
 
   return (
@@ -61,10 +62,10 @@ function LoginScreen() {
         <Link to="/comidas">
           <button
             type="button"
-            data-testid="login-submit-button"
+            data-testid="login-submit-btn"
             disabled={disableButton}
             className="btn-login"
-            onClick={localSaves()}
+            onClick={() => localSaves()}
           >
             Login
           </button>

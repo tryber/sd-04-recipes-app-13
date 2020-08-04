@@ -16,7 +16,7 @@ const deleteStorage = (key) => {
   localStorage.removeItem(key);
 };
 
-export default {
+export {
   saveStorage,
   loadStorage,
   deleteStorage,
