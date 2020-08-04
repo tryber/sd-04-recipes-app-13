@@ -20,22 +20,20 @@ function verifyFields(email, password) {
   return disable;
 }
 
-const renderInput = (label, datatest, type, value, onChange) => {
-  return (
-    <div>
-      <input
-        onChange={(e) => onChange(e.target.value)}
-        data-testid={datatest}
-        type={type}
-        value={value}
-        required
-        size="30"
-        className={`input-login-${type}`}
-        placeholder={label}
-      />
-    </div>
-  );
-};
+const renderInput = (label, datatest, type, value, onChange) => (
+  <div>
+    <input
+      onChange={(e) => onChange(e.target.value)}
+      data-testid={datatest}
+      type={type}
+      value={value}
+      required
+      size="30"
+      className={`input-login-${type}`}
+      placeholder={label}
+    />
+  </div>
+);
 
 function LoginScreen() {
   const [disableButton, setDisableButton] = useState(true);
