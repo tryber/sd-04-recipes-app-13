@@ -22,10 +22,11 @@ const FoodScreen = () => {
     });
   }, [name]);
 
-  const changeCategory = strCategory => {
+  const changeCategory = (strCategory) => {
     if (name === strCategory) return setName('');
     return setName(strCategory);
   };
+
   if (!data) {
     return (
       <div>
@@ -33,20 +34,25 @@ const FoodScreen = () => {
         <button onClick={() => setName('')}>Voltar</button>
       </div>
     );
-  } else if (data.length === 0) return <Loading />;
+  }
+  if (data.length === 0) return <Loading />;
 
   return !data ? (
     <Loading />
   ) : (
     <div className="general-container">
-      <Header title="Comidas" />
+      <Header title="Comidas" search />
       <div className="category-btn-div">
-        <button className="category-btn" onClick={() => setName('')}>All</button>
+        <button type="button" className="category-btn" onClick={() => setName('')}>
+          All
+        </button>
         {categories.slice(0, 5).map(({ strCategory }) => (
           <button
+            type="button"
             onClick={() => changeCategory(strCategory)}
             data-tesid={`${strCategory}-category-filter`}
-            key={strCategory} className="category-btn"
+            key={strCategory}
+            className="category-btn"
           >
             {strCategory}
           </button>

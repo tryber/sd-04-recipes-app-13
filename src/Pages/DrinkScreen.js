@@ -1,20 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import Footer from '../components/Footer';
 import Header from '../components/Header/Header';
 import { getByName, listAllCategories } from '../services/drinkApi';
 import Loading from '../components/Loading';
 import FoodAndDrinkCard from '../components/FoodAndDrinkCard';
 import '../styles/FoodAndDrinkCards.css';
+import { RecipeContext } from '../context';
 
 const DrinkScreen = () => {
+  const { data } = useContext(RecipeContext);
   const [drinks, setDrinks] = useState([]);
   const [name, setName] = useState('');
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     getByName(name)
-      .then((data) => {
-        setDrinks(data);
+      .then((drink) => {
+        setDrinks(drink);
       })
       .catch((err) => console.error(err));
 
@@ -28,25 +30,32 @@ const DrinkScreen = () => {
     return setName(strCategory);
   };
 
-  if (!drinks) {
+  if (!data) {
     return (
       <div>
         <h2>Nada encontrado</h2>
-        <button onClick={() => setName('')}>Voltar</button>
+        <button type="button" onClick={() => setName('')}>
+          Voltar
+        </button>
       </div>
     );
-  } else if (drinks.length === 0) return <Loading />;
+  }
+  if (data.length === 0) return <Loading />;
 
-  return !drinks ? (
+  return !data ? (
     <Loading />
   ) : (
     <div className="general-container">
-      <Header title="Bebidas" />
+      <Header title="Bebidas" search />
       <div className="category-btn-div">
-        <button className="category-btn" onClick={() => setName('')}>All</button>
+        <button type="button" className="category-btn" onClick={() => setName('')}>
+          All
+        </button>
         {categories.slice(0, 5).map(({ strCategory }) => (
           <button
-            className="category-btn" onClick={() => changeCategory(strCategory)}
+            type="button"
+            className="category-btn"
+            onClick={() => changeCategory(strCategory)}
             data-tesid={`${strCategory}-category-filter`}
             key={strCategory}
           >
@@ -54,7 +63,7 @@ const DrinkScreen = () => {
           </button>
         ))}
       </div>
-      <FoodAndDrinkCard data={drinks} info="drink" />
+      <FoodAndDrinkCard data={data} info="drink" />
       <Footer />
     </div>
   );

@@ -1,13 +1,15 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import ProfileIcon from '../../images/profileIcon.svg';
 import SearchIcon from '../../images/searchIcon.svg';
 import RenderButton from '../utils/Button';
-import BarSearch from './BarSearch';
 import './styles.css';
+import FoodBarSearch from './FoodBarScreen';
+import DrinkBarSearch from './DrinkBarScreen';
 
 const Header = ({ title, search }) => {
+  const history = useHistory();
   const searchBtn = () => {
     if (document.getElementById('barSearch').style.display === 'block') {
       document.getElementById('barSearch').style.display = 'none';
@@ -36,7 +38,7 @@ const Header = ({ title, search }) => {
         )}
       </header>
       <div id="barSearch" className="hidden">
-        <BarSearch />
+        {history.location.pathname === '/comidas' ? <FoodBarSearch /> : <DrinkBarSearch />}
       </div>
     </Fragment>
   );
