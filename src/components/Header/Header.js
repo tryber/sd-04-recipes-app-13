@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import ProfileIcon from '../../images/profileIcon.svg';
 import SearchIcon from '../../images/searchIcon.svg';
+import RenderButton from '../utils/Button';
+import BarSearch from './BarSearch';
 import './styles.css';
 
 const Header = ({ title, search }) => {
@@ -26,15 +28,15 @@ const Header = ({ title, search }) => {
           {title}
         </h1>
         {search ? (
-          <button type="button" data-testid="search-top-btn" onClick={searchBtn}>
+          <RenderButton type="button" datatest="search-top-btn" onClick={searchBtn}>
             <img src={SearchIcon} alt="Ícone de Pesquisa" />
-          </button>
+          </RenderButton>
         ) : (
           <div />
         )}
       </header>
       <div id="barSearch" className="hidden">
-        Barra de Busca
+        <BarSearch />
       </div>
     </Fragment>
   );

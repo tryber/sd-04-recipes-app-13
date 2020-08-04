@@ -11,16 +11,16 @@ const FoodScreen = () => {
   const [name, setName] = useState('');
 
   useEffect(() => {
-    getByName(name).then((data) => {
+    getByName(name).then(data => {
       setFoods(data);
     });
 
-    listAllCategories().then((data) => {
+    listAllCategories().then(data => {
       setCategories(data);
     });
   }, [name]);
 
-  const changeCategory = (strCategory) => {
+  const changeCategory = strCategory => {
     if (name === strCategory) return setName('');
     return setName(strCategory);
   };
@@ -31,13 +31,14 @@ const FoodScreen = () => {
         <button onClick={() => setName('')}>Voltar</button>
       </div>
     );
-  } else if (foods.length === 0) return <Loading />;
+  }
+  if (foods.length === 0) return <Loading />;
 
   return !foods ? (
     <Loading />
   ) : (
     <div>
-      <Header title="Comidas" />
+      <Header title="Comidas" search />
       <button onClick={() => setName('')}>All</button>
       {categories.slice(0, 5).map(({ strCategory }) => (
         <button
