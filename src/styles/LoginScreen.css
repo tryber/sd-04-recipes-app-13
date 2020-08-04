@@ -1,0 +1,46 @@
+.input-login-email {
+  background: white;
+  border: 1px solid black;
+  box-sizing: border-box;
+  height: 58px;
+  left: 31px;
+  position: absolute;
+  top: 155px;
+  width: 293px;
+}
+
+.input-login-password {
+  background: white;
+  border: 1px solid black;
+  box-sizing: border-box;
+  height: 58px;
+  left: 30px;
+  position: absolute;
+  top: 243px;
+  width: 293px;
+}
+
+.title-login {
+  align-items: flex-end;
+  color: black;
+  display: flex;
+  font-family: Roboto, sans-serif;
+  font-size: 39px;
+  font-style: normal;
+  font-weight: 400;
+  height: 46px;
+  left: 128px;
+  line-height: 46px;
+  position: absolute;
+  top: 79px;
+  width: 97px;
+}
+
+.btn-login {
+  background: #6ce34f;
+  height: 76px;
+  left: 11px;
+  position: absolute;
+  top: 389px;
+  width: 339px;
+}

@@ -8,7 +8,6 @@ function App() {
   // console.log(data);
   return (
     <BrowserRouter>
-      <h1>começando a bagaça</h1>
       <Switch>
         <Route exact path="/comidas" component={Pg.FoodScreen} />
         <Route exact path="/" component={Pg.LoginScreen} />
