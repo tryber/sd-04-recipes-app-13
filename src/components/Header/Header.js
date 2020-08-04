@@ -1,15 +1,11 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { useHistory } from 'react-router-dom';
-import Icons from '../Icons';
+import { Link } from 'react-router-dom';
 import ProfileIcon from '../../images/profileIcon.svg';
 import SearchIcon from '../../images/searchIcon.svg';
 import './styles.css';
 
 const Header = ({ title, search }) => {
-  const history = useHistory();
-  const profileBtn = () => history.push('/perfil');
-
   const searchBtn = () => {
     if (document.getElementById('barSearch').style.display === 'block') {
       document.getElementById('barSearch').style.display = 'none';
@@ -21,22 +17,18 @@ const Header = ({ title, search }) => {
   return (
     <Fragment>
       <header>
-        <Icons
-          testid="profile-top-btn"
-          src={ProfileIcon}
-          alt="Ícone do Perfil"
-          onClick={() => profileBtn()}
-        />
+        <div>
+          <Link to="/perfil" data-testid="profile-top-btn">
+            <img src={ProfileIcon} alt="Ícone do Perfil" />
+          </Link>
+        </div>
         <h1 data-testid="page-title" className="pageTitle">
           {title}
         </h1>
         {search ? (
-          <Icons
-            testid="search-top-btn"
-            src={SearchIcon}
-            alt="Ícone de Pesquisa"
-            onClick={searchBtn}
-          />
+          <button type="button" data-testid="search-top-btn" onClick={searchBtn}>
+            <img src={SearchIcon} alt="Ícone de Pesquisa" />
+          </button>
         ) : (
           <div />
         )}
