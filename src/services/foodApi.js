@@ -23,6 +23,12 @@ export async function getByName(name) {
   return meal.meals;
 }
 
+// List meal by id
+export async function getById(id) {
+  const meal = await fetch(`${URL}/lookup.php?i=${id}`).then((r) => r.json());
+  return meal.meals;
+}
+
 // List all meals by first letter
 export async function getByFirstLetter(letter) {
   const meal = await fetch(`${URL}/search.php?f=${letter}`).then((r) => r.json());
