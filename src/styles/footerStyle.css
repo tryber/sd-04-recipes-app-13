@@ -1,33 +1,33 @@
 .footer {
-  position: absolute;
-  width: 360px;
+  background: #c4c4c4;
   height: 58px;
-  left: 0px;
+  left: 0,1px;
+  position: absolute;
   top: 582px;
-  background: #C4C4C4;
+  width: 360px;
 }
 
 .footer-drink {
-  position: absolute;
-  width: 40px;
   height: 40px;
   left: 16px;
+  position: absolute;
   top: 9px;
+  width: 40px;
 }
 
 .footer-explore {
-  position: absolute;
-  width: 40px;
   height: 40px;
   left: 160px;
+  position: absolute;
   top: 12px;
+  width: 40px;
 }
 
 .footer-meal {
-  position: absolute;
-  width: 40px;
   height: 40px;
   left: 302px;
+  position: absolute;
   top: 12px;
+  width: 40px;
 }
 

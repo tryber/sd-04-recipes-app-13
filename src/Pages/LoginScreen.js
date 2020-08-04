@@ -1,45 +1,50 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/LoginScreen.css';
+
+function verifyFields(email, password) {
+  let valid = false;
+  let disable = true;
+  const user = email.slice(0, email.indexOf('@'));
+  const dom = email.slice(email.indexOf('@') + 1, email.indexOf('.'));
+  if ((email.length > 6)
+    && (email.includes('@'))
+    && (email.includes('.'))
+    && (user.length > 1)
+    && (dom.length > 1)) {
+    valid = true;
+  }
+  if (password.length > 5 && valid) {
+    disable = false;
+  }
+  return disable;
+}
+
+const renderInput = (label, datatest, type, value, onChange) => {
+  return (
+    <div>
+      <input
+        onChange={(e) => onChange(e.target.value)}
+        data-testid={datatest}
+        type={type}
+        value={value}
+        required
+        size="30"
+        className={`input-login-${type}`}
+        placeholder={label}
+      />
+    </div>
+  );
+};
 
 function LoginScreen() {
   const [disableButton, setDisableButton] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  async function handleChange(e, field) {
-    await field(e.target.value);
-    let valid = false;
-    const user = email.slice(0, email.indexOf('@'));
-    const dom = email.slice(email.indexOf('@') + 1, email.indexOf('.'));
-    if ((email.length > 6)
-      && (email.includes('@'))
-      && (email.includes('.'))
-      && (user.length > 1)
-      && (dom.length > 1)) {
-      valid = true;
-    }
-    if (password.length > 4 && valid) {
-      setDisableButton(false);
-    }
-  }
-
-  const renderInput = (label, datatest, type, value, onChange) => {
-    return (
-      <div>
-        <input
-          onChange={(e) => handleChange(e, onChange)}
-          data-testid={datatest}
-          type={type}
-          value={value}
-          required
-          size="30"
-          className={`input-login-${type}`}
-          placeholder={label}
-        />
-      </div>
-    );
-  };
+  useEffect(() => {
+    setDisableButton(verifyFields(email, password));
+  }, [email, password]);
 
   const localSaves = () => {
     localStorage.setItem('mealsToken', '1');

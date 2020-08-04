@@ -1,6 +1,6 @@
 .input-login-email {
-  background: #FFFFFF;
-  border: 1px solid #000000;
+  background: white;
+  border: 1px solid black;
   box-sizing: border-box;
   height: 58px;
   left: 31px;
@@ -10,8 +10,8 @@
 }
 
 .input-login-password {
-  background: #FFFFFF;
-  border: 1px solid #000000;
+  background: white;
+  border: 1px solid black;
   box-sizing: border-box;
   height: 58px;
   left: 30px;
@@ -21,14 +21,13 @@
 }
 
 .title-login {
-  /* identical to box height */
   align-items: flex-end;
-  color: #000000;
+  color: black;
   display: flex;
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   font-size: 39px;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400px;
   height: 46px;
   left: 128px;
   line-height: 46px;
@@ -38,7 +37,7 @@
 }
 
 .btn-login {
-  background: #6CE34F;
+  background: #6ce34f;
   height: 76px;
   left: 11px;
   position: absolute;
