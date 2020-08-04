@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { saveStorage } from '../services/localStorage'
+import { saveStorage } from '../services/localStorage';
 import '../styles/LoginScreen.css';
 
 function verifyFields(email, password) {
