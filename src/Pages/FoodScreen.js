@@ -24,36 +24,34 @@ const FoodScreen = () => {
     if (name === strCategory) return setName('');
     return setName(strCategory);
   };
-
-  return;
-  if (foods === null) {
+  if (!foods) {
     return (
       <div>
-        <h2>Nada cadastrado</h2>
+        <h2>Nada encontrado</h2>
         <button onClick={() => setName('')}>Voltar</button>
       </div>
     );
-  }
-  if (foods.length === 0) return <Loading />;
-  else {
-    return (
-      <div>
-        <Header title="Comidas" />
-        <button onClick={() => setName('')}>All</button>
-        {categories.slice(0, 5).map(({ strCategory }) => (
-          <button
-            onClick={() => changeCategory(strCategory)}
-            data-tesid={`${strCategory}-category-filter`}
-            key={strCategory}
-          >
-            {strCategory}
-          </button>
-        ))}
-        <FoodAndDrinkCard data={foods} info="food" />
-        <Footer />
-      </div>
-    );
-  }
+  } else if (foods.length === 0) return <Loading />;
+
+  return !foods ? (
+    <Loading />
+  ) : (
+    <div>
+      <Header title="Comidas" />
+      <button onClick={() => setName('')}>All</button>
+      {categories.slice(0, 5).map(({ strCategory }) => (
+        <button
+          onClick={() => changeCategory(strCategory)}
+          data-tesid={`${strCategory}-category-filter`}
+          key={strCategory}
+        >
+          {strCategory}
+        </button>
+      ))}
+      <FoodAndDrinkCard data={foods} info="food" />
+      <Footer />
+    </div>
+  );
 };
 
 export default FoodScreen;
