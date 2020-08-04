@@ -1,0 +1,33 @@
+.footer {
+  position: absolute;
+  width: 360px;
+  height: 58px;
+  left: 0px;
+  top: 582px;
+  background: #C4C4C4;
+}
+
+.footer-drink {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  left: 16px;
+  top: 9px;
+}
+
+.footer-explore {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  left: 160px;
+  top: 12px;
+}
+
+.footer-meal {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  left: 302px;
+  top: 12px;
+}
+
