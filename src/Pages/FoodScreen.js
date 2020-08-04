@@ -40,12 +40,12 @@ const FoodScreen = () => {
     <div className="general-container">
       <Header title="Comidas" />
       <div className="category-btn-div">
-        <button className="category-btn" onClick={() => setName('')}>All</button>
+        <button type="button" className="category-btn" onClick={() => setName('')}>All</button>
         {categories.slice(0, 5).map(({ strCategory }) => (
           <button
             onClick={() => changeCategory(strCategory)}
             data-tesid={`${strCategory}-category-filter`}
-            key={strCategory} className="category-btn"
+            key={strCategory} className="category-btn" type="button"
           >
             {strCategory}
           </button>

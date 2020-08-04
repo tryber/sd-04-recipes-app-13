@@ -43,12 +43,11 @@ const DrinkScreen = () => {
     <div className="general-container">
       <Header title="Bebidas" />
       <div className="category-btn-div">
-        <button className="category-btn" onClick={() => setName('')}>All</button>
+        <button type="button" className="category-btn" onClick={() => setName('')}>All</button>
         {categories.slice(0, 5).map(({ strCategory }) => (
           <button
             className="category-btn" onClick={() => changeCategory(strCategory)}
-            data-tesid={`${strCategory}-category-filter`}
-            key={strCategory}
+            data-tesid={`${strCategory}-category-filter`} key={strCategory} type="button"
           >
             {strCategory}
           </button>
