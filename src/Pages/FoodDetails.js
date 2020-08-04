@@ -4,25 +4,14 @@ import { getById } from '../services/foodApi';
 import FoodAndDrinkCard from '../components/FoodAndDrinkCard';
 import { getByName } from '../services/drinkApi';
 
-async function alternateDrinks() {
-  const Drinks = await getByName('').then((resp) => resp);
-  console.log(Drinks);
-  return (
-    <div>
-      <h1>Recomended</h1>
-      <FoodAndDrinkCard data={Drinks} info="drink" slice="6" test="recomendation" />
-    </div>
-  );
-}
-
 function FoodDetails() {
   const [food, setFood] = useState('');
+  const [Drink, setDrink] = useState([]);
 
   useEffect(() => {
     const foodId = window.location.pathname.slice(9);
-    getById(foodId).then((Datafood) => {
-      setFood(Datafood[0]);
-    });
+    getById(foodId).then((Datafood) => setFood(Datafood[0]));
+    getByName('').then((resp) => setDrink(resp));
   }, []);
 
   return (
@@ -50,7 +39,10 @@ function FoodDetails() {
         <h1>Video</h1>
         <ReactPlayer url={food.strYoutube} data-testid="video" />
       </div>
-      <div>{() => alternateDrinks()}</div>
+      <div>
+        <h1>Recomended</h1>
+        <FoodAndDrinkCard data={Drink} info="drink" slice="6" test="recomendation" />
+      </div>
     </div>
   );
 }

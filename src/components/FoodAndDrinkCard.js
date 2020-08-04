@@ -6,15 +6,15 @@ const FoodAndDrinkCard = ({ data, info, slice = 12, test = 'recipe' }) => {
   if (info === 'food') {
     return (
       <div className="card-general-container">
-        {data.slice(0, 12).map((food, index) => (
+        {data.slice(0, Number(slice)).map((food, index) => (
           <div className="card-container">
             <Link
               to={`/comidas/${food.idMeal}`}
               data-testid={`${index}-${test}-card`}
               key={food.idMeal}
             >
-              <h3 className="card-name">{food.strMeal}</h3>
               <img className="card-img" src={food.strMealThumb} alt={food.strMeal} width={'60px'} />
+              <h3 className="card-name" data-testid={`${index}-recomendation-title`}>{food.strMeal}</h3>
             </Link>
           </div>
         ))}
@@ -27,11 +27,11 @@ const FoodAndDrinkCard = ({ data, info, slice = 12, test = 'recipe' }) => {
         <div className="card-container">
           <Link
             to={`/bebidas/${drink.idDrink}`}
-            data-testid={`${index}-r${test}-card`}
+            data-testid={`${index}-${test}-card`}
             key={drink.idDrink}
           >
-            <h3 className="card-name">{drink.strDrink}</h3>
             <img className="card-img" src={drink.strDrinkThumb} alt={drink.strDrink} width={'60px'} />
+            <h3 className="card-name" data-testid={`${index}-recomendation-title`}>{drink.strDrink}</h3>
           </Link>
         </div>
       ))}
