@@ -6,6 +6,11 @@ export async function getAllCategories() {
   return category.categories;
 }
 
+export async function listAllCategories() {
+  const categories = await fetch(`${URL}/list.php?c=list`).then((r) => r.json());
+  return categories.meals;
+}
+
 // Call a single random meal
 export async function getRandomMeal() {
   const meal = await fetch(`${URL}/random.php`).then((r) => r.json());
@@ -14,6 +19,7 @@ export async function getRandomMeal() {
 // Search meal by name
 export async function getByName(name) {
   const meal = await fetch(`${URL}/search.php?s=${name}`).then((r) => r.json());
+  console.log(meal);
   return meal.meals;
 }
 

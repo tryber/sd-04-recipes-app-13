@@ -6,6 +6,11 @@ async function getByName(name) {
   return drink.drinks;
 }
 
+export async function listAllCategories() {
+  const categories = await fetch(`${URL}/list.php?c=list`).then((r) => r.json());
+  return categories.drinks;
+}
+
 // Pega por Letra
 async function getByFirstLetter(letter) {
   const drink = await fetch(`${URL}/search.php?f=${letter}`).then((r) => r.json());
@@ -18,8 +23,4 @@ async function getByIngredients(ingredient) {
   return drink.drinks;
 }
 
-export default {
-  getByName,
-  getByFirstLetter,
-  getByIngredients,
-};
+export { getByName, getByFirstLetter, getByIngredients };

@@ -1,13 +1,14 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import Icons from '../Icons';
 import ProfileIcon from '../../images/profileIcon.svg';
 import SearchIcon from '../../images/searchIcon.svg';
 import './styles.css';
 
 const Header = ({ title, search }) => {
-  const profileBtn = () => <Redirect to="/perfil" />;
+  const history = useHistory();
+  const profileBtn = () => history.push('/perfil');
 
   const searchBtn = () => {
     if (document.getElementById('barSearch').style.display === 'block') {
@@ -24,7 +25,7 @@ const Header = ({ title, search }) => {
           testid="profile-top-btn"
           src={ProfileIcon}
           alt="Ícone do Perfil"
-          onClick={profileBtn()}
+          onClick={() => profileBtn()}
         />
         <h1 data-testid="page-title" className="pageTitle">
           {title}

@@ -7,7 +7,6 @@ const RecipeContext = createContext();
 const ProviderRecipe = ({ children }) => {
   const [data, setData] = useState([]);
 
-  console.log(RecipeContext);
   useEffect(() => {
     getAllCategories().then((result) => setData(result));
   }, []);
@@ -20,10 +19,8 @@ const ProviderRecipe = ({ children }) => {
 };
 
 ProviderRecipe.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.element),
-    PropTypes.element,
-  ]).isRequired,
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element), PropTypes.element])
+    .isRequired,
 };
 
 export default ProviderRecipe;
