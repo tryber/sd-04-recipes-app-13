@@ -50,7 +50,7 @@ const FoodScreen = () => {
           <button
             type="button"
             onClick={() => changeCategory(strCategory)}
-            data-tesid={`${strCategory}-category-filter`}
+            data-testid={`${strCategory}-category-filter`}
             key={strCategory}
             className="category-btn"
           >

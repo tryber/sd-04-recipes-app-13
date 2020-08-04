@@ -8,15 +8,14 @@ import '../styles/FoodAndDrinkCards.css';
 import { RecipeContext } from '../context';
 
 const DrinkScreen = () => {
-  const { data } = useContext(RecipeContext);
-  const [drinks, setDrinks] = useState([]);
+  const { data, setData } = useContext(RecipeContext);
   const [name, setName] = useState('');
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     getByName(name)
       .then((drink) => {
-        setDrinks(drink);
+        setData(drink);
       })
       .catch((err) => console.error(err));
 
@@ -56,7 +55,7 @@ const DrinkScreen = () => {
             type="button"
             className="category-btn"
             onClick={() => changeCategory(strCategory)}
-            data-tesid={`${strCategory}-category-filter`}
+            data-testid={`${strCategory}-category-filter`}
             key={strCategory}
           >
             {strCategory}

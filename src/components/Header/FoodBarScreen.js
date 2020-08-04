@@ -43,6 +43,7 @@ const changeData = async (history, setData, data, radio, inputValue) => {
     }
     return setData(changedDataLetter);
   }
+  return setData(data);
 };
 
 const FoodBarSearch = () => {
@@ -77,7 +78,7 @@ const FoodBarSearch = () => {
             'primeira-letra',
             setRadio,
             '',
-            'radioBtn',
+            'radioBtn'
           )}
           Primeira letra
         </label>
@@ -85,7 +86,7 @@ const FoodBarSearch = () => {
       <div>
         <RenderButton
           type="button"
-          data-test="first-letter-search-radio"
+          datatest="exec-search-btn"
           onClick={() => changeData(history, setData, data, radio, inputValue)}
         >
           Buscar

@@ -5,7 +5,7 @@ import Header from '../components/Header/Header';
 function FoodArea() {
   return (
     <div>
-      <Header title="Explorar Origem" />
+      <Header title="Explorar Origem" search />
       <Footer />
     </div>
   );

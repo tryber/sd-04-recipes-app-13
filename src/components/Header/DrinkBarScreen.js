@@ -43,6 +43,7 @@ const changeData = async (history, setData, data, radio, inputValue) => {
     }
     return setData(changedDataLetter);
   }
+  return setData(data);
 };
 
 const DrinkBarSearch = () => {
@@ -85,7 +86,7 @@ const DrinkBarSearch = () => {
       <div>
         <RenderButton
           type="button"
-          data-test="first-letter-search-radio"
+          datatest="exec-search-btn"
           onClick={() => changeData(history, setData, data, radio, inputValue)}
         >
           Buscar

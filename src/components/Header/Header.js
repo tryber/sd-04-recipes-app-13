@@ -22,16 +22,16 @@ const Header = ({ title, search }) => {
     <Fragment>
       <header>
         <div>
-          <Link to="/perfil" data-testid="profile-top-btn">
-            <img src={ProfileIcon} alt="Ícone do Perfil" />
+          <Link to="/perfil">
+            <img data-testid="profile-top-btn" src={ProfileIcon} alt="Ícone do Perfil" />
           </Link>
         </div>
         <h1 data-testid="page-title" className="pageTitle">
           {title}
         </h1>
         {search ? (
-          <RenderButton type="button" datatest="search-top-btn" onClick={searchBtn}>
-            <img src={SearchIcon} alt="Ícone de Pesquisa" />
+          <RenderButton type="button" onClick={searchBtn}>
+            <img data-testid="search-top-btn" src={SearchIcon} alt="Ícone de Pesquisa" />
           </RenderButton>
         ) : (
           <div />
