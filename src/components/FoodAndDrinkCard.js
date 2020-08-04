@@ -5,31 +5,35 @@ import { Link } from 'react-router-dom';
 const FoodAndDrinkCard = ({ data, info }) => {
   if (info === 'food') {
     return (
-      <div>
+      <div className="card-general-container">
         {data.slice(0, 12).map((food, index) => (
-          <Link
-            to={`/comidas/${food.idMeal}`}
-            data-testid={`${index}-recipe-card`}
-            key={food.idMeal}
-          >
-            <h3>{food.strMeal}</h3>
-            <img src={food.strMealThumb} alt={food.strMeal} width={'60px'} />
-          </Link>
+          <div className="card-container">
+            <Link
+              to={`/comidas/${food.idMeal}`}
+              data-testid={`${index}-recipe-card`}
+              key={food.idMeal}
+            >
+              <img className="card-img" src={food.strMealThumb} alt={food.strMeal} width={'60px'} />
+              <h3 className="card-name">{food.strMeal}</h3>
+            </Link>
+          </div>
         ))}
       </div>
     );
   }
   return (
-    <div>
+    <div className="card-general-container">
       {data.slice(0, 12).map((drink, index) => (
-        <Link
-          to={`/bebidas/${drink.idDrink}`}
-          data-testid={`${index}-recipe-card`}
-          key={drink.idDrink}
-        >
-          <h3>{drink.strDrink}</h3>
-          <img src={drink.strDrinkThumb} alt={drink.strDrink} width={'60px'} />
-        </Link>
+        <div className="card-container">
+          <Link
+            to={`/bebidas/${drink.idDrink}`}
+            data-testid={`${index}-recipe-card`}
+            key={drink.idDrink}
+          >
+            <h3 className="card-name">{drink.strDrink}</h3>
+            <img className="card-img" src={drink.strDrinkThumb} alt={drink.strDrink} width={'60px'} />
+          </Link>
+        </div>
       ))}
     </div>
   );

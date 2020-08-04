@@ -4,6 +4,7 @@ import Header from '../components/Header/Header';
 import { getByName, listAllCategories } from '../services/foodApi';
 import Loading from '../components/Loading';
 import FoodAndDrinkCard from '../components/FoodAndDrinkCard';
+import '../styles/FoodAndDrinkCards.css';
 
 const FoodScreen = () => {
   const [foods, setFoods] = useState([]);
@@ -36,18 +37,20 @@ const FoodScreen = () => {
   return !foods ? (
     <Loading />
   ) : (
-    <div>
+    <div className="general-container">
       <Header title="Comidas" />
-      <button onClick={() => setName('')}>All</button>
-      {categories.slice(0, 5).map(({ strCategory }) => (
-        <button
-          onClick={() => changeCategory(strCategory)}
-          data-tesid={`${strCategory}-category-filter`}
-          key={strCategory}
-        >
-          {strCategory}
-        </button>
-      ))}
+      <div className="category-btn-div">
+        <button className="category-btn" onClick={() => setName('')}>All</button>
+        {categories.slice(0, 5).map(({ strCategory }) => (
+          <button
+            onClick={() => changeCategory(strCategory)}
+            data-tesid={`${strCategory}-category-filter`}
+            key={strCategory} className="category-btn"
+          >
+            {strCategory}
+          </button>
+        ))}
+      </div>
       <FoodAndDrinkCard data={foods} info="food" />
       <Footer />
     </div>
