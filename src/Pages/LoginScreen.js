@@ -41,6 +41,12 @@ function LoginScreen() {
     );
   };
 
+  const localSaves = () => {
+    localStorage.setItem('mealsToken', '1');
+    localStorage.setItem('cocktailsToken', '1');
+    localStorage.setItem('user', JSON.stringify({ email }));
+  };
+
   return (
     <div className="div-inputs-login">
       <span className="title-login">Login</span>
@@ -49,12 +55,13 @@ function LoginScreen() {
         {renderInput('Senha', 'password-input', 'password', password, setPassword)}
       </div>
       <div>
-        <Link to="/explorar">
+        <Link to="/comidas">
           <button
             type="button"
             data-testid="login-submit-button"
             disabled={disableButton}
             className="btn-login"
+            onClick={localSaves()}
           >
             Login
           </button>
