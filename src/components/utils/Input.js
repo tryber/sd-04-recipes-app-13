@@ -1,6 +1,6 @@
 import React from 'react';
 
-const renderInput = (datatest, type, value, onChange, label, name) => (
+const renderInput = ({ ...props }) => (
   <div>
     <input
       onChange={(e) => onChange(e.target.value)}
