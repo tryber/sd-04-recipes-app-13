@@ -1,6 +1,6 @@
 import React from 'react';
 
-const RenderInput = ({ datatest, type, value, onChange, label, name }) => (
+const renderInput = (datatest, type, value, onChange, label, name) => (
   <div>
     <input
       onChange={(e) => onChange(e.target.value)}
@@ -17,4 +17,14 @@ const RenderInput = ({ datatest, type, value, onChange, label, name }) => (
   </div>
 );
 
-export default RenderInput;
+export default renderInput;
+
+{
+  /* <RenderInput
+datatest="ingredient-search-radio"
+type="radio"
+value="ingrediente"
+onChange={setRadio}
+name="radioBtn"
+/> */
+}

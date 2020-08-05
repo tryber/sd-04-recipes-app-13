@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { RecipeContext } from '../../context';
-import RenderInput from '../utils/Input';
+import renderInput from '../utils/Input';
 import RenderButton from '../utils/Button';
 import {
   getByIngredientsFood,
@@ -76,13 +76,14 @@ const FoodBarSearch = () => {
       </div>
       <div>
         <label htmlFor="ingredient-search-radio">
-          <RenderInput
-            datatest="ingredient-search-radio"
-            type="radio"
-            value="ingrediente"
-            onChange={setRadio}
-            name="radioBtn"
-          />
+          {renderInput(
+            'ingredient-search-radio',
+            'radio',
+            'ingrediente',
+            setRadio,
+            '',
+            'radioBtn',
+          )}
           Ingrediente
         </label>
         <label htmlFor="name-search-radio">
