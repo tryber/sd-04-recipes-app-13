@@ -9,18 +9,18 @@ import {
   getByName,
 } from '../../services/foodApi';
 
-const changedDataNome = async (inputValue) =>
-  await getByName(inputValue)
+const changedDataNome = (inputValue) =>
+  getByName(inputValue)
     .then((foods) => foods)
     .catch((error) => console.log(error));
 
-const changedDataIng = async (inputValue) =>
-  await getByIngredientsFood(inputValue)
+const changedDataIng = (inputValue) =>
+  getByIngredientsFood(inputValue)
     .then((foods) => foods)
     .catch((error) => console.log(error));
 
-const changedDataLetter = async (inputValue) =>
-  await getByFirstLetterFood(inputValue)
+const changedDataLetter = (inputValue) =>
+  getByFirstLetterFood(inputValue)
     .then((foods) => foods)
     .catch((error) => console.log(error));
 
