@@ -1,22 +1,17 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link, useHistory } from 'react-router-dom';
 import ProfileIcon from '../../images/profileIcon.svg';
 import SearchIcon from '../../images/searchIcon.svg';
 import RenderButton from '../utils/Button';
-import './styles.css';
 import FoodBarSearch from './FoodBarScreen';
 import DrinkBarSearch from './DrinkBarScreen';
 
 const Header = ({ title, search }) => {
   const history = useHistory();
-  const searchBtn = () => {
-    if (document.getElementById('barSearch').style.display === 'block') {
-      document.getElementById('barSearch').style.display = 'none';
-    } else {
-      document.getElementById('barSearch').style.display = 'block';
-    }
-  };
+  const [isHidden, setIsHidden] = useState(true);
+
+  const searchBtn = () => (isHidden === true ? setIsHidden(false) : setIsHidden(true));
 
   return (
     <Fragment>
@@ -37,9 +32,15 @@ const Header = ({ title, search }) => {
           <div />
         )}
       </header>
-      <div id="barSearch" className="hidden">
-        {history.location.pathname === '/comidas' ? <FoodBarSearch /> : <DrinkBarSearch />}
-      </div>
+      {!isHidden && (
+        <div>
+          {history.location.pathname === '/comidas' ? (
+            <FoodBarSearch />
+          ) : (
+            <DrinkBarSearch />
+          )}
+        </div>
+      )}
     </Fragment>
   );
 };
