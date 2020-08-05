@@ -1,28 +1,17 @@
 import React from 'react';
 
-const renderInput = ({ ...props }) => (
-  <div>
-    <input
-      onChange={(e) => onChange(e.target.value)}
-      data-testid={datatest}
-      type={type}
-      value={value}
+const RenderInput = ({ ...props }) => <input {...props} />;
+
+export default RenderInput;
+
+/*
       required
       size="30"
-      className={`input-login-${type}`}
-      placeholder={label}
-      id={datatest}
-      name={name}
-    />
-  </div>
-);
+ */
 
-export default renderInput;
-
-/* <RenderInput
-datatest="ingredient-search-radio"
-type="radio"
-value="ingrediente"
-onChange={setRadio}
-name="radioBtn"
-/> */
+// onChange={(e) => onChange(e.target.value)}
+// data-testid={datatest}
+// value={value}
+// className={`input-login-${type}`}
+// placeholder={label}
+// name={name}

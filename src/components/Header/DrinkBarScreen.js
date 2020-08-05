@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { RecipeContext } from '../../context';
-import renderInput from '../utils/Input';
+import RenderInput from '../utils/Input';
 import RenderButton from '../utils/Button';
 import { getByIngredients, getByFirstLetter, getByName } from '../../services/drinkApi';
 
@@ -53,51 +53,52 @@ const DrinkBarSearch = () => {
   const [inputValue, setInputValue] = useState('');
   return (
     <div>
-      <div>
-        <input
-          type="text"
-          data-testid="search-input"
-          placeholder="Buscar Receita"
-          onChange={(e) => setInputValue(e.target.value)}
-        />
-      </div>
+      <RenderInput
+        type="text"
+        data-testid="search-input"
+        placeholder="Buscar Receita"
+        onChange={(e) => setInputValue(e.target.value)}
+      />
       <div>
         <label htmlFor="ingredient-search-radio">
-          {renderInput(
-            'ingredient-search-radio',
-            'radio',
-            'ingrediente',
-            setRadio,
-            '',
-            'radioBtn',
-          )}
+          <RenderInput
+            type="radio"
+            data-testid="ingredient-search-radio"
+            value="ingrediente"
+            onChange={(e) => setRadio(e.target.value)}
+            name="radioBtn"
+          />
           Ingrediente
         </label>
         <label htmlFor="name-search-radio">
-          {renderInput('name-search-radio', 'radio', 'nome', setRadio, '', 'radioBtn')}
+          <RenderInput
+            type="radio"
+            data-testid="name-search-radio"
+            value="nome"
+            onChange={(e) => setRadio(e.target.value)}
+            name="radioBtn"
+          />
           Nome
         </label>
         <label htmlFor="first-letter-search-radio">
-          {renderInput(
-            'first-letter-search-radio',
-            'radio',
-            'primeira-letra',
-            setRadio,
-            '',
-            'radioBtn',
-          )}
+          <RenderInput
+            type="radio"
+            data-testid="first-letter-search-radio"
+            id="first-letter-search-radio"
+            value="primeira-letra"
+            onChange={(e) => setRadio(e.target.value)}
+            name="radioBtn"
+          />
           Primeira letra
         </label>
       </div>
-      <div>
-        <RenderButton
-          type="button"
-          data-testid="exec-search-btn"
-          onClick={() => changeData(history, setData, data, radio, inputValue)}
-        >
-          Buscar
-        </RenderButton>
-      </div>
+      <RenderButton
+        type="button"
+        data-testid="exec-search-btn"
+        onClick={() => changeData(history, setData, data, radio, inputValue)}
+      >
+        Buscar
+      </RenderButton>
     </div>
   );
 };

@@ -4,17 +4,20 @@ import { saveStorage } from '../services/localStorage';
 import renderInput from '../components/utils/Input';
 import '../styles/LoginScreen.css';
 import RenderButton from '../components/utils/Button';
+import RenderInput from '../components/utils/Input';
 
 function verifyFields(email, password) {
   let valid = false;
   let disable = true;
   const user = email.slice(0, email.indexOf('@'));
   const dom = email.slice(email.indexOf('@') + 1, email.indexOf('.'));
-  if ((email.length > 6)
-    && (email.includes('@'))
-    && (email.includes('.'))
-    && (user.length > 1)
-    && (dom.length > 1)) {
+  if (
+    email.length > 6 &&
+    email.includes('@') &&
+    email.includes('.') &&
+    user.length > 1 &&
+    dom.length > 1
+  ) {
     valid = true;
   }
   if (password.length > 6 && valid) {
@@ -42,8 +45,24 @@ function LoginScreen() {
     <div className="div-inputs-login">
       <span className="title-login">Login</span>
       <div>
-        {renderInput('email-input', 'email', email, setEmail, 'Email')}
-        {renderInput('password-input', 'password', password, setPassword, 'Senha')}
+        <RenderInput
+          data-testid="email-input"
+          type="email"
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email"
+          required
+          size="30"
+          className="input-login-email"
+        />
+        <RenderInput
+          data-testid="password-input"
+          type="password"
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Senha"
+          required
+          size="30"
+          className="input-login-password"
+        />
       </div>
       <div>
         <Link to="/comidas">

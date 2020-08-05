@@ -8,6 +8,7 @@ import {
   getByFirstLetterFood,
   getByName,
 } from '../../services/foodApi';
+import RenderInput from '../utils/Input';
 
 const changedDataNome = (inputValue) =>
   getByName(inputValue)
@@ -67,7 +68,7 @@ const FoodBarSearch = () => {
   return (
     <div>
       <div>
-        <input
+        <RenderInput
           type="text"
           data-testid="search-input"
           placeholder="Buscar Receita"
@@ -76,41 +77,43 @@ const FoodBarSearch = () => {
       </div>
       <div>
         <label htmlFor="ingredient-search-radio">
-          {renderInput(
-            'ingredient-search-radio',
-            'radio',
-            'ingrediente',
-            setRadio,
-            '',
-            'radioBtn',
-          )}
+          <RenderInput
+            data-testid="ingredient-search-radio"
+            type="radio"
+            value="ingrediente"
+            onChange={(e) => setRadio(e.target.value)}
+            name="radioBtn"
+          />
           Ingrediente
         </label>
         <label htmlFor="name-search-radio">
-          {renderInput('name-search-radio', 'radio', 'nome', setRadio, '', 'radioBtn')}
+          <RenderInput
+            data-testid="name-search-radio"
+            type="radio"
+            value="nome"
+            onChange={(e) => setRadio(e.target.value)}
+            name="radioBtn"
+          />
           Nome
         </label>
         <label htmlFor="first-letter-search-radio">
-          {renderInput(
-            'first-letter-search-radio',
-            'radio',
-            'primeira-letra',
-            setRadio,
-            '',
-            'radioBtn',
-          )}
+          <RenderInput
+            data-testid="first-letter-search-radio"
+            type="radio"
+            value="primeira-letra"
+            onChange={(e) => setRadio(e.target.value)}
+            name="radioBtn"
+          />
           Primeira letra
         </label>
       </div>
-      <div>
-        <RenderButton
-          type="button"
-          data-testid="exec-search-btn"
-          onClick={() => changeData(history, setData, data, radio, inputValue)}
-        >
-          Buscar
-        </RenderButton>
-      </div>
+      <RenderButton
+        type="button"
+        data-testid="exec-search-btn"
+        onClick={() => changeData(history, setData, data, radio, inputValue)}
+      >
+        Buscar
+      </RenderButton>
     </div>
   );
 };
