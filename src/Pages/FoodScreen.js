@@ -6,6 +6,7 @@ import { getByName, listAllCategories } from '../services/foodApi';
 import Loading from '../components/Loading';
 import FoodAndDrinkCard from '../components/FoodAndDrinkCard';
 import '../styles/FoodAndDrinkCards.css';
+import RenderButton from '../components/utils/Button';
 
 const FoodScreen = () => {
   const { data, setData } = useContext(RecipeContext);
@@ -43,11 +44,11 @@ const FoodScreen = () => {
     <div className="general-container">
       <Header title="Comidas" search />
       <div className="category-btn-div">
-        <button type="button" className="category-btn" onClick={() => setName('')}>
+        <RenderButton type="button" className="category-btn" onClick={() => setName('')}>
           All
-        </button>
+        </RenderButton>
         {categories.slice(0, 5).map(({ strCategory }) => (
-          <button
+          <RenderButton
             type="button"
             onClick={() => changeCategory(strCategory)}
             data-testid={`${strCategory}-category-filter`}
@@ -55,7 +56,7 @@ const FoodScreen = () => {
             className="category-btn"
           >
             {strCategory}
-          </button>
+          </RenderButton>
         ))}
       </div>
       <FoodAndDrinkCard data={data} info="food" />

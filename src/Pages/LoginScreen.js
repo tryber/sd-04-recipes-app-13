@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { saveStorage } from '../services/localStorage';
 import renderInput from '../components/utils/Input';
 import '../styles/LoginScreen.css';
+import RenderButton from '../components/utils/Button';
 
 function verifyFields(email, password) {
   let valid = false;
@@ -46,7 +47,7 @@ function LoginScreen() {
       </div>
       <div>
         <Link to="/comidas">
-          <button
+          <RenderButton
             type="button"
             data-testid="login-submit-btn"
             disabled={disableButton}
@@ -54,7 +55,7 @@ function LoginScreen() {
             onClick={() => localSaves()}
           >
             Login
-          </button>
+          </RenderButton>
         </Link>
       </div>
     </div>

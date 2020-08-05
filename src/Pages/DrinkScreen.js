@@ -6,6 +6,7 @@ import Loading from '../components/Loading';
 import FoodAndDrinkCard from '../components/FoodAndDrinkCard';
 import '../styles/FoodAndDrinkCards.css';
 import { RecipeContext } from '../context';
+import RenderButton from '../components/utils/Button';
 
 const DrinkScreen = () => {
   const { data, setData } = useContext(RecipeContext);
@@ -47,11 +48,11 @@ const DrinkScreen = () => {
     <div className="general-container">
       <Header title="Bebidas" search />
       <div className="category-btn-div">
-        <button type="button" className="category-btn" onClick={() => setName('')}>
+        <RenderButton type="button" className="category-btn" onClick={() => setName('')}>
           All
-        </button>
+        </RenderButton>
         {categories.slice(0, 5).map(({ strCategory }) => (
-          <button
+          <RenderButton
             type="button"
             className="category-btn"
             onClick={() => changeCategory(strCategory)}
@@ -59,7 +60,7 @@ const DrinkScreen = () => {
             key={strCategory}
           >
             {strCategory}
-          </button>
+          </RenderButton>
         ))}
       </div>
       <FoodAndDrinkCard data={data} info="drink" />

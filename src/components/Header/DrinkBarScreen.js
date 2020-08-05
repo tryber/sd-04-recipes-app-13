@@ -36,7 +36,8 @@ const changeData = async (history, setData, data, radio, inputValue) => {
     .catch((error) => console.log(error));
 
   if (radio === 'primeira-letra') {
-    if (inputValue.length > 1) return alert('Sua busca deve conter somente 1 (um) caracter');
+    if (inputValue.length > 1)
+      return alert('Sua busca deve conter somente 1 (um) caracter');
     if (!changedDataLetter) return alert(text);
     if (changedDataLetter.length === 1) {
       return history.push(`/bebidas/${changedDataLetter[0].idDrink}`);
@@ -64,7 +65,14 @@ const DrinkBarSearch = () => {
       </div>
       <div>
         <label htmlFor="ingredient-search-radio">
-          {renderInput('ingredient-search-radio', 'radio', 'ingrediente', setRadio, '', 'radioBtn')}
+          {renderInput(
+            'ingredient-search-radio',
+            'radio',
+            'ingrediente',
+            setRadio,
+            '',
+            'radioBtn',
+          )}
           Ingrediente
         </label>
         <label htmlFor="name-search-radio">
@@ -78,7 +86,7 @@ const DrinkBarSearch = () => {
             'primeira-letra',
             setRadio,
             '',
-            'radioBtn'
+            'radioBtn',
           )}
           Primeira letra
         </label>
@@ -86,7 +94,7 @@ const DrinkBarSearch = () => {
       <div>
         <RenderButton
           type="button"
-          datatest="exec-search-btn"
+          data-testid="exec-search-btn"
           onClick={() => changeData(history, setData, data, radio, inputValue)}
         >
           Buscar

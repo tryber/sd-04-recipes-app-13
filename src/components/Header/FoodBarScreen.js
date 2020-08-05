@@ -3,7 +3,11 @@ import { useHistory } from 'react-router-dom';
 import { RecipeContext } from '../../context';
 import renderInput from '../utils/Input';
 import RenderButton from '../utils/Button';
-import { getByIngredientsFood, getByFirstLetterFood, getByName } from '../../services/foodApi';
+import {
+  getByIngredientsFood,
+  getByFirstLetterFood,
+  getByName,
+} from '../../services/foodApi';
 
 const changeData = async (history, setData, data, radio, inputValue) => {
   const text = 'Sinto muito, não encontramos nenhuma receita para esses filtros.';
@@ -36,7 +40,8 @@ const changeData = async (history, setData, data, radio, inputValue) => {
     .catch((error) => console.log(error));
 
   if (radio === 'primeira-letra') {
-    if (inputValue.length > 1) return alert('Sua busca deve conter somente 1 (um) caracter');
+    if (inputValue.length > 1)
+      return alert('Sua busca deve conter somente 1 (um) caracter');
     if (!changedDataLetter) return alert(text);
     if (changedDataLetter.length === 1) {
       return history.push(`/comidas/${changedDataLetter[0].idMeal}`);
@@ -64,7 +69,14 @@ const FoodBarSearch = () => {
       </div>
       <div>
         <label htmlFor="ingredient-search-radio">
-          {renderInput('ingredient-search-radio', 'radio', 'ingrediente', setRadio, '', 'radioBtn')}
+          {renderInput(
+            'ingredient-search-radio',
+            'radio',
+            'ingrediente',
+            setRadio,
+            '',
+            'radioBtn',
+          )}
           Ingrediente
         </label>
         <label htmlFor="name-search-radio">
@@ -78,7 +90,7 @@ const FoodBarSearch = () => {
             'primeira-letra',
             setRadio,
             '',
-            'radioBtn'
+            'radioBtn',
           )}
           Primeira letra
         </label>
@@ -86,7 +98,7 @@ const FoodBarSearch = () => {
       <div>
         <RenderButton
           type="button"
-          datatest="exec-search-btn"
+          data-testid="exec-search-btn"
           onClick={() => changeData(history, setData, data, radio, inputValue)}
         >
           Buscar

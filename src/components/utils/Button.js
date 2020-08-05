@@ -1,10 +1,8 @@
 import React from 'react';
 
-const RenderButton = ({ type, datatest, onClick, children }) => (
+const RenderButton = ({ children, ...props }) => (
   <div>
-    <button type={type} data-testid={datatest} onClick={onClick}>
-      {children}
-    </button>
+    <button {...props}>{children}</button>
   </div>
 );
 
