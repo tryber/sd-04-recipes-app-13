@@ -24,10 +24,9 @@ const changeData = async (history, setData, data, radio, inputValue) => {
     .catch((error) => console.log(error));
 
   if (radio === 'ingrediente') {
-    if (!changedDataIng) return alert(text);
-    if (changedDataIng.length === 1) {
-      return history.push(`/bebidas/${changedDataIng[0].idDrink}`);
-    }
+    if (!changedDataIng) alert(text);
+    if (changedDataIng.length === 1)
+      history.push(`/bebidas/${changedDataIng[0].idDrink}`);
     return setData(changedDataIng);
   }
 
@@ -36,12 +35,10 @@ const changeData = async (history, setData, data, radio, inputValue) => {
     .catch((error) => console.log(error));
 
   if (radio === 'primeira-letra') {
-    if (inputValue.length > 1)
-      return alert('Sua busca deve conter somente 1 (um) caracter');
-    if (!changedDataLetter) return alert(text);
-    if (changedDataLetter.length === 1) {
-      return history.push(`/bebidas/${changedDataLetter[0].idDrink}`);
-    }
+    if (inputValue.length > 1) alert('Sua busca deve conter somente 1 (um) caracter');
+    if (!changedDataLetter) alert(text);
+    if (changedDataLetter.length === 1)
+      history.push(`/bebidas/${changedDataLetter[0].idDrink}`);
     return setData(changedDataLetter);
   }
   return setData(data);
@@ -52,7 +49,6 @@ const DrinkBarSearch = () => {
   const { setData, data } = useContext(RecipeContext);
   const [radio, setRadio] = useState('');
   const [inputValue, setInputValue] = useState('');
-
   return (
     <div>
       <div>
