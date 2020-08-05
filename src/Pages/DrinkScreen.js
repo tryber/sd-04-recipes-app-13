@@ -47,6 +47,7 @@ const DrinkScreen = () => {
         {categories.slice(0, 5).map(({ strCategory }) => (
           <button
             className="category-btn" onClick={() => changeCategory(strCategory)}
+
             data-tesid={`${strCategory}-category-filter`} key={strCategory} type="button"
           >
             {strCategory}

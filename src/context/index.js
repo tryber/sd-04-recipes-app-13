@@ -2,7 +2,7 @@ import React, { createContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { getAllCategories } from '../services/foodApi';
 
-const RecipeContext = createContext();
+export const RecipeContext = createContext();
 
 const ProviderRecipe = ({ children }) => {
   const [data, setData] = useState([]);
@@ -13,6 +13,7 @@ const ProviderRecipe = ({ children }) => {
 
   const context = {
     data,
+    setData,
   };
 
   return <RecipeContext.Provider value={context}>{children}</RecipeContext.Provider>;
