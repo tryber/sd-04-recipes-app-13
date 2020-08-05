@@ -19,7 +19,12 @@ export async function getRandomMeal() {
 // Search meal by name
 export async function getByName(name) {
   const meal = await fetch(`${URL}/search.php?s=${name}`).then((r) => r.json());
-  console.log(meal);
+  return meal.meals;
+}
+
+// List meal by id
+export async function getById(id) {
+  const meal = await fetch(`${URL}/lookup.php?i=${id}`).then((r) => r.json());
   return meal.meals;
 }
 

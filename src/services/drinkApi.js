@@ -6,6 +6,11 @@ async function getByName(name) {
   return drink.drinks;
 }
 
+export async function getById(id) {
+  const drink = await fetch(`${URL}/lookup.php?i=${id}`).then((r) => r.json());
+  return drink.drinks;
+}
+
 export async function listAllCategories() {
   const categories = await fetch(`${URL}/list.php?c=list`).then((r) => r.json());
   return categories.drinks;

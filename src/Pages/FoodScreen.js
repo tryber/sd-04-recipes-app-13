@@ -23,7 +23,8 @@ const FoodScreen = () => {
     });
   }, [name]);
 
-  const changeCategory = (strCategory) => (name === strCategory ? setName('') : setName(strCategory));
+  const changeCategory = (strCategory) =>
+    name === strCategory ? setName('') : setName(strCategory);
 
   if (!data) {
     return (
@@ -53,7 +54,7 @@ const FoodScreen = () => {
           </RenderButton>
         ))}
       </div>
-      <FoodAndDrinkCard data={data} info="food" />
+      <FoodAndDrinkCard data={data} info="food" test="card" geralTest="recipe" />
       <Footer />
     </div>
   );

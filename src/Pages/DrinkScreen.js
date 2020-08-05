@@ -55,7 +55,7 @@ const DrinkScreen = () => {
           </RenderButton>
         ))}
       </div>
-      <FoodAndDrinkCard data={data} info="drink" />
+      <FoodAndDrinkCard data={drinks} info="drink" test="card" geralTest="recipe" />
       <Footer />
     </div>
   );
