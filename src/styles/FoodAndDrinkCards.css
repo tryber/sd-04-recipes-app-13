@@ -6,7 +6,7 @@
 
 .category-btn-div {
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   justify-content: space-around;
 }
 
@@ -26,6 +26,7 @@
 
 .card-general-container {
   display: flex;
+  flex-wrap: wrap;
   margin-top: 30px;
 }
 

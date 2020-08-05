@@ -47,13 +47,13 @@ const DrinkScreen = () => {
         {categories.slice(0, 5).map(({ strCategory }) => (
           <button
             className="category-btn" onClick={() => changeCategory(strCategory)}
-            data-tesid={`${strCategory}-category-filter`} key={strCategory}
+            data-testid={`${strCategory}-category-filter`} key={strCategory}
           >
             {strCategory}
           </button>
         ))}
       </div>
-      <FoodAndDrinkCard data={drinks} info="drink" />
+      <FoodAndDrinkCard data={drinks} info="drink" test="card" geralTest="recipe" />
       <Footer />
     </div>
   );
