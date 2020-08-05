@@ -29,7 +29,8 @@ const FoodScreen = () => {
   if (!data) {
     return (
       <div>
-        <Header search />
+        <Header title="Comidas" search />
+        <h3>Nada Encontrado</h3>
         <Footer />
       </div>
     );

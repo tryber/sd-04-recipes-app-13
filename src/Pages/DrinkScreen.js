@@ -25,12 +25,14 @@ const DrinkScreen = () => {
     });
   }, [name]);
 
-  const changeCategory = (strCategory) => (name === strCategory ? setName('') : setName(strCategory));
+  const changeCategory = (strCategory) =>
+    name === strCategory ? setName('') : setName(strCategory);
 
   if (!data) {
     return (
       <div>
-        <Header search />
+        <Header title="Bebidas" search />
+        <h3>Nada Encontrado</h3>
         <Footer />
       </div>
     );
@@ -55,7 +57,7 @@ const DrinkScreen = () => {
           </RenderButton>
         ))}
       </div>
-      <FoodAndDrinkCard data={drinks} info="drink" test="card" geralTest="recipe" />
+      <FoodAndDrinkCard data={data} info="drink" test="card" geralTest="recipe" />
       <Footer />
     </div>
   );

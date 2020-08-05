@@ -7,10 +7,6 @@ export const RecipeContext = createContext();
 const ProviderRecipe = ({ children }) => {
   const [data, setData] = useState([]);
 
-  useEffect(() => {
-    getAllCategories().then((result) => setData(result));
-  }, []);
-
   const context = {
     data,
     setData,
