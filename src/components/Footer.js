@@ -9,18 +9,18 @@ function Footer() {
   return (
     <footer data-testid="footer" className="footer">
       <div className="footer-drink">
-        <Link to="/bebidas" data-testid="drinks-bottom-btn">
-          <img src={drinkIcon} alt="Drink path" />
+        <Link to="/bebidas">
+          <img src={drinkIcon} data-testid="drinks-bottom-btn" alt="Drink path" />
         </Link>
       </div>
       <div className="footer-explore">
-        <Link to="/explorar" data-testid="explore-bottom-btn">
-          <img src={exploreIcon} alt="Explore path" />
+        <Link to="/explorar">
+          <img src={exploreIcon} data-testid="explore-bottom-btn" alt="Explore path" />
         </Link>
       </div>
       <div className="footer-meal">
-        <Link to="/comidas" data-testid="food-bottom-btn">
-          <img src={mealIcon} alt="Meal path" />
+        <Link to="/comidas">
+          <img src={mealIcon} data-testid="food-bottom-btn" alt="Meal path" />
         </Link>
       </div>
     </footer>

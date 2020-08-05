@@ -30,7 +30,7 @@ const FoodScreen = () => {
     return (
       <div>
         <h2>Nada encontrado</h2>
-        <button onClick={() => setName('')}>Voltar</button>
+        <button type="button" onClick={() => setName('')}>Voltar</button>
       </div>
     );
   } else if (data.length === 0) return <Loading />;
@@ -45,14 +45,14 @@ const FoodScreen = () => {
         {categories.slice(0, 5).map(({ strCategory }) => (
           <button
             onClick={() => changeCategory(strCategory)}
-            data-tesid={`${strCategory}-category-filter`}
-            key={strCategory} className="category-btn"
+            data-testid={`${strCategory}-category-filter`}
+            key={strCategory} className="category-btn" type="button"
           >
             {strCategory}
           </button>
         ))}
       </div>
-      <FoodAndDrinkCard data={data} info="food" />
+      <FoodAndDrinkCard data={data} info="food" test="card" geralTest="recipe" />
       <Footer />
     </div>
   );
