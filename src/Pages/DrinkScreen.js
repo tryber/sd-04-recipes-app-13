@@ -33,10 +33,12 @@ const DrinkScreen = () => {
   if (!data) {
     return (
       <div>
+        <Header search />
         <h2>Nada encontrado</h2>
         <button type="button" onClick={() => setName('')}>
           Voltar
         </button>
+        <Footer />
       </div>
     );
   }

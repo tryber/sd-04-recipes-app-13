@@ -13,8 +13,16 @@ const FoodAndDrinkCard = ({ data, info }) => {
               data-testid={`${index}-recipe-card`}
               key={food.idMeal}
             >
-              <img className="card-img" src={food.strMealThumb} alt={food.strMeal} width={'60px'} />
-              <h3 className="card-name">{food.strMeal}</h3>
+              <img
+                data-testid={`${index}-card-img`}
+                className="card-img"
+                src={food.strMealThumb}
+                alt={food.strMeal}
+                width="60px"
+              />
+              <h3 data-testid={`${index}-card-name`} className="card-name">
+                {food.strMeal}
+              </h3>
             </Link>
           </div>
         ))}
@@ -30,8 +38,14 @@ const FoodAndDrinkCard = ({ data, info }) => {
             data-testid={`${index}-recipe-card`}
             key={drink.idDrink}
           >
-            <h3 className="card-name">{drink.strDrink}</h3>
-            <img className="card-img" src={drink.strDrinkThumb} alt={drink.strDrink} width={'60px'} />
+            <h3 data-testid={`${index}-card-name`} className="card-name">{drink.strDrink}</h3>
+            <img
+              data-testid={`${index}-card-img`}
+              className="card-img"
+              src={drink.strDrinkThumb}
+              alt={drink.strDrink}
+              width="60px"
+            />
           </Link>
         </div>
       ))}

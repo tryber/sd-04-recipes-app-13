@@ -31,8 +31,10 @@ const FoodScreen = () => {
   if (!data) {
     return (
       <div>
+        <Header search />
         <h2>Nada encontrado</h2>
         <button onClick={() => setName('')}>Voltar</button>
+        <Footer />
       </div>
     );
   }
