@@ -25,8 +25,9 @@ const changeData = async (history, setData, data, radio, inputValue) => {
 
   if (radio === 'ingrediente') {
     if (!changedDataIng) alert(text);
-    if (changedDataIng.length === 1)
+    if (changedDataIng.length === 1) {
       history.push(`/bebidas/${changedDataIng[0].idDrink}`);
+    }
     setData(changedDataIng);
   }
 
@@ -37,8 +38,9 @@ const changeData = async (history, setData, data, radio, inputValue) => {
   if (radio === 'primeira-letra') {
     if (inputValue.length > 1) alert('Sua busca deve conter somente 1 (um) caracter');
     if (!changedDataLetter) alert(text);
-    if (changedDataLetter.length === 1)
+    if (changedDataLetter.length === 1) {
       history.push(`/bebidas/${changedDataLetter[0].idDrink}`);
+    }
     setData(changedDataLetter);
   }
   return setData(data);
