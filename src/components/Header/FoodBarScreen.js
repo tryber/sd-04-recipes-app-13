@@ -9,11 +9,25 @@ import {
   getByName,
 } from '../../services/foodApi';
 
-const changeData = async (history, setData, data, radio, inputValue) => {
-  const text = 'Sinto muito, não encontramos nenhuma receita para esses filtros.';
-  const changedDataNome = await getByName(inputValue)
+const changedDataNome = async (inputValue) =>
+  await getByName(inputValue)
     .then((foods) => foods)
     .catch((error) => console.log(error));
+
+const changedDataIng = async (inputValue) =>
+  await getByIngredientsFood(inputValue)
+    .then((foods) => foods)
+    .catch((error) => console.log(error));
+
+const changedDataLetter = async (inputValue) =>
+  await getByFirstLetterFood(inputValue)
+    .then((foods) => foods)
+    .catch((error) => console.log(error));
+
+const changeData = async (history, setData, data, radio, inputValue) => {
+  const text = 'Sinto muito, não encontramos nenhuma receita para esses filtros.';
+
+  changedDataNome(inputValue);
 
   if (radio === 'nome') {
     if (!changedDataNome) alert(text);
@@ -23,9 +37,7 @@ const changeData = async (history, setData, data, radio, inputValue) => {
     setData(changedDataNome);
   }
 
-  const changedDataIng = await getByIngredientsFood(inputValue)
-    .then((foods) => foods)
-    .catch((error) => console.log(error));
+  changedDataIng(inputValue);
 
   if (radio === 'ingrediente') {
     if (!changedDataIng) alert(text);
@@ -33,9 +45,7 @@ const changeData = async (history, setData, data, radio, inputValue) => {
     setData(changedDataIng);
   }
 
-  const changedDataLetter = await getByFirstLetterFood(inputValue)
-    .then((foods) => foods)
-    .catch((error) => console.log(error));
+  changedDataLetter(inputValue);
 
   if (radio === 'primeira-letra') {
     if (inputValue.length > 1) alert('Sua busca deve conter somente 1 (um) caracter');
