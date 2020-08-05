@@ -25,28 +25,18 @@ const DrinkScreen = () => {
     });
   }, [name]);
 
-  const changeCategory = (strCategory) => {
-    if (name === strCategory) return setName('');
-    return setName(strCategory);
-  };
+  const changeCategory = (strCategory) => (name === strCategory ? setName('') : setName(strCategory));
 
   if (!data) {
     return (
       <div>
         <Header search />
-        <h2>Nada encontrado</h2>
-        <button type="button" onClick={() => setName('')}>
-          Voltar
-        </button>
         <Footer />
       </div>
     );
   }
   if (data.length === 0) return <Loading />;
-
-  return !data ? (
-    <Loading />
-  ) : (
+  return (
     <div className="general-container">
       <Header title="Bebidas" search />
       <div className="category-btn-div">
