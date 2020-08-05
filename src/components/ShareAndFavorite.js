@@ -3,7 +3,7 @@ import { CopyToClipboard } from 'clipboard-copy';
 import shareIcon from '../images/shareIcon.svg';
 import whiteHeartIcon from '../images/whiteHeartIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
-import { loadStorage } from '../services/localStorage';
+// import { loadStorage } from '../services/localStorage';
 
 function ShareAndFavorite(path, copied, setCopied, foodId) {
   const localfavorite = (localStorage.getItem('favoriteRecipes'));

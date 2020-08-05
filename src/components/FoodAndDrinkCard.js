@@ -44,6 +44,7 @@ FoodAndDrinkCard.propTypes = {
   info: PropTypes.string.isRequired,
   slice: PropTypes.string.isRequired,
   test: PropTypes.string.isRequired,
+  geralTest: PropTypes.string.isRequired,
 };
 
 export default FoodAndDrinkCard;

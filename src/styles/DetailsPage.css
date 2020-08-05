@@ -1,84 +1,75 @@
 .details-container {
+  background: white;
+  height: 1034px;
   position: relative;
   width: 360px;
-  height: 1034px;
-  background: #FFF;
 }
 
 .details-img {
+  height: 155px;
   position: absolute;
   width: 360px;
-  height: 155px;
 }
 
 .details-title {
-  position: absolute;
-  width: 182px;
-  height: 35px;
-  left: 8px;
-  top: 165px;
-  font-family: Roboto,sans-serif;
+  align-items: flex-end;
+  display: flex;
+  font-family: Roboto, sans-serif;
+  font-size: 30px;
   font-style: normal;
   font-weight: 400;
-  font-size: 30px;
+  height: 35px;
+  left: 8px;
   line-height: 35px;
-  display: flex;
-  align-items: flex-end;
+  position: absolute;
+  top: 165px;
+  width: 182px;
 }
 
 .details-sub {
-  position: absolute;
-  width: 73px;
-  height: 25px;
-  left: 9px;
-  top: 190px;
+  align-items: flex-end;
+  color: darkgray;
+  display: flex;
   font-family: Roboto, sans-serif;
+  font-size: 21px;
   font-style: normal;
   font-weight: 400;
-  font-size: 21px;
+  height: 25px;
+  left: 9px;
   line-height: 25px;
-  display: flex;
-  align-items: flex-end;
-  color: #a9a9a9;
+  position: absolute;
+  top: 190px;
+  width: 73px;
 }
 
 .ingredients {
-  position: absolute;
-  width: 341px;
-  left: 10px;
-  top: 279px;
   background: #ececec;
   border-radius: 4px;
-}
-
-.ingredients, ul, li {
-  position: absolute;
-  width: 341px;
   left: 10px;
+  position: absolute;
   top: 279px;
-  background: #ececec;
-  border-radius: 4px;
+  width: 341px;
 }
 
 .titles {
-  position: absolute;
-  width: 138px;
+  align-items: flex-end;
+  color: black;
+  display: flex;
+  font-family: Roboto, sans-serif;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 400;
   height: 30px;
   left: 10px;
-  top: 242px;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 26px;
-  line-height: 30px;
-  display: flex;
-  align-items: flex-end;
   letter-spacing: 0.03em;
-  color: #000000;
+  line-height: 30px;
+  position: absolute;
+  top: 242px;
+  width: 138px;
 }
 
 .video {
+  height: 200px;
   position: absolute;
   width: 341px;
-  height: 200px;
 }

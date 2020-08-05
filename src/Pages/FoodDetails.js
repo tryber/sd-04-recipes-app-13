@@ -22,7 +22,9 @@ function FoodDetails() {
 
   return (
     <div className="details-container">
-      <img data-testid="recipe-photo" className="details-img" src={food.strMealThumb} alt="food-img" />
+      <img data-testid="recipe-photo"
+        className="details-img" src={food.strMealThumb} alt="food-img"
+      />
       <h1 data-testid="recipe-title" className="details-title">{food.strMeal}</h1>
       <h4 data-testid="recipe-category" className="details-sub">{food.strCategory}</h4>
       <div className="ingredients">
