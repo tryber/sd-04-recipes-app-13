@@ -9,7 +9,7 @@ const saveStorage = (key, entry) => {
 };
 
 const loadStorage = (key) => {
-  localStorage.setItem(key);
+  localStorage.getItem(key);
 };
 
 const deleteStorage = (key) => {
