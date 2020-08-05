@@ -58,6 +58,20 @@ const changeData = async (history, setData, data, radio, inputValue) => {
   return setData(data);
 };
 
+const createLabel = (setRadio, labelText) => (
+  <label htmlFor="ingredient-search-radio">
+    {renderInput(
+      'ingredient-search-radio',
+      'radio',
+      'ingrediente',
+      setRadio,
+      '',
+      'radioBtn',
+    )}
+    {labelText}
+  </label>
+);
+
 const FoodBarSearch = () => {
   const history = useHistory();
   const { setData, data } = useContext(RecipeContext);
@@ -75,17 +89,8 @@ const FoodBarSearch = () => {
         />
       </div>
       <div>
-        <label htmlFor="ingredient-search-radio">
-          {renderInput(
-            'ingredient-search-radio',
-            'radio',
-            'ingrediente',
-            setRadio,
-            '',
-            'radioBtn',
-          )}
-          Ingrediente
-        </label>
+       {createLabel(setRadio, 'Ingredientes')}
+       
         <label htmlFor="name-search-radio">
           {renderInput('name-search-radio', 'radio', 'nome', setRadio, '', 'radioBtn')}
           Nome
