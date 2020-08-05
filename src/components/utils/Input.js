@@ -19,12 +19,10 @@ const renderInput = (datatest, type, value, onChange, label, name) => (
 
 export default renderInput;
 
-{
-  /* <RenderInput
+/* <RenderInput
 datatest="ingredient-search-radio"
 type="radio"
 value="ingrediente"
 onChange={setRadio}
 name="radioBtn"
 /> */
-}
