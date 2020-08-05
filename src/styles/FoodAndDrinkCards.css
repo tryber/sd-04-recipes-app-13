@@ -1,0 +1,49 @@
+.general-container {
+  height: 582px;
+  overflow-y: auto;
+  width: 360px;
+}
+
+.category-btn-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.category-btn {
+  background: #c4c4c4;
+  height: 28px;
+}
+
+.card-container {
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0.1px 4px 4px rgba(0, 0, 0, 0.25);
+  height: 172px;
+  margin: 10px;
+  width: 150px;
+}
+
+.card-general-container {
+  display: flex;
+  margin-top: 30px;
+}
+
+.card-img {
+  border-radius: 6px 6px 0.1px 0.1px;
+  height: 109px;
+  width: 150px;
+}
+
+.card-name {
+  align-items: flex-end;
+  color: black;
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  height: 21px;
+  line-height: 21px;
+  text-decoration: none;
+  width: 110px;
+}

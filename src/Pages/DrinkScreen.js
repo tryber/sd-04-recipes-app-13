@@ -4,6 +4,7 @@ import Header from '../components/Header/Header';
 import { getByName, listAllCategories } from '../services/drinkApi';
 import Loading from '../components/Loading';
 import FoodAndDrinkCard from '../components/FoodAndDrinkCard';
+import '../styles/FoodAndDrinkCards.css';
 
 const DrinkScreen = () => {
   const [drinks, setDrinks] = useState([]);
@@ -39,18 +40,19 @@ const DrinkScreen = () => {
   return !drinks ? (
     <Loading />
   ) : (
-    <div>
+    <div className="general-container">
       <Header title="Bebidas" />
-      <button onClick={() => setName('')}>All</button>
-      {categories.slice(0, 5).map(({ strCategory }) => (
-        <button
-          onClick={() => changeCategory(strCategory)}
-          data-tesid={`${strCategory}-category-filter`}
-          key={strCategory}
-        >
-          {strCategory}
-        </button>
-      ))}
+      <div className="category-btn-div">
+        <button className="category-btn" onClick={() => setName('')}>All</button>
+        {categories.slice(0, 5).map(({ strCategory }) => (
+          <button
+            className="category-btn" onClick={() => changeCategory(strCategory)}
+            data-tesid={`${strCategory}-category-filter`} key={strCategory}
+          >
+            {strCategory}
+          </button>
+        ))}
+      </div>
       <FoodAndDrinkCard data={drinks} info="drink" />
       <Footer />
     </div>
