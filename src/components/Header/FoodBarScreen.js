@@ -17,8 +17,9 @@ const changeData = async (history, setData, data, radio, inputValue) => {
 
   if (radio === 'nome') {
     if (!changedDataNome) alert(text);
-    if (changedDataNome.length === 1)
+    if (changedDataNome.length === 1) {
       history.push(`/comidas/${changedDataNome[0].idMeal}`);
+    }
     setData(changedDataNome);
   }
 
@@ -37,11 +38,11 @@ const changeData = async (history, setData, data, radio, inputValue) => {
     .catch((error) => console.log(error));
 
   if (radio === 'primeira-letra') {
-    if (inputValue.length > 1)
-      return alert('Sua busca deve conter somente 1 (um) caracter');
+    if (inputValue.length > 1) alert('Sua busca deve conter somente 1 (um) caracter');
     if (!changedDataLetter) alert(text);
-    if (changedDataLetter.length === 1)
+    if (changedDataLetter.length === 1) {
       history.push(`/comidas/${changedDataLetter[0].idMeal}`);
+    }
     return setData(changedDataLetter);
   }
   return setData(data);
