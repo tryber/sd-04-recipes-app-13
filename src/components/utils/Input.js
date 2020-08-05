@@ -1,6 +1,6 @@
 import React from 'react';
 
-const renderInput = (datatest, type, value, onChange, label, name) => (
+const RenderInput = ({ datatest, type, value, onChange, label, name }) => (
   <div>
     <input
       onChange={(e) => onChange(e.target.value)}
@@ -17,4 +17,4 @@ const renderInput = (datatest, type, value, onChange, label, name) => (
   </div>
 );
 
-export default renderInput;
+export default RenderInput;
