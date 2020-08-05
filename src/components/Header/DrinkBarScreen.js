@@ -14,7 +14,7 @@ const changeData = async (history, setData, data, radio, inputValue) => {
   if (radio === 'nome') {
     if (!changedDataNome) return alert(text);
     if (changedDataNome.length === 1) {
-      return history.push(`/bebidas/${changedDataNome[0].idDrink}`);
+      history.push(`/bebidas/${changedDataNome[0].idDrink}`);
     }
     return setData(changedDataNome);
   }
@@ -27,7 +27,7 @@ const changeData = async (history, setData, data, radio, inputValue) => {
     if (!changedDataIng) alert(text);
     if (changedDataIng.length === 1)
       history.push(`/bebidas/${changedDataIng[0].idDrink}`);
-    return setData(changedDataIng);
+    setData(changedDataIng);
   }
 
   const changedDataLetter = await getByFirstLetter(inputValue)
@@ -39,7 +39,7 @@ const changeData = async (history, setData, data, radio, inputValue) => {
     if (!changedDataLetter) alert(text);
     if (changedDataLetter.length === 1)
       history.push(`/bebidas/${changedDataLetter[0].idDrink}`);
-    return setData(changedDataLetter);
+    setData(changedDataLetter);
   }
   return setData(data);
 };

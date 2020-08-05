@@ -19,7 +19,7 @@ const changeData = async (history, setData, data, radio, inputValue) => {
     if (!changedDataNome) alert(text);
     if (changedDataNome.length === 1)
       history.push(`/comidas/${changedDataNome[0].idMeal}`);
-    return setData(changedDataNome);
+    setData(changedDataNome);
   }
 
   const changedDataIng = await getByIngredientsFood(inputValue)
@@ -29,7 +29,7 @@ const changeData = async (history, setData, data, radio, inputValue) => {
   if (radio === 'ingrediente') {
     if (!changedDataIng) alert(text);
     if (changedDataIng.length === 1) history.push(`/comidas/${changedDataIng[0].idMeal}`);
-    return setData(changedDataIng);
+    setData(changedDataIng);
   }
 
   const changedDataLetter = await getByFirstLetterFood(inputValue)

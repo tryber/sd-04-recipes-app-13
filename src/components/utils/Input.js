@@ -3,7 +3,7 @@ import React from 'react';
 const renderInput = (datatest, type, value, onChange, label, name) => (
   <div>
     <input
-      onChange={e => onChange(e.target.value)}
+      onChange={(e) => onChange(e.target.value)}
       data-testid={datatest}
       type={type}
       value={value}
