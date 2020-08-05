@@ -26,8 +26,8 @@
 
 .card-general-container {
   display: flex;
-  margin-top: 30px;
   flex-wrap: wrap;
+  margin-top: 30px;
 }
 
 .card-img {
