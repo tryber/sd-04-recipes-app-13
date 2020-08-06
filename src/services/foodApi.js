@@ -1,3 +1,5 @@
+import { func } from 'prop-types';
+
 const URL = 'https://www.themealdb.com/api/json/v1/1';
 
 // Pega a lista completa e detalhada de todas as categorias
@@ -50,4 +52,10 @@ export async function getByCategory(category) {
 export async function getByArea(area) {
   const meal = await fetch(`${URL}/filter.php?a=${area}`).then((r) => r.json());
   return meal.meals;
+}
+
+// list dropdown by area
+export async function getAllFoodByArea() {
+  const area = await fetch(`${URL}/list.php?a=list`).then((r) => r.json());
+  return area.meals;
 }
