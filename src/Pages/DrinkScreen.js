@@ -12,25 +12,23 @@ const DrinkScreen = () => {
   const { data, setData } = useContext(RecipeContext);
   const [name, setName] = useState('');
   const [categories, setCategories] = useState([]);
-
   useEffect(() => {
     getByName(name)
       .then((drink) => {
         setData(drink);
       })
       .catch((err) => console.error(err));
-
     listAllCategories().then((category) => {
       setCategories(category);
     });
   }, [name]);
-
-  const changeCategory = (strCategory) => (name === strCategory ? setName('') : setName(strCategory));
-
+  const changeCategory = (strCategory) =>
+    name === strCategory ? setName('') : setName(strCategory);
   if (!data) {
     return (
       <div>
-        <Header search />
+        <Header title="Bebidas" search />
+        <h3>Nada Encontrado</h3>
         <Footer />
       </div>
     );
@@ -55,7 +53,7 @@ const DrinkScreen = () => {
           </RenderButton>
         ))}
       </div>
-      <FoodAndDrinkCard data={data} info="drink" />
+      <FoodAndDrinkCard data={data} info="drink" test="card" geralTest="recipe" />
       <Footer />
     </div>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
 
+<<<<<<< HEAD
 const renderInput = (datatest, type, value, onChange, label, name) => (
   <div>
     <input
@@ -7,22 +8,20 @@ const renderInput = (datatest, type, value, onChange, label, name) => (
       data-testid={datatest}
       type={type}
       value={value}
+=======
+const RenderInput = ({ ...props }) => <input {...props} />;
+
+export default RenderInput;
+
+/*
+>>>>>>> a5de0d46ca75e21e0fa1f6886a3bdc34e8963459
       required
       size="30"
-      className={`input-login-${type}`}
-      placeholder={label}
-      id={datatest}
-      name={name}
-    />
-  </div>
-);
+ */
 
-export default renderInput;
-
-/* <RenderInput
-datatest="ingredient-search-radio"
-type="radio"
-value="ingrediente"
-onChange={setRadio}
-name="radioBtn"
-/> */
+// onChange={(e) => onChange(e.target.value)}
+// data-testid={datatest}
+// value={value}
+// className={`input-login-${type}`}
+// placeholder={label}
+// name={name}
