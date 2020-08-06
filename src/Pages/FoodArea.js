@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Footer from '../components/Footer';
 import Header from '../components/Header/Header';
-import { getAllFoodByArea } from '../services/foodApi';
+import { getAllFoodByArea, getByArea } from '../services/foodApi';
 
 function FoodArea() {
   const [dropDown, setDropDown] = useState([]);
@@ -15,6 +15,10 @@ function FoodArea() {
 
   const handleSelect = (e) => {
     setDropDownChoosen(e.target.value);
+  };
+
+  const fetchFoodArea = () => {
+    getByArea(dropDownChoosen).then((area) => console.log(area));
   };
 
   return (
@@ -33,6 +37,7 @@ function FoodArea() {
           ))}
       </select>
       <h2>{dropDownChoosen}</h2>
+      <button onClick={fetchFoodArea}>clique</button>
       <Footer />
     </div>
   );
