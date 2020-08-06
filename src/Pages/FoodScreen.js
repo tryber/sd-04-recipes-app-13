@@ -43,11 +43,8 @@ const FoodScreen = () => {
         </RenderButton>
         {categories.slice(0, 5).map(({ strCategory }) => (
           <RenderButton
-            type="button"
-            onClick={() => changeCategory(strCategory)}
-            data-testid={`${strCategory}-category-filter`}
-            key={strCategory}
-            className="category-btn"
+            type="button" onClick={() => changeCategory(strCategory)} className="category-btn"
+            data-testid={`${strCategory}-category-filter`} key={strCategory}
           >
             {strCategory}
           </RenderButton>

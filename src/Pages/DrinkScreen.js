@@ -16,8 +16,7 @@ const DrinkScreen = () => {
     getByName(name)
       .then((drink) => {
         setData(drink);
-      })
-      .catch((err) => console.error(err));
+      });
     listAllCategories().then((category) => {
       setCategories(category);
     });
@@ -29,7 +28,6 @@ const DrinkScreen = () => {
     return (
       <div>
         <Header title="Bebidas" search />
-        <h3>Nada Encontrado</h3>
         <Footer />
       </div>
     );
@@ -44,14 +42,9 @@ const DrinkScreen = () => {
         </RenderButton>
         {categories.slice(0, 5).map(({ strCategory }) => (
           <RenderButton
-            type="button"
-            className="category-btn"
-            onClick={() => changeCategory(strCategory)}
-            data-testid={`${strCategory}-category-filter`}
-            key={strCategory}
-          >
-            {strCategory}
-          </RenderButton>
+            type="button" className="category-btn" onClick={() => changeCategory(strCategory)}
+            data-testid={`${strCategory}-category-filter`} key={strCategory}
+          >{strCategory}</RenderButton>
         ))}
       </div>
       <FoodAndDrinkCard data={data} info="drink" test="card" geralTest="recipe" />
