@@ -22,9 +22,9 @@ const DrinkScreen = () => {
       setCategories(category);
     });
   }, [name]);
-  const changeCategory = (strCategory) => {
-    return name === strCategory ? setName('') : setName(strCategory);
-  };
+  const changeCategory = (strCategory) => (
+    name === strCategory ? setName('') : setName(strCategory)
+  );
   if (!data) {
     return (
       <div>
