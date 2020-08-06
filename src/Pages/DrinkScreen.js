@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import Footer from '../components/Footer';
 import Header from '../components/Header/Header';
-import { getByName, listAllCategories } from '../services/drinkApi';
+import { getByName, listAllCategories, getByCategories } from '../services/drinkApi';
 import Loading from '../components/Loading';
 import FoodAndDrinkCard from '../components/FoodAndDrinkCard';
 import '../styles/FoodAndDrinkCards.css';
@@ -23,6 +23,7 @@ const DrinkScreen = () => {
   }, [name]);
   const changeCategory = (strCategory) => (
     name === strCategory ? setName('') : setName(strCategory)
+    // getByCategories(strCategory).then()
   );
   if (!data) {
     return (
@@ -42,9 +43,15 @@ const DrinkScreen = () => {
         </RenderButton>
         {categories.slice(0, 5).map(({ strCategory }) => (
           <RenderButton
-            type="button" className="category-btn" onClick={() => changeCategory(strCategory)}
-            data-testid={`${strCategory}-category-filter`} key={strCategory}
-          >{strCategory}</RenderButton>
+            type="button"
+            className="category-btn"
+            onClick={() => changeCategory(strCategory)}
+            data-testid={`${strCategory}-category-filter`}
+            key={strCategory}
+          >
+            {strCategory}
+
+          </RenderButton>
         ))}
       </div>
       <FoodAndDrinkCard data={data} info="drink" test="card" geralTest="recipe" />

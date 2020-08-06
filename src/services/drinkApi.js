@@ -12,9 +12,15 @@ export async function getById(id) {
 }
 
 export async function listAllCategories() {
-  const categories = await fetch(`${URL}/list.php?c=list`).then((r) => r.json());
+  const categories = await fetch(`${URL}/filter.php?c=list`).then((r) => r.json());
   return categories.drinks;
 }
+
+export async function getByCategories(category) {
+  const categories = await fetch(`${URL}/filter.php?c=${category}`).then((r) => r.json());
+  return categories.drinks;
+}
+
 
 // Pega por Letra
 async function getByFirstLetter(letter) {
