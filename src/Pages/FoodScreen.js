@@ -6,12 +6,13 @@ import { getByName, listAllCategories } from '../services/foodApi';
 import Loading from '../components/Loading';
 import FoodAndDrinkCard from '../components/FoodAndDrinkCard';
 import '../styles/FoodAndDrinkCards.css';
+import RenderButton from '../components/utils/Button';
 
 const FoodScreen = () => {
   const { data, setData } = useContext(RecipeContext);
   const [categories, setCategories] = useState([]);
   const [name, setName] = useState('');
-
+  // const text = 'Sinto muito, não encontramos nenhuma receita para esses filtros.';
   useEffect(() => {
     getByName(name).then((Datafoods) => {
       setData(Datafoods);
@@ -21,35 +22,34 @@ const FoodScreen = () => {
       setCategories(Datacategories);
     });
   }, [name]);
+  const changeCategory = (strCategory) => (
+    name === strCategory ? setName('') : setName(strCategory)
+  );
 
-  const changeCategory = (strCategory) => {
-    if (name === strCategory) return setName('');
-    return setName(strCategory);
-  };
   if (!data) {
     return (
       <div>
-        <h2>Nada encontrado</h2>
-        <button type="button" onClick={() => setName('')}>Voltar</button>
+        <Header title="Comidas" search />
+        {/* {alert(text) && setName(name)} */}
+        <Footer />
       </div>
     );
-  } else if (data.length === 0) return <Loading />;
-
-  return !data ? (
-    <Loading />
-  ) : (
+  }
+  if (data.length === 0) return <Loading />;
+  return (
     <div className="general-container">
-      <Header title="Comidas" />
+      <Header title="Comidas" search />
       <div className="category-btn-div">
-        <button className="category-btn" onClick={() => setName('')}>All</button>
+        <RenderButton type="button" className="category-btn" onClick={() => setName('')}>
+          All
+        </RenderButton>
         {categories.slice(0, 5).map(({ strCategory }) => (
-          <button
-            onClick={() => changeCategory(strCategory)}
-            data-testid={`${strCategory}-category-filter`}
-            key={strCategory} className="category-btn" type="button"
+          <RenderButton
+            type="button" onClick={() => changeCategory(strCategory)} key={strCategory}
+            className="category-btn" data-testid={`${strCategory}-category-filter`}
           >
             {strCategory}
-          </button>
+          </RenderButton>
         ))}
       </div>
       <FoodAndDrinkCard data={data} info="food" test="card" geralTest="recipe" />
