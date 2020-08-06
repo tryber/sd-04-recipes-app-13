@@ -11,6 +11,7 @@ function FoodArea() {
   }, []);
 
   const isDropDown = !!dropDown;
+  const counter = 2;
 
   return (
     <div>
@@ -19,7 +20,10 @@ function FoodArea() {
         <option>All</option>
         {isDropDown &&
           dropDown.map((area, index) => (
-            <option data-testid={`${area.strArea}-option`} key={`dropDown-${index}-${area}`}>
+            <option
+              data-testid={`${area.strArea}-option`}
+              key={`dropDown-${counter + 1}-${area}`}
+            >
               {area.strArea}
             </option>
           ))}
