@@ -9,28 +9,43 @@ import {
 } from '../../services/foodApi';
 import RenderInput from '../utils/Input';
 
+const CaseName = (inputValue, history, text) => {
+  const foods = await getByName(inputValue).then((food) => food);
+    if (!foods) alert(text);
+    else if (foods.length === 1) {
+    history.push(`/comidas/${foods[0].idMeal}`);
+  }
+  return foods;
+}
+
+const CaseIng = (inputValue, history, text) => {
+  const foods = await getByIngredientsFood(inputValue).then((food) => food);
+  if (!foods) return alert(text);
+  if (foods.length === 1) history.push(`/comidas/${foods[0].idMeal}`);
+  return foods;
+}
+
+const CaseLetter = (inputValue, history) => {
+  foods = await getByFirstLetterFood(inputValue).then((food) => food);
+  if (foods.length === 1) {
+    history.push(`/comidas/${foods[0].idMeal}`);
+  }
+  return foods;
+}
+
 const changeData = async (history, setData, data, radio, inputValue) => {
   let foods = [];
   const text = 'Sinto muito, não encontramos nenhuma receita para esses filtros.';
   switch (radio) {
     case 'nome':
-      foods = await getByName(inputValue).then((food) => food);
-      if (!foods) alert(text);
-      else if (foods.length === 1) {
-        history.push(`/comidas/${foods[0].idMeal}`);
-      }
+      foods = CaseName(inputValue, history, text);
       break;
     case 'ingrediente':
-      foods = await getByIngredientsFood(inputValue).then((food) => food);
-      if (!foods) return alert(text);
-      if (foods.length === 1) history.push(`/comidas/${foods[0].idMeal}`);
+      foods = CaseIng(inputValue, history, text);
       break;
     case 'primeira-letra':
       if (inputValue.length > 1) return alert('Sua busca deve conter somente 1 (um) caracter');
-      foods = await getByFirstLetterFood(inputValue).then((food) => food);
-      if (foods.length === 1) {
-        history.push(`/comidas/${foods[0].idMeal}`);
-      }
+      foods = CaseLetter(inputValue, history);
       break;
     default:
       setData(data);
