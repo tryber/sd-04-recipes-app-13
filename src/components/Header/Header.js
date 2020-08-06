@@ -1,49 +1,46 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
-import { useHistory } from 'react-router-dom';
-import Icons from '../Icons';
+import { Link, useHistory } from 'react-router-dom';
 import ProfileIcon from '../../images/profileIcon.svg';
 import SearchIcon from '../../images/searchIcon.svg';
-import './styles.css';
+import RenderButton from '../utils/Button';
+import FoodBarSearch from './FoodBarScreen';
+import DrinkBarSearch from './DrinkBarScreen';
 
 const Header = ({ title, search }) => {
   const history = useHistory();
-  const profileBtn = () => history.push('/perfil');
+  const [isHidden, setIsHidden] = useState(true);
 
-  const searchBtn = () => {
-    if (document.getElementById('barSearch').style.display === 'block') {
-      document.getElementById('barSearch').style.display = 'none';
-    } else {
-      document.getElementById('barSearch').style.display = 'block';
-    }
-  };
+  const searchBtn = () => (isHidden === true ? setIsHidden(false) : setIsHidden(true));
 
   return (
     <Fragment>
       <header>
-        <Icons
-          testid="profile-top-btn"
-          src={ProfileIcon}
-          alt="Ícone do Perfil"
-          onClick={() => profileBtn()}
-        />
+        <div>
+          <Link to="/perfil">
+            <img data-testid="profile-top-btn" src={ProfileIcon} alt="Ícone do Perfil" />
+          </Link>
+        </div>
         <h1 data-testid="page-title" className="pageTitle">
           {title}
         </h1>
         {search ? (
-          <Icons
-            testid="search-top-btn"
-            src={SearchIcon}
-            alt="Ícone de Pesquisa"
-            onClick={searchBtn}
-          />
+          <RenderButton type="button" onClick={searchBtn}>
+            <img data-testid="search-top-btn" src={SearchIcon} alt="Ícone de Pesquisa" />
+          </RenderButton>
         ) : (
           <div />
         )}
       </header>
-      <div id="barSearch" className="hidden">
-        Barra de Busca
-      </div>
+      {!isHidden && (
+        <div>
+          {history.location.pathname === '/comidas' ? (
+            <FoodBarSearch />
+          ) : (
+            <DrinkBarSearch />
+          )}
+        </div>
+      )}
     </Fragment>
   );
 };

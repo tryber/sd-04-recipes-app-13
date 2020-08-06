@@ -1,9 +1,10 @@
 import React from 'react';
+import Header from '../components/Header/Header';
 
 function RecipesDone() {
   return (
     <div>
-      <h1>oi</h1>
+      <Header title="Receitas Feitas" />
     </div>
   );
 }
