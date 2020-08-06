@@ -68,47 +68,35 @@ const FoodBarSearch = () => {
     <div>
       <div>
         <RenderInput
-          type="text"
-          data-testid="search-input"
-          placeholder="Buscar Receita"
-          onChange={(e) => setInputValue(e.target.value)}
+          type="text" data-testid="search-input" placeholder="Buscar Receita"
+          onChange={(e) => setInputValue(e.target.value)} name="food-search"
         />
       </div>
       <div>
         <label htmlFor="ingredient-search-radio">
           <RenderInput
-            data-testid="ingredient-search-radio"
-            type="radio"
-            value="ingrediente"
-            onChange={(e) => setRadio(e.target.value)}
-            name="radioBtn"
+            data-testid="ingredient-search-radio" type="radio" value="ingrediente"
+            onChange={(e) => setRadio(e.target.value)} name="radioBtn"
           />
           Ingrediente
         </label>
         <label htmlFor="name-search-radio">
           <RenderInput
-            data-testid="name-search-radio"
-            type="radio"
-            value="nome"
-            onChange={(e) => setRadio(e.target.value)}
-            name="radioBtn"
+            data-testid="name-search-radio" type="radio" value="nome"
+            onChange={(e) => setRadio(e.target.value)} name="radioBtn"
           />
           Nome
         </label>
         <label htmlFor="first-letter-search-radio">
           <RenderInput
-            data-testid="first-letter-search-radio"
-            type="radio"
-            value="primeira-letra"
-            onChange={(e) => setRadio(e.target.value)}
-            name="radioBtn"
+            data-testid="first-letter-search-radio" type="radio" value="primeira-letra"
+            onChange={(e) => setRadio(e.target.value)} name="radioBtn"
           />
           Primeira letra
         </label>
       </div>
       <RenderButton
-        type="button"
-        data-testid="exec-search-btn"
+        type="button" data-testid="exec-search-btn"
         onClick={() => changeData(history, setData, data, radio, inputValue)}
       >
         Buscar
