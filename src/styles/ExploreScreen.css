@@ -1,23 +1,21 @@
 .btn-explore-food {
-  position: absolute;
-  width: 327px;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   height: 82px;
   left: 15px;
+  position: absolute;
   top: 81px;
-
-  background: #ffffff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 6px;
+  width: 327px;
 }
 
 .btn-explore-drinks {
-  position: absolute;
-  width: 327px;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   height: 82px;
   left: 14px;
+  position: absolute;
   top: 196px;
-
-  background: #ffffff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 6px;
+  width: 327px;
 }
