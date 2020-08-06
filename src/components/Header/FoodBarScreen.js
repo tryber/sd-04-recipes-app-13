@@ -51,7 +51,6 @@ const changeData = async (history, setData, data, radio, inputValue) => {
       setData(data);
   }
 
-
   return setData(data);
 };
 
