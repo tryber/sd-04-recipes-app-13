@@ -5,8 +5,11 @@ import RenderInput from '../utils/Input';
 import RenderButton from '../utils/Button';
 import { getByIngredients, getByFirstLetter, getByName } from '../../services/drinkApi';
 
+
+
 const changeData = async (history, setData, data, radio, inputValue) => {
   const text = 'Sinto muito, não encontramos nenhuma receita para esses filtros.';
+  
   const changedDataNome = await getByName(inputValue)
     .then((drink) => drink)
     .catch((error) => console.log(error));
