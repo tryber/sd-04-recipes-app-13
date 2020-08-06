@@ -15,17 +15,19 @@ const changeData = async (history, setData, data, radio, inputValue) => {
   switch (radio) {
     case 'nome':
       foods = await getByName(inputValue).then((food) => food);
-      if (foods.length === 1) {
+      if (!foods) alert(text);
+      else if (foods.length === 1) {
         history.push(`/comidas/${foods[0].idMeal}`);
       }
       break;
     case 'ingrediente':
       foods = await getByIngredientsFood(inputValue).then((food) => food);
+      if (!foods) return alert(text);
       if (foods.length === 1) history.push(`/comidas/${foods[0].idMeal}`);
       break;
     case 'primeira-letra':
+      if (inputValue.length > 1) return alert('Sua busca deve conter somente 1 (um) caracter');
       foods = await getByFirstLetterFood(inputValue).then((food) => food);
-      if (inputValue.length > 1) alert('Sua busca deve conter somente 1 (um) caracter');
       if (foods.length === 1) {
         history.push(`/comidas/${foods[0].idMeal}`);
       }
@@ -34,9 +36,8 @@ const changeData = async (history, setData, data, radio, inputValue) => {
       setData(data);
   }
 
-  if (!foods) alert(text);
 
-  return setData(foods);
+  return setData(data);
 };
 
 const FoodBarSearch = () => {
@@ -70,14 +71,18 @@ const FoodBarSearch = () => {
         </label>
         <label htmlFor="first-letter-search-radio">
           <RenderInput
-            data-testid="first-letter-search-radio" type="radio" value="primeira-letra"
-            onChange={(e) => setRadio(e.target.value)} name="radioBtn"
+            data-testid="first-letter-search-radio"
+            type="radio"
+            value="primeira-letra"
+            onChange={(e) => setRadio(e.target.value)}
+            name="radioBtn"
           />
           Primeira letra
         </label>
       </div>
       <RenderButton
-        type="button" data-testid="exec-search-btn"
+        type="button"
+        data-testid="exec-search-btn"
         onClick={() => changeData(history, setData, data, radio, inputValue)}
       >
         Buscar
