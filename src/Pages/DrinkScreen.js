@@ -1,59 +1,53 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import Footer from '../components/Footer';
 import Header from '../components/Header/Header';
 import { getByName, listAllCategories } from '../services/drinkApi';
 import Loading from '../components/Loading';
 import FoodAndDrinkCard from '../components/FoodAndDrinkCard';
 import '../styles/FoodAndDrinkCards.css';
+import { RecipeContext } from '../context';
+import RenderButton from '../components/utils/Button';
 
 const DrinkScreen = () => {
-  const [drinks, setDrinks] = useState([]);
+  const { data, setData } = useContext(RecipeContext);
   const [name, setName] = useState('');
   const [categories, setCategories] = useState([]);
-
   useEffect(() => {
     getByName(name)
-      .then((data) => {
-        setDrinks(data);
-      })
-      .catch((err) => console.error(err));
-
+      .then((drink) => {
+        setData(drink);
+      });
     listAllCategories().then((category) => {
       setCategories(category);
     });
   }, [name]);
-
-  const changeCategory = (strCategory) => {
-    if (name === strCategory) return setName('');
-    return setName(strCategory);
-  };
-
-  if (!drinks) {
+  const changeCategory = (strCategory) => (
+    name === strCategory ? setName('') : setName(strCategory)
+  );
+  if (!data) {
     return (
       <div>
-        <h2>Nada encontrado</h2>
-        <button onClick={() => setName('')}>Voltar</button>
+        <Header title="Bebidas" search />
+        <Footer />
       </div>
     );
-  } else if (drinks.length === 0) return <Loading />;
-
-  return !drinks ? (
-    <Loading />
-  ) : (
+  }
+  if (data.length === 0) return <Loading />;
+  return (
     <div className="general-container">
-      <Header title="Bebidas" />
+      <Header title="Bebidas" search />
       <div className="category-btn-div">
-        <button className="category-btn" onClick={() => setName('')}>All</button>
+        <RenderButton type="button" className="category-btn" onClick={() => setName('')}>
+          All
+        </RenderButton>
         {categories.slice(0, 5).map(({ strCategory }) => (
-          <button
-            className="category-btn" onClick={() => changeCategory(strCategory)}
+          <RenderButton
+            type="button" className="category-btn" onClick={() => changeCategory(strCategory)}
             data-testid={`${strCategory}-category-filter`} key={strCategory}
-          >
-            {strCategory}
-          </button>
+          >{strCategory}</RenderButton>
         ))}
       </div>
-      <FoodAndDrinkCard data={drinks} info="drink" test="card" geralTest="recipe" />
+      <FoodAndDrinkCard data={data} info="drink" test="card" geralTest="recipe" />
       <Footer />
     </div>
   );

@@ -4,6 +4,7 @@ import Header from '../components/Header/Header';
 import Footer from '../components/Footer';
 import { loadStorage } from '../services/localStorage';
 
+
 function ProfileScreen() {
   const cleanAndBack = () => {
     localStorage.clear();
