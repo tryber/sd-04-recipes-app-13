@@ -14,17 +14,17 @@ const changeData = async (history, setData, data, radio, inputValue) => {
   const text = 'Sinto muito, não encontramos nenhuma receita para esses filtros.';
   switch (radio) {
     case 'nome':
-      foods = await getByName(inputValue).then((foods) => foods);
+      foods = await getByName(inputValue).then((food) => food);
       if (foods.length === 1) {
         history.push(`/comidas/${foods[0].idMeal}`);
       }
       break;
     case 'ingrediente':
-      foods = await getByIngredientsFood(inputValue).then((foods) => foods);
+      foods = await getByIngredientsFood(inputValue).then((food) => food);
       if (foods.length === 1) history.push(`/comidas/${foods[0].idMeal}`);
       break;
     case 'primeira-letra':
-      foods = await getByFirstLetterFood(inputValue).then((foods) => foods);
+      foods = await getByFirstLetterFood(inputValue).then((food) => food);
       if (inputValue.length > 1) alert('Sua busca deve conter somente 1 (um) caracter');
       if (foods.length === 1) {
         history.push(`/comidas/${foods[0].idMeal}`);
