@@ -71,18 +71,14 @@ const FoodBarSearch = () => {
         </label>
         <label htmlFor="first-letter-search-radio">
           <RenderInput
-            data-testid="first-letter-search-radio"
-            type="radio"
-            value="primeira-letra"
-            onChange={(e) => setRadio(e.target.value)}
-            name="radioBtn"
+            data-testid="first-letter-search-radio" type="radio" value="primeira-letra"
+            onChange={(e) => setRadio(e.target.value)} name="radioBtn"
           />
           Primeira letra
         </label>
       </div>
       <RenderButton
-        type="button"
-        data-testid="exec-search-btn"
+        type="button" data-testid="exec-search-btn"
         onClick={() => changeData(history, setData, data, radio, inputValue)}
       >
         Buscar
