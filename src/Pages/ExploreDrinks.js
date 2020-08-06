@@ -4,7 +4,7 @@ import Footer from '../components/Footer';
 import Header from '../components/Header/Header';
 import '../styles/ExploreScreen.css';
 
-function ExploreFoods() {
+function ExploreDrinks() {
   return (
     <div>
       <Header />
@@ -36,4 +36,4 @@ function ExploreFoods() {
   );
 }
 
-export default ExploreFoods;
+export default ExploreDrinks;
