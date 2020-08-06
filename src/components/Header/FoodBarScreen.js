@@ -50,7 +50,7 @@ const changeData = async (history, setData, data, radio, inputValue) => {
     default:
       setData(data);
   }
-  console.log(foods)
+
   return setData(foods);
 };
 
