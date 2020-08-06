@@ -1,4 +1,4 @@
-const saveStorage = (key, entry) => {
+export const saveStorage = (key, entry) => {
   let formattedEntry = entry;
 
   if (typeof entry === 'object') {
@@ -8,16 +8,11 @@ const saveStorage = (key, entry) => {
   localStorage.setItem(key, formattedEntry);
 };
 
-const loadStorage = (key) => {
-  localStorage.getItem(key);
+export const loadStorage = (key) => {
+  if (key === 'user') return JSON.parse(localStorage.getItem(key));
+  return localStorage.getItem(key);
 };
 
-const deleteStorage = (key) => {
+export const deleteStorage = (key) => {
   localStorage.removeItem(key);
-};
-
-export {
-  saveStorage,
-  loadStorage,
-  deleteStorage,
 };
