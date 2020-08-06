@@ -2,14 +2,17 @@ import React, { useState, useEffect } from 'react';
 import Footer from '../components/Footer';
 import Header from '../components/Header/Header';
 import { getAllFoodByArea, getByArea } from '../services/foodApi';
+import FoodAndDrinkCard from '../components/FoodAndDrinkCard';
 
 function FoodArea() {
   const [dropDown, setDropDown] = useState([]);
   const [dropDownChoosen, setDropDownChoosen] = useState('');
+  const [dataArea, setDataArea] = useState([]);
 
   useEffect(() => {
     getAllFoodByArea().then((area) => setDropDown(area));
-  }, []);
+    getByArea(dropDownChoosen).then((area) => setDataArea(area));
+  }, [dropDownChoosen]);
 
   const isDropDown = !!dropDown;
 
@@ -17,9 +20,7 @@ function FoodArea() {
     setDropDownChoosen(e.target.value);
   };
 
-  const fetchFoodArea = () => {
-    getByArea(dropDownChoosen).then((area) => console.log(area));
-  };
+  console.log(dataArea);
 
   return (
     <div>
@@ -30,14 +31,14 @@ function FoodArea() {
           dropDown.map((area, index) => (
             <option
               data-testid={`${area.strArea}-option`}
-              key={`dropDown-${index + 1}-${area}`}
+              key={`dropDown${index + 1}-${area.strArea}`}
             >
               {area.strArea}
             </option>
           ))}
       </select>
       <h2>{dropDownChoosen}</h2>
-      <button onClick={fetchFoodArea}>clique</button>
+      {dataArea && <FoodAndDrinkCard data={dataArea} info="food" />}
       <Footer />
     </div>
   );
