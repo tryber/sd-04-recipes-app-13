@@ -9,13 +9,13 @@ function ExploreFoods() {
     <div>
       <Header />
       <Link to="/explorar/comidas">
-      <button
-        type="button"
-        data-testid="explore-by-ingredient"
-        className="btn-explore-by-ingredient"
-      >
-        Por Ingredientes
-      </button>
+        <button
+          type="button"
+          data-testid="explore-by-ingredient"
+          className="btn-explore-by-ingredient"
+        >
+          Por Ingredientes
+        </button>
       </Link>
       <button
         type="button"
