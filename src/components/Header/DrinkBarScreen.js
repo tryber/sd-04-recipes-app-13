@@ -54,47 +54,35 @@ const DrinkBarSearch = () => {
   return (
     <div>
       <RenderInput
-        type="text"
-        data-testid="search-input"
-        placeholder="Buscar Receita"
-        onChange={(e) => setInputValue(e.target.value)}
+        type="text" data-testid="search-input" placeholder="Buscar Receita"
+        onChange={(e) => setInputValue(e.target.value)} name="drink-search"
       />
       <div>
         <label htmlFor="ingredient-search-radio">
           <RenderInput
-            type="radio"
-            data-testid="ingredient-search-radio"
-            value="ingrediente"
-            onChange={(e) => setRadio(e.target.value)}
-            name="radioBtn"
+            type="radio" data-testid="ingredient-search-radio" value="ingrediente"
+            onChange={(e) => setRadio(e.target.value)} name="radioBtn"
           />
           Ingrediente
         </label>
         <label htmlFor="name-search-radio">
           <RenderInput
-            type="radio"
-            data-testid="name-search-radio"
-            value="nome"
-            onChange={(e) => setRadio(e.target.value)}
-            name="radioBtn"
+            type="radio" data-testid="name-search-radio" value="nome"
+            onChange={(e) => setRadio(e.target.value)} name="radioBtn"
           />
           Nome
         </label>
         <label htmlFor="first-letter-search-radio">
           <RenderInput
-            type="radio"
-            data-testid="first-letter-search-radio"
-            id="first-letter-search-radio"
+            type="radio" data-testid="first-letter-search-radio" id="first-letter-search-radio"
             value="primeira-letra"
-            onChange={(e) => setRadio(e.target.value)}
-            name="radioBtn"
+            onChange={(e) => setRadio(e.target.value)} name="radioBtn"
           />
           Primeira letra
         </label>
       </div>
       <RenderButton
-        type="button"
-        data-testid="exec-search-btn"
+        type="button" data-testid="exec-search-btn"
         onClick={() => changeData(history, setData, data, radio, inputValue)}
       >
         Buscar
