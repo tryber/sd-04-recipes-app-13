@@ -21,8 +21,9 @@ const FoodScreen = () => {
       setCategories(Datacategories);
     });
   }, [name]);
-  const changeCategory = (strCategory) =>
-    (name === strCategory ? setName('') : setName(strCategory));
+  const changeCategory = (strCategory) => (
+    name === strCategory ? setName('') : setName(strCategory)
+  );
   if (!data) {
     return (
       <div>
