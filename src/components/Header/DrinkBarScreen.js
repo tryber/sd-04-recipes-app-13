@@ -75,8 +75,7 @@ const DrinkBarSearch = () => {
         <label htmlFor="first-letter-search-radio">
           <RenderInput
             type="radio" data-testid="first-letter-search-radio" id="first-letter-search-radio"
-            value="primeira-letra"
-            onChange={(e) => setRadio(e.target.value)} name="radioBtn"
+            value="primeira-letra" onChange={(e) => setRadio(e.target.value)} name="radioBtn"
           />
           Primeira letra
         </label>
