@@ -19,7 +19,7 @@ function FoodArea() {
         <option>All</option>
         {isDropDown &&
           dropDown.map((area, index) => (
-            <option data-testid={`${area.strArea}-option`} key={`${index}-area`}>
+            <option data-testid={`${area.strArea}-option`} key={`dropDown-${index}-${area}`}>
               {area.strArea}
             </option>
           ))}
