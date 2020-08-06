@@ -22,7 +22,9 @@ function ProfileScreen() {
           <button type="button" data-testid="profile-done-btn">Receitas Feitas</button>
         </Link>
         <Link to="/">
-          <button type="button" data-testid="profile-logout-btn" onClick={() => cleanAndBack()}>Sair</button>
+          <button type="button" data-testid="profile-logout-btn" onClick={() => cleanAndBack()}>
+            Sair
+          </button>
         </Link>
       </div>
       <Footer />
