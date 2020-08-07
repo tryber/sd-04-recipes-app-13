@@ -1,20 +1,61 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import copy from 'clipboard-copy';
 import shareIcon from '../images/shareIcon.svg';
 import whiteHeartIcon from '../images/whiteHeartIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
-// import { loadStorage } from '../services/localStorage';
-// tentar colocar em ação esse codigo
+import { saveStorage, loadStorage } from '../services/localStorage';
 
-function ShareAndFavorite({ path, copied, setCopied }) {
+function ShareAndFavorite({ food, path, copied, setCopied }) {
+  const [isFavorite, setIsFavorite] = useState(false);
+  const [favoriteStorage, setFavoriteStorage] = useState([]);
+  const [reload, setReload] = useState(false);
+
+  const searchFavoriteFood = () => {
+    const foodIsFavorite = favoriteStorage.filter((fav) => fav.id === food.idMeal);
+    console.log('oi', foodIsFavorite);
+    foodIsFavorite.length > 0 && setIsFavorite(true);
+  };
+
+  useEffect(() => {
+    const favorite = JSON.parse(loadStorage('favoriteRecipes')) || [];
+    setFavoriteStorage(favorite);
+    searchFavoriteFood();
+  }, [food, reload]);
+
+  const saveFood = {
+    id: food.idMeal,
+    type: 'comida',
+    area: food.strArea,
+    category: food.strCategory,
+    name: food.strMeal,
+    image: food.strMealThumb,
+  };
+
+  const handleFavorite = () => {
+    !isFavorite && favoriteStorage
+      ? saveStorage('favoriteRecipes', [...favoriteStorage, saveFood])
+      : saveStorage('favoriteRecipes', [saveFood]);
+
+    if (isFavorite) {
+      const favoriteFilter = favoriteStorage.filter((fav) => fav.id !== food.idMeal);
+      saveStorage('favoriteRecipes', favoriteFilter);
+      setFavoriteStorage(JSON.parse(loadStorage('favoriteRecipes')));
+    }
+
+    setIsFavorite(!isFavorite);
+  };
 
   const ShareClick = () => {
     copy(path);
     setCopied(true);
   };
-  console.log(copied);
+
   return (
     <div>
+      <button onClick={() => handleFavorite()}>
+        <img src={isFavorite ? blackHeartIcon : whiteHeartIcon} alt="whiteHeart" />
+      </button>
+
       <button type="button" onClick={() => ShareClick()}>
         <img src={shareIcon} alt="share-icon" />
       </button>
