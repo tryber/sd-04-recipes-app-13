@@ -3,23 +3,22 @@ import ReactPlayer from 'react-player';
 import { getById } from '../services/foodApi';
 import FoodAndDrinkCard from '../components/FoodAndDrinkCard';
 import { getByName } from '../services/drinkApi';
-// import ShareAndFavorite from '../components/ShareAndFavorite';
+import ShareAndFavorite from '../components/ShareAndFavorite';
 // import '../styles/DetailsPage.css';
 
 function FoodDetails() {
   const [food, setFood] = useState('');
   const [Drink, setDrink] = useState([]);
-  // const [path, setPath] = useState('');
-  // const [copied, setCopied] = useState(false);
+  const [path, setPath] = useState('');
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     const foodId = window.location.pathname.slice(9);
     getById(foodId).then((Datafood) => setFood(Datafood[0]));
     getByName('').then((resp) => setDrink(resp));
-    // setPath(window.location.pathname);
+    setPath(window.location.href);
   }, []);
 
-  console.log(food);
   return (
     <div className="details-container">
       <img
@@ -27,6 +26,7 @@ function FoodDetails() {
       />
       <h1 data-testid="recipe-title" className="details-title">{food.strMeal}</h1>
       <h4 data-testid="recipe-category" className="details-sub">{food.strCategory}</h4>
+      <ShareAndFavorite path={path} copied={copied} setCopied={setCopied} />
       <div className="ingredients">
         <h1>Ingredients</h1>
         <ul>
