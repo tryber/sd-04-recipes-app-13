@@ -29,13 +29,13 @@ function ExploreFoods() {
       </Link>
 
       <Link to="/comidas/52771">
-      <button
-        type="button"
-        data-testid="explore-surprise"
-        className="btn-explore-surprise"
-      >
-        Me Surpreenda!
-      </button>
+        <button
+          type="button"
+          data-testid="explore-surprise"
+          className="btn-explore-surprise"
+        >
+          Me Surpreenda!
+        </button>
       </Link>
       <Footer />
     </div>
