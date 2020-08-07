@@ -44,7 +44,9 @@ function FoodArea() {
           ))}
       </select>
 
-      {dataArea && <FoodAndDrinkCard data={dataArea} info="food" geralTest="recipe" />}
+      {dataArea && (
+        <FoodAndDrinkCard data={dataArea} info="food" test="card" geralTest="recipe" />
+      )}
       <Footer />
     </div>
   );
