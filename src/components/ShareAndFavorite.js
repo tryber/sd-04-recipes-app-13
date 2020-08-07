@@ -6,7 +6,7 @@ import whiteHeartIcon from '../images/whiteHeartIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
 import { saveStorage, loadStorage } from '../services/localStorage';
 
-const searchFavoriteFood = (favoriteStorage, food) => {
+const searchFavoriteFood = (favoriteStorage, food, setIsFavorite) => {
   const foodIsFavorite = favoriteStorage.filter((fav) => fav.id === food.idMeal);
   console.log('oi', foodIsFavorite);
   if (foodIsFavorite.length > 0) setIsFavorite(true);
@@ -19,7 +19,7 @@ const ShareAndFavorite = ({ food, path, copied, setCopied }) => {
   useEffect(() => {
     const favorite = JSON.parse(loadStorage('favoriteRecipes')) || [];
     setFavoriteStorage(favorite);
-    searchFavoriteFood(favoriteStorage, food);
+    searchFavoriteFood(favoriteStorage, food, setIsFavorite);
   }, [food]);
 
   const saveFood = {
