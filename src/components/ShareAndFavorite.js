@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import copy from 'clipboard-copy';
 import shareIcon from '../images/shareIcon.svg';
 import whiteHeartIcon from '../images/whiteHeartIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
 import { saveStorage, loadStorage } from '../services/localStorage';
-import PropTypes from 'prop-types';
 
 function ShareAndFavorite({ food, path, copied, setCopied }) {
   const [isFavorite, setIsFavorite] = useState(false);
@@ -13,7 +13,7 @@ function ShareAndFavorite({ food, path, copied, setCopied }) {
   const searchFavoriteFood = () => {
     const foodIsFavorite = favoriteStorage.filter((fav) => fav.id === food.idMeal);
     console.log('oi', foodIsFavorite);
-    foodIsFavorite.length > 0 && setIsFavorite(true);
+    if (foodIsFavorite.length > 0) setIsFavorite(true);
   };
 
   useEffect(() => {
@@ -32,9 +32,11 @@ function ShareAndFavorite({ food, path, copied, setCopied }) {
   };
 
   const handleFavorite = () => {
-    !isFavorite && favoriteStorage
-      ? saveStorage('favoriteRecipes', [...favoriteStorage, saveFood])
-      : saveStorage('favoriteRecipes', [saveFood]);
+    if (!isFavorite && favoriteStorage) {
+      saveStorage('favoriteRecipes', [...favoriteStorage, saveFood]);
+    } else {
+      saveStorage('favoriteRecipes', [saveFood]);
+    }
 
     if (isFavorite) {
       const favoriteFilter = favoriteStorage.filter((fav) => fav.id !== food.idMeal);
@@ -65,7 +67,7 @@ function ShareAndFavorite({ food, path, copied, setCopied }) {
 }
 
 ShareAndFavorite.propTypes = {
-  food: PropTypes.objectOf(PropTypes.objectOf(string)).isRequired,
+  food: PropTypes.objectOf(PropTypes.string).isRequired,
   path: PropTypes.string.isRequired,
   copied: PropTypes.bool.isRequired,
   setCopied: PropTypes.func.isRequired,
