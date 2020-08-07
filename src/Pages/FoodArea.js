@@ -30,7 +30,9 @@ function FoodArea() {
     <div>
       <Header title="Explorar Origem" search />
       <select onChange={(e) => handleSelect(e)} data-testid="explore-by-area-dropdown">
-        <option value="All">All</option>
+        <option data-testid={'All-option'} value="All">
+          All
+        </option>
         {isDropDown &&
           dropDown.map((area, index) => (
             <option
@@ -42,7 +44,7 @@ function FoodArea() {
           ))}
       </select>
 
-      {dataArea && <FoodAndDrinkCard data={dataArea} info="food" />}
+      {dataArea && <FoodAndDrinkCard data={dataArea} info="food" geralTest="recipe" />}
       <Footer />
     </div>
   );
