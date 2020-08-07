@@ -4,6 +4,7 @@ import shareIcon from '../images/shareIcon.svg';
 import whiteHeartIcon from '../images/whiteHeartIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
 // import { loadStorage } from '../services/localStorage';
+// tentar colocar em ação esse codigo
 
 function ShareAndFavorite(path, copied, setCopied, foodId) {
   const localfavorite = (localStorage.getItem('favoriteRecipes'));
