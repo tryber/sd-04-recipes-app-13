@@ -4,11 +4,11 @@ import shareIcon from '../images/shareIcon.svg';
 import whiteHeartIcon from '../images/whiteHeartIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
 import { saveStorage, loadStorage } from '../services/localStorage';
+import PropTypes from 'prop-types';
 
 function ShareAndFavorite({ food, path, copied, setCopied }) {
   const [isFavorite, setIsFavorite] = useState(false);
   const [favoriteStorage, setFavoriteStorage] = useState([]);
-  const [reload, setReload] = useState(false);
 
   const searchFavoriteFood = () => {
     const foodIsFavorite = favoriteStorage.filter((fav) => fav.id === food.idMeal);
@@ -20,7 +20,7 @@ function ShareAndFavorite({ food, path, copied, setCopied }) {
     const favorite = JSON.parse(loadStorage('favoriteRecipes')) || [];
     setFavoriteStorage(favorite);
     searchFavoriteFood();
-  }, [food, reload]);
+  }, [food]);
 
   const saveFood = {
     id: food.idMeal,
@@ -63,5 +63,12 @@ function ShareAndFavorite({ food, path, copied, setCopied }) {
     </div>
   );
 }
+
+ShareAndFavorite.propTypes = {
+  food: PropTypes.objectOf(PropTypes.objectOf(string)).isRequired,
+  path: PropTypes.string.isRequired,
+  copied: PropTypes.bool.isRequired,
+  setCopied: PropTypes.func.isRequired,
+};
 
 export default ShareAndFavorite;
