@@ -11,15 +11,15 @@ function FoodDetails() {
   const [Drink, setDrink] = useState([]);
   // const [path, setPath] = useState('');
   // const [copied, setCopied] = useState(false);
-  const [foodId, setFoodId] = useState('');
 
   useEffect(() => {
-    setFoodId(window.location.pathname.slice(9));
+    const foodId = window.location.pathname.slice(9);
     getById(foodId).then((Datafood) => setFood(Datafood[0]));
     getByName('').then((resp) => setDrink(resp));
     // setPath(window.location.pathname);
   }, []);
 
+  console.log(food);
   return (
     <div className="details-container">
       <img

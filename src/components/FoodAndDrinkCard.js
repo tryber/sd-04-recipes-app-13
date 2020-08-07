@@ -39,7 +39,6 @@ const FoodAndDrinkCard = ({ data, info, slice = 12, test, geralTest }) => {
         >
           <Link
             to={`/bebidas/${drink.idDrink}`}
-            // data-testid={`${index}-${geralTest}-card`}
           >
             <img
               className="card-img"

@@ -11,6 +11,12 @@ export async function getById(id) {
   return drink.drinks;
 }
 
+// Filtro por categoria
+export async function getCategoryFilter(category) {
+  const drink = await fetch(`${URL}/filter.php?c=${category}`).then((r) => r.json());
+  return drink.drinks;
+}
+
 export async function listAllCategories() {
   const categories = await fetch(`${URL}/list.php?c=list`).then((r) => r.json());
   return categories.drinks;
