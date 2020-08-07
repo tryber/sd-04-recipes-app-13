@@ -8,7 +8,7 @@ function ExploreDrinks() {
   return (
     <div>
       <Header />
-      <Link to="/explorar/comidas">
+      <Link to="/explorar/bebidas/ingredientes">
         <button
           type="button"
           data-testid="explore-by-ingredient"
@@ -17,17 +17,15 @@ function ExploreDrinks() {
           Por Ingredientes
         </button>
       </Link>
-      <button type="button" data-testid="explore-by-area" className="btn-explore-by-area">
-        Por Local de Origem
-      </button>
-
-      <button
-        type="button"
-        data-testid="explore-surprise"
-        className="btn-explore-surprise"
-      >
-        Me Surpreenda!
-      </button>
+      <Link to="">
+        <button
+          type="button"
+          data-testid="explore-surprise"
+          className="btn-explore-surprise"
+        >
+          Me Surpreenda!
+        </button>
+      </Link>
       <Footer />
     </div>
   );
