@@ -7,23 +7,16 @@ import '../styles/ExploreScreen.css';
 function ExploreFoods() {
   return (
     <div>
-      <Header title="Explorar Comidas"/>
-      <Link to="" >
-      <button
-        type="button"
-        data-testid="explore-by-ingredient"
-        className="btn-explore-by-ingredient"
-      >
-        Por Ingredientes
-      </button>
+      <Header title="Explorar Comidas" />
+      <Link to="">
+        <button
+          type="button"
+          data-testid="explore-by-ingredient"
+          className="btn-explore-by-ingredient"
+        >
+          Por Ingredientes
+        </button>
       </Link>
-      <button
-        type="button"
-        data-testid="explore-by-area"
-        className="btn-explore-by-area"
-      >
-        Por Local de Origem
-      </button>
       <button
         type="button"
         data-testid="explore-surprise"
