@@ -13,19 +13,12 @@ const DrinkScreen = () => {
   const [name, setName] = useState('');
   const [categories, setCategories] = useState([]);
   useEffect(() => {
-    listAllCategories().then((category) => {
-      setCategories(category);
-    });
+    listAllCategories().then((category) => setCategories(category));
   }, []);
-
   useEffect(() => {
-    if (name.length === 0) {
-      getByName('').then((DataDrinks) => setData(DataDrinks));
-    }
-    console.log('Segundo useEfect', name);
-    if (name.length > 0) {
-      getCategoryFilter(name).then((categoryData) => setData(categoryData));
-    }
+    (name.length === 0)
+      ? getByName('').then((DataDrinks) => setData(DataDrinks))
+      : getCategoryFilter(name).then((categoryData) => setData(categoryData));
   }, [name]);
 
   const changeCategory = (strCategory) => (

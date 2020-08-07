@@ -12,11 +12,8 @@ const FoodScreen = () => {
   const { data, setData } = useContext(RecipeContext);
   const [categories, setCategories] = useState([]);
   const [name, setName] = useState('');
-  // const text = 'Sinto muito, não encontramos nenhuma receita para esses filtros.';
   useEffect(() => {
-    listAllCategories().then((Datacategories) => {
-      setCategories(Datacategories);
-    });
+    listAllCategories().then((Data) => setCategories(Data));
   }, []);
 
   useEffect(() => {
@@ -34,7 +31,6 @@ const FoodScreen = () => {
     return (
       <div>
         <Header title="Comidas" search />
-        {/* {alert(text) && setName(name)} */}
         <Footer />
       </div>
     );
