@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import Footer from '../components/Footer';
 import Header from '../components/Header/Header';
-import { getAllFoodByArea, getByArea } from '../services/foodApi';
+import { getAllFoodByArea, getByArea, getByName } from '../services/foodApi';
 import FoodAndDrinkCard from '../components/FoodAndDrinkCard';
 
 function FoodArea() {
   const [dropDown, setDropDown] = useState([]);
-  const [dropDownChoosen, setDropDownChoosen] = useState('');
+  const [dropDownChoosen, setDropDownChoosen] = useState('All');
   const [dataArea, setDataArea] = useState([]);
 
   useEffect(() => {
     getAllFoodByArea().then((area) => setDropDown(area));
+  }, []);
+
+  useEffect(() => {
+    if (dropDownChoosen === 'All') getByName('').then((name) => setDataArea(name));
     getByArea(dropDownChoosen).then((area) => setDataArea(area));
   }, [dropDownChoosen]);
 
@@ -26,7 +30,7 @@ function FoodArea() {
     <div>
       <Header title="Explorar Origem" search />
       <select onChange={(e) => handleSelect(e)} data-testid="explore-by-area-dropdown">
-        <option>All</option>
+        <option value="All">All</option>
         {isDropDown &&
           dropDown.map((area, index) => (
             <option
@@ -37,7 +41,7 @@ function FoodArea() {
             </option>
           ))}
       </select>
-      <h2>{dropDownChoosen}</h2>
+
       {dataArea && <FoodAndDrinkCard data={dataArea} info="food" />}
       <Footer />
     </div>
