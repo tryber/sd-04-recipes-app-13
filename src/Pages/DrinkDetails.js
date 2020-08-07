@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getByName } from '../services/foodApi';
 import FoodAndDrinkCard from '../components/FoodAndDrinkCard';
 import { getById } from '../services/drinkApi';
+import HeaderDetails from '../components/HeaderDetails';
 
 function DrinkDetails() {
   const [food, setFood] = useState([]);
@@ -15,9 +16,7 @@ function DrinkDetails() {
 
   return (
     <div>
-      <img data-testid="recipe-photo" src={drink.strDrinkThumb} alt="drink-img" />
-      <h1 data-testid="recipe-title" className="drink-title">{drink.strDrink}</h1>
-      <h4 data-testid="recipe-category">{drink.strAlcoholic}</h4>
+      <HeaderDetails recipe={drink} />
       <div>
         <h1>Ingredients</h1>
         <ul>
