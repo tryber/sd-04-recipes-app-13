@@ -29,13 +29,13 @@ export async function getById(id) {
 }
 
 // List all meals by first letter
-export async function getByFirstLetter(letter) {
+export async function getByFirstLetterFood(letter) {
   const meal = await fetch(`${URL}/search.php?f=${letter}`).then((r) => r.json());
   return meal.meals;
 }
 
 // Filter by main ingredient
-export async function getByIngredients(ingredient) {
+export async function getByIngredientsFood(ingredient) {
   const meal = await fetch(`${URL}/filter.php?i=${ingredient}`).then((r) => r.json());
   return meal.meals;
 }

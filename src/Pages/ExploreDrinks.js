@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import Header from '../components/Header/Header';
 import '../styles/ExploreScreen.css';
 
+
 function ExploreDrinks() {
   return (
     <div>
