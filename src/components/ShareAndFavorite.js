@@ -32,11 +32,9 @@ const ShareAndFavorite = ({ food, path, copied, setCopied }) => {
   };
 
   const handleFavorite = () => {
-    if (!isFavorite && favoriteStorage) {
-      saveStorage('favoriteRecipes', [...favoriteStorage, saveFood]);
-    } else {
-      saveStorage('favoriteRecipes', [saveFood]);
-    }
+    (!isFavorite && favoriteStorage)
+      ? saveStorage('favoriteRecipes', [...favoriteStorage, saveFood])
+      : saveStorage('favoriteRecipes', [saveFood]);
 
     if (isFavorite) {
       const favoriteFilter = favoriteStorage.filter((fav) => fav.id !== food.idMeal);
