@@ -28,6 +28,7 @@ const ShareAndFavorite = ({ food, path, copied, setCopied }) => {
     category: food.strCategory,
     name: food.strMeal,
     image: food.strMealThumb,
+    alcoholicOrNot: '',
   };
 
   const handleFavorite = () => {
@@ -50,8 +51,12 @@ const ShareAndFavorite = ({ food, path, copied, setCopied }) => {
 
   return (
     <div>
-      <button  onClick={() => handleFavorite()}>
-        <img data-testid="favorite-btn" src={isFavorite ? blackHeartIcon : whiteHeartIcon} alt="whiteHeart" />
+      <button onClick={() => handleFavorite()}>
+        <img
+          data-testid="favorite-btn"
+          src={isFavorite ? blackHeartIcon : whiteHeartIcon}
+          alt="whiteHeart"
+        />
       </button>
 
       <button data-testid="share-btn" type="button" onClick={() => ShareClick()}>
