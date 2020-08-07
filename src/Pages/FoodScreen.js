@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import Footer from '../components/Footer';
 import Header from '../components/Header/Header';
 import { RecipeContext } from '../context/index';
-import { getByName, listAllCategories } from '../services/foodApi';
+import { getByName, listAllCategories, getCategoryFilter } from '../services/foodApi';
 import Loading from '../components/Loading';
 import FoodAndDrinkCard from '../components/FoodAndDrinkCard';
 import '../styles/FoodAndDrinkCards.css';
@@ -12,16 +12,17 @@ const FoodScreen = () => {
   const { data, setData } = useContext(RecipeContext);
   const [categories, setCategories] = useState([]);
   const [name, setName] = useState('');
-  // const text = 'Sinto muito, não encontramos nenhuma receita para esses filtros.';
   useEffect(() => {
-    getByName(name).then((Datafoods) => {
-      setData(Datafoods);
-    });
+    listAllCategories().then((Data) => setCategories(Data));
+  }, []);
 
-    listAllCategories().then((Datacategories) => {
-      setCategories(Datacategories);
-    });
+  useEffect(() => {
+    if (name.length === 0) {
+      getByName('').then((Datafoods) => setData(Datafoods));
+    }
+    getCategoryFilter(name).then((categoryData) => setData(categoryData));
   }, [name]);
+
   const changeCategory = (strCategory) => (
     name === strCategory ? setName('') : setName(strCategory)
   );
@@ -30,7 +31,6 @@ const FoodScreen = () => {
     return (
       <div>
         <Header title="Comidas" search />
-        {/* {alert(text) && setName(name)} */}
         <Footer />
       </div>
     );
@@ -40,9 +40,10 @@ const FoodScreen = () => {
     <div className="general-container">
       <Header title="Comidas" search />
       <div className="category-btn-div">
-        <RenderButton type="button" className="category-btn" onClick={() => setName('')}>
-          All
-        </RenderButton>
+        <RenderButton
+          type="button" className="category-btn"
+          onClick={() => changeCategory('')} data-testid="All-category-filter"
+        >All</RenderButton>
         {categories.slice(0, 5).map(({ strCategory }) => (
           <RenderButton
             type="button" onClick={() => changeCategory(strCategory)} key={strCategory}

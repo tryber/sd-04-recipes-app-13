@@ -11,6 +11,12 @@ export async function listAllCategories() {
   return categories.meals;
 }
 
+// Filtro por categoria
+export async function getCategoryFilter(category) {
+  const categories = await fetch(`${URL}/filter.php?c=${category}`).then((r) => r.json());
+  return categories.meals;
+}
+
 // Call a single random meal
 export async function getRandomMeal() {
   const meal = await fetch(`${URL}/random.php`).then((r) => r.json());
