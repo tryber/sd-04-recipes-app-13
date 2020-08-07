@@ -57,3 +57,9 @@ export async function getByArea(area) {
   const meal = await fetch(`${URL}/filter.php?a=${area}`).then((r) => r.json());
   return meal.meals;
 }
+
+// list dropdown by area
+export async function getAllFoodByArea() {
+  const area = await fetch(`${URL}/list.php?a=list`).then((r) => r.json());
+  return area.meals;
+}
