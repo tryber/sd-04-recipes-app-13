@@ -20,6 +20,7 @@ function ExploreDrinks() {
       <button type="button" data-testid="explore-by-area" className="btn-explore-by-area">
         Por Local de Origem
       </button>
+
       <button
         type="button"
         data-testid="explore-surprise"
