@@ -7,7 +7,7 @@ import '../styles/ExploreScreen.css';
 function ExploreScreen() {
   return (
     <div>
-      <Header />
+      <Header title="Explorar "/>
       <Link to="/explorar/comidas">
         <button
           type="button"

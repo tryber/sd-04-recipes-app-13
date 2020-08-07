@@ -8,7 +8,7 @@ import '../styles/ExploreScreen.css';
 function ExploreDrinks() {
   return (
     <div>
-      <Header />
+      <Header title="Explorar Bebidas"/>
       <button
         type="button"
         data-testid="explore-by-ingredient"
