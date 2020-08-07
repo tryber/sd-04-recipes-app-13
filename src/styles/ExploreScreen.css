@@ -1,0 +1,54 @@
+.btn-explore-food {
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  height: 82px;
+  left: 15px;
+  position: absolute;
+  top: 81px;
+  width: 327px;
+}
+
+.btn-explore-drinks {
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  height: 82px;
+  left: 14px;
+  position: absolute;
+  top: 196px;
+  width: 327px;
+}
+
+.btn-explore-by-ingredient {
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  height: 82px;
+  left: 15px;
+  position: absolute;
+  top: 81px;
+  width: 161px;
+}
+
+.btn-explore-by-area {
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  height: 82px;
+  left: 186px;
+  position: absolute;
+  top: 81px;
+  width: 161px;
+}
+
+.btn-explore-surprise {
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  height: 82px;
+  left: 15px;
+  position: absolute;
+  top: 186px;
+  width: 161px;
+}
