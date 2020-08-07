@@ -17,11 +17,7 @@ function ExploreFoods() {
           Por Ingredientes
         </button>
       </Link>
-      <button
-        type="button"
-        data-testid="explore-by-area"
-        className="btn-explore-by-area"
-      >
+      <button type="button" data-testid="explore-by-area" className="btn-explore-by-area">
         Por Local de Origem
       </button>
       <button

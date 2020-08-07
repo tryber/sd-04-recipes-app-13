@@ -4,7 +4,6 @@ import Footer from '../components/Footer';
 import Header from '../components/Header/Header';
 import '../styles/ExploreScreen.css';
 
-
 function ExploreDrinks() {
   return (
     <div>
@@ -18,11 +17,7 @@ function ExploreDrinks() {
           Por Ingredientes
         </button>
       </Link>
-      <button
-        type="button"
-        data-testid="explore-by-area"
-        className="btn-explore-by-area"
-      >
+      <button type="button" data-testid="explore-by-area" className="btn-explore-by-area">
         Por Local de Origem
       </button>
       <button
