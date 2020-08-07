@@ -7,22 +7,14 @@ import '../styles/ExploreScreen.css';
 function ExploreScreen() {
   return (
     <div>
-      <Header title="Explorar "/>
+      <Header title="Explorar" />
       <Link to="/explorar/comidas">
-        <button
-          type="button"
-          data-testid="explore-food"
-          className="btn-explore-food"
-        >
+        <button type="button" data-testid="explore-food" className="btn-explore-food">
           Explorar Comidas
         </button>
       </Link>
       <Link to="/explorar/bebidas">
-        <button
-          type="button"
-          data-testid="explore-drinks"
-          className="btn-explore-drinks"
-        >
+        <button type="button" data-testid="explore-drinks" className="btn-explore-drinks">
           Explorar Bebidas
         </button>
       </Link>
