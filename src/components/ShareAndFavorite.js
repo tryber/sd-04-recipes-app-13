@@ -6,20 +6,20 @@ import whiteHeartIcon from '../images/whiteHeartIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
 import { saveStorage, loadStorage } from '../services/localStorage';
 
-function ShareAndFavorite({ food, path, copied, setCopied }) {
+const searchFavoriteFood = (favoriteStorage, food) => {
+  const foodIsFavorite = favoriteStorage.filter((fav) => fav.id === food.idMeal);
+  console.log('oi', foodIsFavorite);
+  if (foodIsFavorite.length > 0) setIsFavorite(true);
+};
+
+const ShareAndFavorite = ({ food, path, copied, setCopied }) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const [favoriteStorage, setFavoriteStorage] = useState([]);
-
-  const searchFavoriteFood = () => {
-    const foodIsFavorite = favoriteStorage.filter((fav) => fav.id === food.idMeal);
-    console.log('oi', foodIsFavorite);
-    if (foodIsFavorite.length > 0) setIsFavorite(true);
-  };
 
   useEffect(() => {
     const favorite = JSON.parse(loadStorage('favoriteRecipes')) || [];
     setFavoriteStorage(favorite);
-    searchFavoriteFood();
+    searchFavoriteFood(favoriteStorage, food);
   }, [food]);
 
   const saveFood = {
@@ -64,7 +64,7 @@ function ShareAndFavorite({ food, path, copied, setCopied }) {
       {copied && <span>Link copiado!</span>}
     </div>
   );
-}
+};
 
 ShareAndFavorite.propTypes = {
   food: PropTypes.objectOf(PropTypes.string).isRequired,
