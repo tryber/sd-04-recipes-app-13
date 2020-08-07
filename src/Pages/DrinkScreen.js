@@ -16,9 +16,10 @@ const DrinkScreen = () => {
     listAllCategories().then((category) => setCategories(category));
   }, []);
   useEffect(() => {
-    (name.length === 0)
-      ? getByName('').then((DataDrinks) => setData(DataDrinks))
-      : getCategoryFilter(name).then((categoryData) => setData(categoryData));
+    if (name.length === 0) getByName('').then((DataDrinks) => setData(DataDrinks));
+    if (name.length > 0) {
+      getCategoryFilter(name).then((categoryData) => setData(categoryData));
+    }
   }, [name]);
 
   const changeCategory = (strCategory) => (
