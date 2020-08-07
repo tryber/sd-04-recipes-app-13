@@ -8,7 +8,6 @@ import { saveStorage, loadStorage } from '../services/localStorage';
 
 const searchFavoriteFood = (favoriteStorage, food, setIsFavorite) => {
   const foodIsFavorite = favoriteStorage.filter((fav) => fav.id === food.idMeal);
-  console.log('oi', foodIsFavorite);
   if (foodIsFavorite.length > 0) setIsFavorite(true);
 };
 
@@ -32,7 +31,7 @@ const ShareAndFavorite = ({ food, path, copied, setCopied }) => {
   };
 
   const handleFavorite = () => {
-    (!isFavorite && favoriteStorage)
+    !isFavorite && favoriteStorage
       ? saveStorage('favoriteRecipes', [...favoriteStorage, saveFood])
       : saveStorage('favoriteRecipes', [saveFood]);
 
@@ -41,7 +40,6 @@ const ShareAndFavorite = ({ food, path, copied, setCopied }) => {
       saveStorage('favoriteRecipes', favoriteFilter);
       setFavoriteStorage(JSON.parse(loadStorage('favoriteRecipes')));
     }
-
     setIsFavorite(!isFavorite);
   };
 
@@ -52,11 +50,11 @@ const ShareAndFavorite = ({ food, path, copied, setCopied }) => {
 
   return (
     <div>
-      <button onClick={() => handleFavorite()}>
-        <img src={isFavorite ? blackHeartIcon : whiteHeartIcon} alt="whiteHeart" />
+      <button  onClick={() => handleFavorite()}>
+        <img data-testid="favorite-btn" src={isFavorite ? blackHeartIcon : whiteHeartIcon} alt="whiteHeart" />
       </button>
 
-      <button type="button" onClick={() => ShareClick()}>
+      <button data-testid="share-btn" type="button" onClick={() => ShareClick()}>
         <img src={shareIcon} alt="share-icon" />
       </button>
       {copied && <span>Link copiado!</span>}
