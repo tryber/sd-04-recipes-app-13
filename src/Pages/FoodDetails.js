@@ -4,6 +4,7 @@ import { getById } from '../services/foodApi';
 import FoodAndDrinkCard from '../components/FoodAndDrinkCard';
 import { getByName } from '../services/drinkApi';
 import ShareAndFavorite from '../components/ShareAndFavorite';
+import RecipeButton from '../components/utils/RecipeButton';
 // import '../styles/DetailsPage.css';
 
 const listIngredients = (food) => (
