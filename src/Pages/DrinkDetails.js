@@ -3,6 +3,7 @@ import { getByName } from '../services/foodApi';
 import FoodAndDrinkCard from '../components/FoodAndDrinkCard';
 import { getById } from '../services/drinkApi';
 import ShareAndFavorite from '../components/ShareAndFavorite';
+import RecipeButton from '../components/utils/RecipeButton';
 
 function DrinkDetails() {
   const [food, setFood] = useState([]);
@@ -45,6 +46,7 @@ function DrinkDetails() {
         <h1>Recomended</h1>
         <FoodAndDrinkCard data={food} info="food" slice="6" test="recomendation" />
       </div>
+      <RecipeButton type="cocktails" recipe="drink" />
     </div>
   );
 }

@@ -58,7 +58,7 @@ function FoodDetails() {
         <h1 className="titles">Recomended</h1>
         <FoodAndDrinkCard data={Drink} info="drink" slice="6" test="recomendation" />
       </div>
-      <button type="button" data-testid="start-recipe-btn">Iniciar Receita</button>
+      <RecipeButton type="meals" recipe="food" />
     </div>
   );
 }
