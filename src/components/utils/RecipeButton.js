@@ -10,14 +10,14 @@ function RecipeButton({ type, recipe }) {
   const [visible, setVisible] = useState(true);
 
   const searchtypebutton = () => {
-    console.log(doneRecipe, doingRecipe)
+    console.log(doingRecipe);
     const isDone = doneRecipe
       .filter((done) => done.id === (recipe.idMeal || recipe.idDrink));
     const isDoing = doingRecipe[type]
       .filter((doing) => doing === (recipe.idMeal || recipe.idDrink)) || [];
 
-    (isDone.lengh > 0) && setVisible(false);
-    (isDoing.lengh > 0) && setMessage('Continuar Receita');
+    if (isDone.lengh > 0) setVisible(false);
+    if (isDoing.lengh > 0) setMessage('Continuar Receita');
   };
 
   useEffect(() => {
