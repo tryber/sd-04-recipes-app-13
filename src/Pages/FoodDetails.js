@@ -26,7 +26,7 @@ function FoodDetails() {
       />
       <h1 data-testid="recipe-title" className="details-title">{food.strMeal}</h1>
       <h4 data-testid="recipe-category" className="details-sub">{food.strCategory}</h4>
-      <ShareAndFavorite food={food} path={path} copied={copied} setCopied={setCopied} />
+      <ShareAndFavorite food={food} path={path} copied={copied} setCopied={setCopied} Type="comida" />
       <div className="ingredients">
         <h1>Ingredients</h1>
         <ul>

@@ -6,9 +6,9 @@ import whiteHeartIcon from '../images/whiteHeartIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
 import { saveStorage, loadStorage } from '../services/localStorage';
 
-const searchFavoriteFood = (favoriteStorage, food, setIsFavorite) => {
-  const foodIsFavorite = favoriteStorage.filter((fav) => fav.id === food.id);
-  if (foodIsFavorite.length > 0) setIsFavorite(true);
+const searchFavoriteFood = (favoriteStorage, recipe) => {
+  const foodIsFavorite = favoriteStorage.filter((fav) => fav.id === recipe.id);
+  if (foodIsFavorite.length > 0) return true;
 };
 
 const HandleFavoriteClick = (favoriteStorage, isFavorite, recipe, setFavoriteStorage) => {
@@ -16,31 +16,32 @@ const HandleFavoriteClick = (favoriteStorage, isFavorite, recipe, setFavoriteSto
     saveStorage('favoriteRecipes', [...favoriteStorage, recipe]);
   } else saveStorage('favoriteRecipes', [recipe]);
 
+  console.log(isFavorite);
   if (isFavorite) {
-    const favoriteFilter = favoriteStorage.filter((fav) => fav.id !== recipe.idMeal);
+    const favoriteFilter = favoriteStorage.filter((fav) => fav.id !== recipe.id);
     saveStorage('favoriteRecipes', favoriteFilter);
     setFavoriteStorage(JSON.parse(loadStorage('favoriteRecipes')));
   }
 };
 
-const ShareAndFavorite = ({ food, path, copied, setCopied }) => {
+const ShareAndFavorite = ({ food, path, copied, setCopied, Type }) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const [favoriteStorage, setFavoriteStorage] = useState([]);
 
   useEffect(() => {
     const favorite = JSON.parse(loadStorage('favoriteRecipes')) || [];
     setFavoriteStorage(favorite);
-    searchFavoriteFood(favoriteStorage, food, setIsFavorite);
+    setIsFavorite(searchFavoriteFood(favoriteStorage, recipe));
   }, [food]);
 
   const recipe = {
-    id: food.idMeal,
-    type: 'comida',
+    id: food.idMeal || food.idDrink,
+    type: Type,
     area: food.strArea,
     category: food.strCategory,
-    name: food.strMeal,
-    image: food.strMealThumb,
-    alcoholicOrNot: '',
+    name: food.strMeal || food.strDrink,
+    image: food.strMealThumb || food.strDrinkThumb,
+    alcoholicOrNot: '' || food.strAlcoholic,
   };
 
   const handleFavorite = () => {
