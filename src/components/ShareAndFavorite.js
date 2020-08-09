@@ -6,9 +6,11 @@ import whiteHeartIcon from '../images/whiteHeartIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
 import { saveStorage, loadStorage } from '../services/localStorage';
 
-const searchFavoriteFood = (favoriteStorage, recipe) => {
-  const foodIsFavorite = favoriteStorage.filter((fav) => fav.id === recipe.id);
+const searchFavoriteFood = (favoriteStorage, food) => {
+  const foodIsFavorite = favoriteStorage
+    .filter((fav) => fav.id === (food.idMeal || food.idDrink));
   if (foodIsFavorite.length > 0) return true;
+  return false;
 };
 
 const HandleFavoriteClick = (favoriteStorage, isFavorite, recipe, setFavoriteStorage) => {
@@ -31,7 +33,7 @@ const ShareAndFavorite = ({ food, path, copied, setCopied, Type }) => {
   useEffect(() => {
     const favorite = JSON.parse(loadStorage('favoriteRecipes')) || [];
     setFavoriteStorage(favorite);
-    setIsFavorite(searchFavoriteFood(favoriteStorage, recipe));
+    setIsFavorite(searchFavoriteFood(favoriteStorage, food));
   }, [food]);
 
   const recipe = {
@@ -77,6 +79,7 @@ ShareAndFavorite.propTypes = {
   path: PropTypes.string.isRequired,
   copied: PropTypes.bool.isRequired,
   setCopied: PropTypes.func.isRequired,
+  Type: PropTypes.string.isRequired,
 };
 
 export default ShareAndFavorite;

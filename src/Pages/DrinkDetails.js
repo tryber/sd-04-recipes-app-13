@@ -22,7 +22,9 @@ function DrinkDetails() {
       <img data-testid="recipe-photo" src={drink.strDrinkThumb} alt="drink-img" />
       <h1 data-testid="recipe-title" className="drink-title">{drink.strDrink}</h1>
       <h4 data-testid="recipe-category">{drink.strAlcoholic}</h4>
-      <ShareAndFavorite food={drink} path={path} copied={copied} setCopied={setCopied} Type="bebida" />
+      <ShareAndFavorite
+        food={drink} path={path} copied={copied} setCopied={setCopied} Type="bebida"
+      />
       <div>
         <h1>Ingredients</h1>
         <ul>
