@@ -7,8 +7,20 @@ import blackHeartIcon from '../images/blackHeartIcon.svg';
 import { saveStorage, loadStorage } from '../services/localStorage';
 
 const searchFavoriteFood = (favoriteStorage, food, setIsFavorite) => {
-  const foodIsFavorite = favoriteStorage.filter((fav) => fav.id === food.idMeal);
+  const foodIsFavorite = favoriteStorage.filter((fav) => fav.id === food.id);
   if (foodIsFavorite.length > 0) setIsFavorite(true);
+};
+
+const HandleFavoriteClick = (favoriteStorage, isFavorite, recipe, setFavoriteStorage) => {
+  if (!isFavorite && favoriteStorage) {
+    saveStorage('favoriteRecipes', [...favoriteStorage, recipe]);
+  } else saveStorage('favoriteRecipes', [recipe]);
+
+  if (isFavorite) {
+    const favoriteFilter = favoriteStorage.filter((fav) => fav.id !== recipe.idMeal);
+    saveStorage('favoriteRecipes', favoriteFilter);
+    setFavoriteStorage(JSON.parse(loadStorage('favoriteRecipes')));
+  }
 };
 
 const ShareAndFavorite = ({ food, path, copied, setCopied }) => {
@@ -21,7 +33,7 @@ const ShareAndFavorite = ({ food, path, copied, setCopied }) => {
     searchFavoriteFood(favoriteStorage, food, setIsFavorite);
   }, [food]);
 
-  const saveFood = {
+  const recipe = {
     id: food.idMeal,
     type: 'comida',
     area: food.strArea,
@@ -32,15 +44,7 @@ const ShareAndFavorite = ({ food, path, copied, setCopied }) => {
   };
 
   const handleFavorite = () => {
-    !isFavorite && favoriteStorage
-      ? saveStorage('favoriteRecipes', [...favoriteStorage, saveFood])
-      : saveStorage('favoriteRecipes', [saveFood]);
-
-    if (isFavorite) {
-      const favoriteFilter = favoriteStorage.filter((fav) => fav.id !== food.idMeal);
-      saveStorage('favoriteRecipes', favoriteFilter);
-      setFavoriteStorage(JSON.parse(loadStorage('favoriteRecipes')));
-    }
+    HandleFavoriteClick(favoriteStorage, isFavorite, recipe, setFavoriteStorage);
     setIsFavorite(!isFavorite);
   };
 
@@ -51,7 +55,7 @@ const ShareAndFavorite = ({ food, path, copied, setCopied }) => {
 
   return (
     <div>
-      <button onClick={() => handleFavorite()}>
+      <button onClick={() => handleFavorite()} type="button">
         <img
           data-testid="favorite-btn"
           src={isFavorite ? blackHeartIcon : whiteHeartIcon}
