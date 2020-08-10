@@ -4,10 +4,12 @@ import { getById } from '../services/drinkApi';
 import HeaderDetails from '../components/HeaderDetails';
 import RenderInput from '../components/utils/Input';
 import ShareAndFavorite from '../components/ShareAndFavorite';
+import RenderButton from '../components/utils/Button';
 
 function DrinkProgress() {
   const [path, setPath] = useState('');
   const [copied, setCopied] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(true);
   const [recipe, setRecipe] = useState('');
   const [ingredients, setIngredients] = useState([]);
 
@@ -32,6 +34,14 @@ function DrinkProgress() {
         ]),
     );
   }, [recipe]);
+
+  useEffect(() => {
+    const disabled = ingredients.length
+      ? ingredients.every(({ isCompleted }) => isCompleted) : false;
+    if (disabled) {
+      setIsDisabled(false);
+    }
+  }, [ingredients]);
 
   const completedStep = (id) => {
     const newIngredients = [...ingredients];
@@ -73,7 +83,7 @@ function DrinkProgress() {
         </div>
         <div>
           <Link to="/receitas-feitas">
-            <button>Finalizar receita</button>
+            <RenderButton type="button" isDisabled={isDisabled}>Finalizar receita</RenderButton>
           </Link>
         </div>
       </div>
