@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { loadStorage } from '../../services/localStorage';
 
-function RecipeButton({ type, recipe }) {
+function RecipeButton({ type, recipe, path }) {
   const [doneRecipe, setDoneRecipe] = useState([]);
   const [doingRecipe, setDoingRecipe] = useState({});
   const [message, setMessage] = useState('Iniciar Receita');
   const [visible, setVisible] = useState(true);
 
+  console.log(path.slice(21));
   const searchtypebutton = () => {
-    console.log(doingRecipe);
     const isDoingArray = doingRecipe[type] || [];
     const isDone = doneRecipe
       .filter((done) => done.id === (recipe.idMeal || recipe.idDrink));
@@ -31,7 +31,7 @@ function RecipeButton({ type, recipe }) {
   return (
     <div>
       {visible && (
-        <Link to="/comidas/:id/in-progress">
+        <Link to={`${path.slice(21)}/in-progress`}>
           <button type="button" data-testid="start-recipe-btn">{message}</button>
         </Link>
       )}
@@ -42,6 +42,7 @@ function RecipeButton({ type, recipe }) {
 RecipeButton.propTypes = {
   type: PropTypes.string.isRequired,
   recipe: PropTypes.objectOf(PropTypes.string).isRequired,
+  path: PropTypes.string.isRequired,
 };
 
 export default RecipeButton;

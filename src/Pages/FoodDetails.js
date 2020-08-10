@@ -58,7 +58,7 @@ function FoodDetails() {
         <h1 className="titles">Recomended</h1>
         <FoodAndDrinkCard data={Drink} info="drink" slice="6" test="recomendation" />
       </div>
-      <RecipeButton type="meals" recipe="food" />
+      <RecipeButton type="meals" recipe="food" path={path} />
     </div>
   );
 }
