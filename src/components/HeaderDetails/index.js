@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React, { Fragment } from 'react';
 
 const HeaderDetails = ({ recipe, foods }) => (
@@ -25,5 +26,17 @@ const HeaderDetails = ({ recipe, foods }) => (
       </Fragment>
     )
 );
+
+HeaderDetails.propTypes = {
+  foods: PropTypes.bool.isRequired,
+  recipe: PropTypes.shape({
+    strAlcoholic: PropTypes.string.isRequired,
+    strCategory: PropTypes.string.isRequired,
+    strDrink: PropTypes.string.isRequired,
+    strDrinkThumb: PropTypes.string.isRequired,
+    strMeal: PropTypes.string.isRequired,
+    strMealThumb: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default HeaderDetails;

@@ -21,26 +21,22 @@ function FoodProgress() {
   }, []);
 
   useEffect(() => {
-    Object.keys(recipe).map(
-      (_, index) => recipe[`strIngredient${index + 1}`]
-        && setIngredients((prevState) => [
-          ...prevState,
-          {
-            id: index,
-            ingredient: recipe[`strIngredient${index + 1}`],
-            measure: recipe[`strMeasure${index + 1}`],
-            isCompleted: false,
-          },
-        ]),
-    );
+    Object.keys(recipe).map((_, index) => recipe[`strIngredient${index + 1}`] &&
+      setIngredients((prevState) => [
+        ...prevState,
+        {
+          id: index,
+          ingredient: recipe[`strIngredient${index + 1}`],
+          measure: recipe[`strMeasure${index + 1}`],
+          isCompleted: false,
+        },
+      ]));
   }, [recipe]);
 
   useEffect(() => {
     const disabled = ingredients.length
       ? ingredients.every(({ isCompleted }) => isCompleted) : false;
-    if (disabled) {
-      setIsDisabled(false);
-    }
+    if (disabled) { setIsDisabled(false); }
   }, [ingredients]);
 
   const completedStep = (id) => {
@@ -53,33 +49,18 @@ function FoodProgress() {
     <div>
       <HeaderDetails recipe={recipe} foods />
       <ShareAndFavorite
-        food={recipe}
-        path={path}
-        copied={copied}
-        setCopied={setCopied}
-        Type="comida"
-      />
+        food={recipe} path={path} copied={copied} setCopied={setCopied} Type="comida" />
       <div>
         <div>
           <h1>Ingredientes</h1>
-          {ingredients.map(({
-            ingredient, id, measure, isCompleted,
-          }) => (
+          {ingredients.map(({ ingredient, id, measure, isCompleted }) => (
             <div>
               <RenderInput
-                type="checkbox"
-                id={ingredient}
-                value={ingredient}
-                key={ingredient}
-                data-testid={`${id}-ingredient-step`}
-                onClick={() => completedStep(id)}
-              />
-              <label
-                htmlFor={ingredient}
+                type="checkbox" id={ingredient} value={ingredient} key={ingredient}
+                data-testid={`${id}-ingredient-step`} onClick={() => completedStep(id)} />
+              <label htmlFor={ingredient}
                 style={{ textDecoration: isCompleted ? 'line-through' : '' }}
-              >
-                {`${ingredient} - ${measure}`}
-              </label>
+              >{`${ingredient} - ${measure}`}</label>
             </div>
           ))}
         </div>
@@ -89,7 +70,8 @@ function FoodProgress() {
         </div>
         <div>
           <Link to="/receitas-feitas">
-            <RenderButton type="button" isDisabled={isDisabled}>Finalizar receita</RenderButton>
+            <RenderButton type="button" isDisabled={isDisabled}
+              >Finalizar receita</RenderButton>
           </Link>
         </div>
       </div>
