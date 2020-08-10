@@ -41,39 +41,45 @@ function LoginScreen() {
   };
 
   return (
-    <div className="div-inputs-login">
-      <span className="title-login">Login</span>
+    <div className="div-body">
+      <div className="div-inputs-login">
+        <div className="title-container">
+          <span className="title-login">Recipe App</span>
+        </div>
 
-      <RenderInput
-        data-testid="email-input"
-        type="email"
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Email"
-        required
-        size="30"
-        className="input-login-email"
-      />
-      <RenderInput
-        data-testid="password-input"
-        type="password"
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="Senha"
-        required
-        size="30"
-        className="input-login-password"
-      />
+        <RenderInput
+          data-testid="email-input"
+          type="email"
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email"
+          required
+          size="30"
+          className="input-login-email"
+        />
+        <RenderInput
+          data-testid="password-input"
+          type="password"
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Senha"
+          required
+          size="30"
+          className="input-login-password"
+        />
 
-      <Link to="/comidas">
-        <RenderButton
-          type="button"
-          data-testid="login-submit-btn"
-          disabled={disableButton}
-          className="btn-login"
-          onClick={() => localSaves()}
-        >
-          Login
-        </RenderButton>
-      </Link>
+        <br />
+
+        <Link to="/comidas">
+          <RenderButton
+            type="button"
+            data-testid="login-submit-btn"
+            disabled={disableButton}
+            className="btn-login"
+            onClick={() => localSaves()}
+          >
+            Login
+          </RenderButton>
+        </Link>
+      </div>
     </div>
   );
 }

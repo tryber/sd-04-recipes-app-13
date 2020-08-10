@@ -1,46 +1,80 @@
-.input-login-email {
-  background: white;
-  border: 1px solid black;
-  box-sizing: border-box;
-  height: 58px;
-  left: 31px;
+.div-body {
+  /*   background-image: url('https://images.pexels.com/photos/4409250/pexels-photo-4409250.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+ */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.603), rgba(128, 128, 128, 0.226)),
+    url('https://images.pexels.com/photos/4409250/pexels-photo-4409250.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
   position: absolute;
-  top: 155px;
-  width: 293px;
-}
-
-.input-login-password {
-  background: white;
-  border: 1px solid black;
-  box-sizing: border-box;
-  height: 58px;
-  left: 30px;
-  position: absolute;
-  top: 243px;
-  width: 293px;
-}
-
-.title-login {
-  align-items: flex-end;
-  color: black;
   display: flex;
-  font-family: Roboto, sans-serif;
-  font-size: 39px;
-  font-style: normal;
+  align-items: center;
+}
+
+.div-inputs-login {
+  background-color: #66666642;
+  margin: 10% auto;
+  text-align: center;
+  height: 40%;
+  width: 50%;
+  padding-bottom: 40px;
+  border-radius: 5px;
+  box-shadow: -3px 4px 13px rgb(22, 26, 22);
+}
+
+.title-container {
+  text-align: center;
+  color: white;
+  font-family: 'Rubik', sans-serif;
+  font-size: 33px;
   font-weight: 400;
-  height: 46px;
-  left: 128px;
   line-height: 46px;
-  position: absolute;
-  top: 79px;
-  width: 97px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: white !important;
+}
+
+input {
+  border: 1px solid black;
+  box-sizing: border-box;
+  margin: 8px 0;
+  border-radius: 50px;
+  padding: 6px 15px;
+  width: 90%;
+  background-color: rgba(127, 255, 212, 0.144);
+  color: black;
+  border: none;
 }
 
 .btn-login {
   background: #6ce34f;
-  height: 76px;
-  left: 11px;
-  position: absolute;
-  top: 389px;
-  width: 339px;
+  color: aliceblue;
+  border-radius: 50px;
+  width: 90%;
+  padding: 6px 6px;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+  .div-inputs-login {
+    width: 300px;
+  }
+  .title-container {
+    text-align: center;
+  }
+  .btn-login {
+    width: 75%;
+    height: 30px;
+    font-size: 17px;
+    padding: 0;
+  }
 }
