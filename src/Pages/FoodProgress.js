@@ -20,7 +20,9 @@ function FoodProgress() {
         setIngredients((prevState) => [
           ...prevState,
           {
+            id: index,
             ingredient: recipe[`strIngredient${index + 1}`],
+            measure: recipe[`strMeasure${index + 1}`],
             isCompleted: false,
           },
         ]),
@@ -36,26 +38,19 @@ function FoodProgress() {
       <HeaderDetails recipe={recipe} foods />
       <div>
         <h1>Ingredientes</h1>
-        {Object.keys(recipe).map(
-          (_, index) =>
-            recipe[`strIngredient${index + 1}`] && (
-              <div>
-                <RenderInput
-                  type="checkbox"
-                  id={recipe[`strIngredient${index + 1}`]}
-                  value={recipe[`strIngredient${index + 1}`]}
-                  key={recipe[`strIngredient${index + 1}`]}
-                  data-testid={`${index}-ingredient-step`}
-                  onClick={() => completedStep(index, recipe)}
-                />
-                <label htmlFor={recipe[`strIngredient${index + 1}`]}>
-                  {`${recipe[`strIngredient${index + 1}`]} - ${
-                    recipe[`strMeasure${index + 1}`]
-                  }`}
-                </label>
-              </div>
-            ),
-        )}
+        {ingredients.map(({ ingredient, id, measure }) => (
+          <div>
+            <RenderInput
+              type="checkbox"
+              id={ingredient}
+              value={ingredient}
+              key={ingredient}
+              data-testid={`${id}-ingredient-step`}
+              // onClick={() => completedStep(index, recipe)}
+            />
+            <label htmlFor={ingredient}>{`${ingredient} - ${measure}`}</label>
+          </div>
+        ))}
       </div>
     </div>
   );
