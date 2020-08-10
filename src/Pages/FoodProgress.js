@@ -4,10 +4,12 @@ import { getById } from '../services/foodApi';
 import HeaderDetails from '../components/HeaderDetails';
 import RenderInput from '../components/utils/Input';
 import ShareAndFavorite from '../components/ShareAndFavorite';
+import RenderButton from '../components/utils/Button';
 
 function FoodProgress() {
   const [path, setPath] = useState('');
   const [copied, setCopied] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(true);
   const [recipe, setRecipe] = useState('');
   const [ingredients, setIngredients] = useState([]);
 
@@ -15,6 +17,7 @@ function FoodProgress() {
     const pathName = window.location.pathname.slice(9);
     const id = pathName.replace(/\D/g, '');
     getById(id).then((data) => setRecipe(data[0]));
+    setPath(window.location.href);
   }, []);
 
   useEffect(() => {
@@ -32,6 +35,14 @@ function FoodProgress() {
     );
   }, [recipe]);
 
+  useEffect(() => {
+    const disabled = ingredients.length
+      ? ingredients.every(({ isCompleted }) => isCompleted) : false;
+    if (disabled) {
+      setIsDisabled(false);
+    }
+  }, [ingredients]);
+
   const completedStep = (id) => {
     const newIngredients = [...ingredients];
     newIngredients[id].isCompleted = true;
@@ -42,7 +53,11 @@ function FoodProgress() {
     <div>
       <HeaderDetails recipe={recipe} foods />
       <ShareAndFavorite
-        food={recipe} path={path} copied={copied} setCopied={setCopied} Type="comida"
+        food={recipe}
+        path={path}
+        copied={copied}
+        setCopied={setCopied}
+        Type="comida"
       />
       <div>
         <div>
@@ -74,7 +89,7 @@ function FoodProgress() {
         </div>
         <div>
           <Link to="/receitas-feitas">
-            <button>Finalizar receita</button>
+            <RenderButton type="button" isDisabled={isDisabled}>Finalizar receita</RenderButton>
           </Link>
         </div>
       </div>
