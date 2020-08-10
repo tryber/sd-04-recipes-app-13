@@ -3,8 +3,11 @@ import { Link } from 'react-router-dom';
 import { getById } from '../services/foodApi';
 import HeaderDetails from '../components/HeaderDetails';
 import RenderInput from '../components/utils/Input';
+import ShareAndFavorite from '../components/ShareAndFavorite';
 
 function FoodProgress() {
+  const [path, setPath] = useState('');
+  const [copied, setCopied] = useState(false);
   const [recipe, setRecipe] = useState('');
   const [ingredients, setIngredients] = useState([]);
 
@@ -16,9 +19,8 @@ function FoodProgress() {
 
   useEffect(() => {
     Object.keys(recipe).map(
-      (_, index) =>
-        recipe[`strIngredient${index + 1}`] &&
-        setIngredients((prevState) => [
+      (_, index) => recipe[`strIngredient${index + 1}`]
+        && setIngredients((prevState) => [
           ...prevState,
           {
             id: index,
@@ -39,10 +41,15 @@ function FoodProgress() {
   return (
     <div>
       <HeaderDetails recipe={recipe} foods />
+      <ShareAndFavorite
+        food={recipe} path={path} copied={copied} setCopied={setCopied} Type="comida"
+      />
       <div>
         <div>
           <h1>Ingredientes</h1>
-          {ingredients.map(({ ingredient, id, measure, isCompleted }) => (
+          {ingredients.map(({
+            ingredient, id, measure, isCompleted,
+          }) => (
             <div>
               <RenderInput
                 type="checkbox"
