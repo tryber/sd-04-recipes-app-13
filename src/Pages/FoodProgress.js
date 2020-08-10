@@ -16,7 +16,7 @@ function FoodProgress() {
 
   useEffect(() => {
     console.log(food)
-    const meals = { {foodId}: [] }
+    const meals = { foodId: [] }
     saveStorage('inProgressrecipes', { meals });
   }, [food]);
 
