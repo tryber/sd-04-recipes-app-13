@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { getById } from '../services/foodApi';
 import HeaderDetails from '../components/HeaderDetails';
 import RenderInput from '../components/utils/Input';
@@ -63,6 +64,11 @@ function FoodProgress() {
         <div>
           <h1>Instruções</h1>
           <p data-testid="instructions">{recipe.strInstructions}</p>
+        </div>
+        <div>
+          <Link to="/receitas-feitas">
+            <button>Finalizar receita</button>
+          </Link>
         </div>
       </div>
     </div>
