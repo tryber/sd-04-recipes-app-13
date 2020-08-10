@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { loadStorage } from '../../services/localStorage';
 
-const searchtypebutton = (doingRecipe, doneRecipe, recipe, setVisible, setMessage) => {
+const searchtypebutton = (doingRecipe, doneRecipe, recipe, setVisible, setMessage, type) => {
   const isDoingArray = doingRecipe[type] || [];
   const isDone = doneRecipe
     .filter((done) => done.id === (recipe.idMeal || recipe.idDrink));
@@ -21,11 +21,10 @@ function RecipeButton({ type, recipe, path }) {
   const [message, setMessage] = useState('Iniciar Receita');
   const [visible, setVisible] = useState(true);
 
-
   useEffect(() => {
     setDoneRecipe(JSON.parse(loadStorage('doneRecipes')) || []);
     setDoingRecipe(JSON.parse(loadStorage('inProgressRecipes')) || { cocktails: [], meals: [] });
-    searchtypebutton(doingRecipe, doneRecipe, recipe, setVisible, setMessage);
+    searchtypebutton(doingRecipe, doneRecipe, recipe, setVisible, setMessage, type);
   }, []);
 
   return (
