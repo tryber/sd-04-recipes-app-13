@@ -23,8 +23,7 @@ const FoodScreen = () => {
     getCategoryFilter(name).then((categoryData) => setData(categoryData));
   }, [name]);
 
-  const changeCategory = (strCategory) =>
-    name === strCategory ? setName('') : setName(strCategory);
+  const changeCategory = (strCategory) => name === strCategory ? setName('') : setName(strCategory);
 
   if (!data) {
     return (
@@ -40,20 +39,15 @@ const FoodScreen = () => {
       <Header title="Comidas" search />
       <div className="category-btn-div">
         <RenderButton
-          type="button"
-          className="category-btn"
-          onClick={() => changeCategory('')}
+          type="button" className="category-btn" onClick={() => changeCategory('')}
           data-testid="All-category-filter"
         >
           All
         </RenderButton>
         {categories.slice(0, 5).map(({ strCategory }) => (
           <RenderButton
-            type="button"
-            onClick={() => changeCategory(strCategory)}
-            key={strCategory}
-            className="category-btn"
-            data-testid={`${strCategory}-category-filter`}
+            type="button" onClick={() => changeCategory(strCategory)} key={strCategory}
+            className="category-btn" data-testid={`${strCategory}-category-filter`}
           >
             {strCategory}
           </RenderButton>

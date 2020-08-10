@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { getFoodByIngredients } from '../services/foodApi';
 import Footer from '../components/Footer';
 import Header from '../components/Header/Header';
-import { getFoodByIngredients } from '../services/foodApi';
-import { Link } from 'react-router-dom';
 
 const IngredientsFoods = () => {
   const [ingred, setIngred] = useState([]);

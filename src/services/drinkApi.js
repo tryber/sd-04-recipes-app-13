@@ -1,5 +1,3 @@
-import { func } from 'prop-types';
-
 const URL = 'https://www.thecocktaildb.com/api/json/v1/1';
 
 // Pega a bebida por nome
@@ -39,6 +37,7 @@ async function getByIngredients(ingredient) {
 // Pega todos os ingredientes
 export async function getDrinkByIngredients() {
   const ingred = await fetch(`${URL}/filter.php?i=`).then((r) => r.json());
+  return ingred.drinks;
 }
 
 export { getByName, getByFirstLetter, getByIngredients };

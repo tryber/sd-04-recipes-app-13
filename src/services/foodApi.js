@@ -1,5 +1,3 @@
-import { func } from 'prop-types';
-
 const URL = 'https://www.themealdb.com/api/json/v1/1';
 
 // Pega a lista completa e detalhada de todas as categorias
