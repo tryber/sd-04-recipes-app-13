@@ -39,25 +39,31 @@ function FoodProgress() {
     <div>
       <HeaderDetails recipe={recipe} foods />
       <div>
-        <h1>Ingredientes</h1>
-        {ingredients.map(({ ingredient, id, measure, isCompleted }) => (
-          <div>
-            <RenderInput
-              type="checkbox"
-              id={ingredient}
-              value={ingredient}
-              key={ingredient}
-              data-testid={`${id}-ingredient-step`}
-              onClick={() => completedStep(id)}
-            />
-            <label
-              htmlFor={ingredient}
-              style={{ textDecoration: isCompleted ? 'line-through' : '' }}
-            >
-              {`${ingredient} - ${measure}`}
-            </label>
-          </div>
-        ))}
+        <div>
+          <h1>Ingredientes</h1>
+          {ingredients.map(({ ingredient, id, measure, isCompleted }) => (
+            <div>
+              <RenderInput
+                type="checkbox"
+                id={ingredient}
+                value={ingredient}
+                key={ingredient}
+                data-testid={`${id}-ingredient-step`}
+                onClick={() => completedStep(id)}
+              />
+              <label
+                htmlFor={ingredient}
+                style={{ textDecoration: isCompleted ? 'line-through' : '' }}
+              >
+                {`${ingredient} - ${measure}`}
+              </label>
+            </div>
+          ))}
+        </div>
+        <div>
+          <h1>Instruções</h1>
+          <p data-testid="instructions">{recipe.strInstructions}</p>
+        </div>
       </div>
     </div>
   );
