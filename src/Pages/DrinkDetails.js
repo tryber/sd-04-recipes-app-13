@@ -44,7 +44,7 @@ function DrinkDetails() {
       </div>
       <div>
         <h1>Recomended</h1>
-        <FoodAndDrinkCard data={food} info="food" slice="6" geraltest="recomendation" test="recomendatio" />
+        <FoodAndDrinkCard data={food} info="food" slice="6" geraltest="recomendation" />
       </div>
       <RecipeButton type="cocktails" recipe="drink" path={path} />
     </div>
