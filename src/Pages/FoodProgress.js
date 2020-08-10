@@ -5,7 +5,7 @@ import RenderInput from '../components/utils/Input';
 
 function FoodProgress() {
   const [recipe, setRecipe] = useState('');
-  const [completed, setCompleted] = useState('');
+  const [ingredients, setIngredients] = useState([]);
 
   useEffect(() => {
     const pathName = window.location.pathname.slice(9);
@@ -13,20 +13,26 @@ function FoodProgress() {
     getById(id).then((data) => setRecipe(data[0]));
   }, []);
 
-  // useEffect(() => {
-  //   setCompleted(prevState => [
-  //     ...prevState,
-  //     {
-  //       isCompleted}
-  //   ]);
-  // }, [recipe]);
+  useEffect(() => {
+    Object.keys(recipe).map(
+      (_, index) =>
+        recipe[`strIngredient${index + 1}`] &&
+        setIngredients((prevState) => [
+          ...prevState,
+          {
+            ingredient: recipe[`strIngredient${index + 1}`],
+            isCompleted: false,
+          },
+        ]),
+    );
+  }, [recipe]);
 
-  const completedStep = (index, recipe) => {
-    // e.target.checked === true ? setCompleted(true) : setCompleted(false);
-  };
+  const completedStep = (index, recipe) => {};
 
   return (
     <div>
+      {console.log(ingredients)}
+      {console.log(recipe)}
       <HeaderDetails recipe={recipe} foods />
       <div>
         <h1>Ingredientes</h1>
@@ -42,10 +48,7 @@ function FoodProgress() {
                   data-testid={`${index}-ingredient-step`}
                   onClick={() => completedStep(index, recipe)}
                 />
-                <label
-                  htmlFor={recipe[`strIngredient${index + 1}`]}
-                  style={{ textDecoration: completed ? 'line-through' : '' }}
-                >
+                <label htmlFor={recipe[`strIngredient${index + 1}`]}>
                   {`${recipe[`strIngredient${index + 1}`]} - ${
                     recipe[`strMeasure${index + 1}`]
                   }`}
