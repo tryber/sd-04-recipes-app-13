@@ -17,9 +17,8 @@ const HeaderDetails = ({ recipe, foods }) => (
       <Fragment>
         <img
           data-testid="recipe-photo"
-          className="details-img"
           src={recipe.strDrinkThumb}
-          alt="food-img"
+          alt="drink-img"
         />
         <h1 data-testid="recipe-title" className="details-title">{recipe.strDrink}</h1>
         <h4 data-testid="recipe-category" className="details-sub">{recipe.strAlcoholic}</h4>
