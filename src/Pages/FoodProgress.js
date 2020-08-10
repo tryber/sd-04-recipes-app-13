@@ -23,7 +23,6 @@ function FoodProgress() {
 
   const completedStep = (index, recipe) => {
     // e.target.checked === true ? setCompleted(true) : setCompleted(false);
-    
   };
 
   return (
@@ -32,19 +31,19 @@ function FoodProgress() {
       <div>
         <h1>Ingredientes</h1>
         {Object.keys(recipe).map(
-          (ingredient, index) =>
+          (_, index) =>
             recipe[`strIngredient${index + 1}`] && (
               <div>
                 <RenderInput
                   type="checkbox"
-                  id={ingredient}
-                  value={ingredient}
-                  key={ingredient}
+                  id={recipe[`strIngredient${index + 1}`]}
+                  value={recipe[`strIngredient${index + 1}`]}
+                  key={recipe[`strIngredient${index + 1}`]}
                   data-testid={`${index}-ingredient-step`}
                   onClick={() => completedStep(index, recipe)}
                 />
                 <label
-                  htmlFor={ingredient}
+                  htmlFor={recipe[`strIngredient${index + 1}`]}
                   style={{ textDecoration: completed ? 'line-through' : '' }}
                 >
                   {`${recipe[`strIngredient${index + 1}`]} - ${

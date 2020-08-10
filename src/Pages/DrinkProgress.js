@@ -5,11 +5,14 @@ import RenderInput from '../components/utils/Input';
 
 function DrinkProgress() {
   const [recipe, setRecipe] = useState('');
+  const [ingredients, setIngredients] = useState([]);
 
   useEffect(() => {
     const pathName = window.location.pathname.slice(9);
     const id = pathName.replace(/\D/g, '');
     getById(id).then((data) => setRecipe(data[0]));
+
+    // recipe.
   }, []);
 
   return (
@@ -18,22 +21,23 @@ function DrinkProgress() {
       <div>
         <h1>Ingredientes</h1>
         {Object.keys(recipe).map(
-          (ingredient, index) => recipe[`strIngredient${index + 1}`] && (
-            <div>
-              <label htmlFor={ingredient}>
-                <RenderInput
-                  type="checkbox"
-                  id={ingredient}
-                  value={ingredient}
-                  key={ingredient}
-                  data-testid={`${index}-ingredient-step`}
-                />
-                {`${recipe[`strIngredient${index + 1}`]} - ${
-                  recipe[`strMeasure${index + 1}`]
-                }`}
-              </label>
-            </div>
-          ),
+          (_, index) =>
+            recipe[`strIngredient${index + 1}`] && (
+              <div>
+                <label htmlFor={recipe[`strIngredient${index + 1}`]}>
+                  <RenderInput
+                    type="checkbox"
+                    id={recipe[`strIngredient${index + 1}`]}
+                    value={recipe[`strIngredient${index + 1}`]}
+                    key={recipe[`strIngredient${index + 1}`]}
+                    data-testid={`${index}-ingredient-step`}
+                  />
+                  {`${recipe[`strIngredient${index + 1}`]} - ${
+                    recipe[`strMeasure${index + 1}`]
+                  }`}
+                </label>
+              </div>
+            ),
         )}
       </div>
     </div>
