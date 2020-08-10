@@ -39,11 +39,11 @@ const ShareAndFavorite = ({ food, path, copied, setCopied, Type }) => {
   const recipe = {
     id: food.idMeal || food.idDrink,
     type: Type,
-    area: food.strArea,
+    area: food.strArea || ' ',
     category: food.strCategory,
     name: food.strMeal || food.strDrink,
     image: food.strMealThumb || food.strDrinkThumb,
-    alcoholicOrNot: '' || food.strAlcoholic,
+    alcoholicOrNot: food.strAlcoholic || ' ',
   };
 
   const handleFavorite = () => {
