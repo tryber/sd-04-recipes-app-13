@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link, useHistory } from 'react-router-dom';
-import ProfileIcon from '../../images/profileIcon.svg';
+import ProfileIcon from '../../images/profileIcon.png';
 import SearchIcon from '../../images/searchIcon.svg';
 import RenderButton from '../utils/Button';
 import FoodBarSearch from './FoodBarScreen';

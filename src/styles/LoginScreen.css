@@ -14,11 +14,12 @@
   background: var(--box-container-gradient);
   border-radius: 5px;
   box-shadow: -3px 4px 13px rgb(22, 26, 22);
-  height: 40%;
   margin: 10% auto;
   padding-bottom: 40px;
   text-align: center;
+  max-width: 500px;
   width: 50%;
+  box-sizing: border-box;
 }
 
 .title-container {
@@ -41,16 +42,37 @@ input:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s;
 }
 
-input {
-  background-color: rgba(127, 255, 212, 0.144);
+.input-login-email, .input-login-password {
+  background-color: rgba(180, 219, 231, 0.541);
   border-radius: 50px;
   border: 1px solid black;
   border: none;
   box-sizing: border-box;
-  color: black;
-  margin: 8px 0;
-  padding: 6px 15px;
+  margin: 8px 20px 10px;
+  padding: 10px 15px;
   width: 90%;
+  display:flex;
+  justify-content: space-between;
+}
+
+.input-login-email img, .input-login-password img {
+  margin-right: 5px;
+  width: 50px;
+}
+
+input[type="email"], input[type="password"] {
+  align-self: center;
+  font-size:15px;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px black;
+  background: none;
+  border: none;
+  flex-grow: 1;
+  margin-left: 5px;
+}
+
+input:focus {
+  outline: none;
 }
 
 .btn-login {
@@ -58,10 +80,18 @@ input {
   border-radius: 50px;
   color: aliceblue;
   font-size: 20px;
-  margin-top: 40px;
-  padding: 10px;
+  padding: 12px;
   text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.63);
-  width: 90%;
+  width: 60%;
+  transform: scale(1);
+  border: 2px solid rgba(27, 75, 105, 0.37);
+  transition: transform 100ms linear;
+}
+
+.btn-login:hover {
+  background: var(--button-background-gradient-deg);
+  transition: transform 100ms linear;
+  transform: scale(1.1);
 }
 
 .icons {
@@ -101,5 +131,8 @@ input {
   .icons {
     padding-left: 1em;
     padding-right: 1em;
+  }
+  .input-login-email img, .input-login-password img {
+    width: 35px;
   }
 }

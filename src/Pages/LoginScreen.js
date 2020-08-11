@@ -47,24 +47,27 @@ function LoginScreen() {
           <span className="title-login">Recipe App</span>
         </div>
 
-        <RenderInput
-          data-testid="email-input"
-          type="email"
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
-          required
-          size="30"
-          className="input-login-email"
-        />
-        <RenderInput
+        <div className="input-login-email">
+          <RenderInput
+            data-testid="email-input"
+            type="email"
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email"
+            required
+          />
+          <img src="https://img.icons8.com/cotton/64/000000/mail-account.png"/>
+        </div>
+        <div className="input-login-password">
+          <RenderInput
           data-testid="password-input"
           type="password"
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Senha"
           required
-          size="30"
-          className="input-login-password"
         />
+        <img src="https://img.icons8.com/cotton/64/000000/user-male-circle.png"/>
+        </div>
+        
 
         <br />
 
@@ -80,7 +83,7 @@ function LoginScreen() {
           </RenderButton>
         </Link>
         <br />
-        <div className="container-icons">
+        <div className="container-icons" style={{ display: 'none' }}>
           <img
             className="icons"
             src="https://download.seaicons.com/download/i97515/sicons/basic-round-social/sicons-basic-round-social-facebook.ico"
