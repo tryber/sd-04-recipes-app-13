@@ -21,7 +21,6 @@ function FoodDetails() {
   const [food, setFood] = useState('');
   const [Drink, setDrink] = useState([]);
   const [path, setPath] = useState('');
-  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     const foodId = window.location.pathname.slice(9);
@@ -37,9 +36,7 @@ function FoodDetails() {
       />
       <h1 data-testid="recipe-title" className="details-title">{food.strMeal}</h1>
       <h4 data-testid="recipe-category" className="details-sub">{food.strCategory}</h4>
-      <ShareAndFavorite
-        food={food} path={path} copied={copied} setCopied={setCopied} Type="comida"
-      />
+      <ShareAndFavorite food={food} path={path} Type="comida" />
       <div className="ingredients">
         <h1>Ingredients</h1>
         <ul>
@@ -56,7 +53,10 @@ function FoodDetails() {
       </div>
       <div>
         <h1 className="titles">Recomended</h1>
-        <FoodAndDrinkCard data={Drink} info="drink" slice="6" test="recomendation" />
+        <FoodAndDrinkCard
+          data={Drink} info="drink" slice="6" test1="recomendation-card"
+          test2="recomendation-img" test3="recomendation-title"
+        />
       </div>
       <RecipeButton type="meals" recipe="food" path={path} />
     </div>
