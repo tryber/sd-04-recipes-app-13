@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
 
-const HeaderDetails = ({ recipe, foods }) =>
-  foods ? (
+const HeaderDetails = ({ recipe, foods }) => {
+  return foods ? (
     <Fragment>
       <img
         data-testid="recipe-photo"
@@ -28,6 +28,7 @@ const HeaderDetails = ({ recipe, foods }) =>
       </h4>
     </Fragment>
   );
+};
 
 HeaderDetails.propTypes = {
   foods: PropTypes.bool.isRequired,
