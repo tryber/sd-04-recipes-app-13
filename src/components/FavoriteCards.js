@@ -14,7 +14,7 @@ function FavoriteCards({ favoriteRecipe, from }) {
     const TagRecipe = recipe.tags.split(',');
     if (recipe.type === 'comida') (
       <p data-testid={`${index}-horizontal-done-date`}>{`Feita em: ${recipe.doneDate}`}</p>
-      TagRecipe.map((tag) => <p data-testid={`${index}-${tag}-horizontal-tag`}>tag</p>)
+      {TagRecipe.map((tag) => <p data-testid={`${index}-${tag}-horizontal-tag`}>tag</p>)}
     )
     return (
       <p data-testid={`${index}-horizontal-done-date`}>{`Feita em: ${recipe.doneDate}`}</p>
