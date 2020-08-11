@@ -28,7 +28,7 @@ function RecipesFavorites() {
     <div>
       <Header title="Receitas Favoritas" />
       <FilterButton setFilter={setFilter} />
-      <FavoriteCards favoriteRecipe={storageFilter} />
+      <FavoriteCards favoriteRecipe={storageFilter} from="favorite" />
     </div>
   );
 }

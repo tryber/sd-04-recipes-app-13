@@ -21,7 +21,7 @@ function FoodDetails() {
   const [food, setFood] = useState('');
   const [Drink, setDrink] = useState([]);
   const [path, setPath] = useState('');
-  
+
   useEffect(() => {
     const foodId = window.location.pathname.slice(9);
     getById(foodId).then((Datafood) => setFood(Datafood[0]));

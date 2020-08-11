@@ -3,11 +3,22 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ShareAndFavorite from './ShareAndFavorite';
 
-function FavoriteCards({ favoriteRecipe }) {
+function FavoriteCards({ favoriteRecipe, from }) {
   const RouteGeneration = (recipe) => {
     if (recipe.type === 'comida') return `comidas/${recipe.id}`;
     if (recipe.type === 'bebida') return `bebidas/${recipe.id}`;
     return '/notfound';
+  };
+
+  const Tags = (recipe, index) => {
+    const TagRecipe = recipe.tags.split(',');
+    if (recipe.type === 'comida') (
+      <p data-testid={`${index}-horizontal-done-date`}>{`Feita em: ${recipe.doneDate}`}</p>
+      TagRecipe.map((tag) => <p data-testid={`${index}-${tag}-horizontal-tag`}>tag</p>)
+    )
+    return (
+      <p data-testid={`${index}-horizontal-done-date`}>{`Feita em: ${recipe.doneDate}`}</p>
+    )  
   };
 
   return (
@@ -27,6 +38,7 @@ function FavoriteCards({ favoriteRecipe }) {
             Type={recipe.type} favid={`${index}-horizontal-favorite-btn`}
             shareid={`${index}-horizontal-share-btn`}
           />
+          {(from === 'done') && Tags(recipe, index)}
         </div>
       ))}
     </div>
