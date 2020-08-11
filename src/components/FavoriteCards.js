@@ -12,13 +12,9 @@ function FavoriteCards({ favoriteRecipe, from }) {
 
   const Tags = (recipe, index) => {
     const TagRecipe = recipe.tags.split(',');
-    if (recipe.type === 'comida') (
-      <p data-testid={`${index}-horizontal-done-date`}>{`Feita em: ${recipe.doneDate}`}</p>
-      {TagRecipe.map((tag) => <p data-testid={`${index}-${tag}-horizontal-tag`}>tag</p>)}
-    )
-    return (
-      <p data-testid={`${index}-horizontal-done-date`}>{`Feita em: ${recipe.doneDate}`}</p>
-    )  
+    (recipe.type === 'comida') (
+      TagRecipe.map((tag) => <p data-testid={`${index}-${tag}-horizontal-tag`}>tag</p>)
+    );
   };
 
   return (
@@ -38,6 +34,8 @@ function FavoriteCards({ favoriteRecipe, from }) {
             Type={recipe.type} favid={`${index}-horizontal-favorite-btn`}
             shareid={`${index}-horizontal-share-btn`}
           />
+          {(from === 'done') &&
+            <p data-testid={`${index}-horizontal-done-date`}>{`Feita em: ${recipe.doneDate}`}</p>}
           {(from === 'done') && Tags(recipe, index)}
         </div>
       ))}
