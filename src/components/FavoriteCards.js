@@ -5,10 +5,9 @@ import ShareAndFavorite from './ShareAndFavorite';
 
 function FavoriteCards({ favoriteRecipe }) {
   const RouteGeneration = (recipe) => {
-    console.log('click')
-    console.log(recipe)
     if (recipe.type === 'comida') return `comidas/${recipe.id}`;
     if (recipe.type === 'bebida') return `bebidas/${recipe.id}`;
+    return '/notfound';
   };
 
   return (
