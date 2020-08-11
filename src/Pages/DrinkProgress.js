@@ -6,6 +6,7 @@ import RenderInput from '../components/utils/Input';
 import ShareAndFavorite from '../components/ShareAndFavorite';
 import RenderButton from '../components/utils/Button';
 import completedStep from '../components/utils/completeStep';
+import effectProgress from '../components/utils/effectProgress';
 
 function DrinkProgress() {
   const [path, setPath] = useState('');
@@ -22,19 +23,20 @@ function DrinkProgress() {
   }, []);
 
   useEffect(() => {
-    Object.keys(recipe).map(
-      (_, index) =>
-        recipe[`strIngredient${index + 1}`] &&
-        setIngredients((prevState) => [
-          ...prevState,
-          {
-            id: index,
-            ingredient: recipe[`strIngredient${index + 1}`],
-            measure: recipe[`strMeasure${index + 1}`],
-            isCompleted: false,
-          },
-        ]),
-    );
+    effectProgress(recipe, setIngredients);
+    // Object.keys(recipe).map(
+    //   (_, index) =>
+    //     recipe[`strIngredient${index + 1}`] &&
+    //     setIngredients((prevState) => [
+    //       ...prevState,
+    //       {
+    //         id: index,
+    //         ingredient: recipe[`strIngredient${index + 1}`],
+    //         measure: recipe[`strMeasure${index + 1}`],
+    //         isCompleted: false,
+    //       },
+    //     ]),
+    // );
   }, [recipe]);
 
   useEffect(() => {
@@ -59,7 +61,8 @@ function DrinkProgress() {
             <div>
               <RenderInput
                 type="checkbox" id={ingredient} value={ingredient} key={ingredient}
-                data-testid={`${id}-ingredient-step`} onClick={() => completedStep(id)}
+                data-testid={`${id}-ingredient-step`}
+                onClick={() => completedStep(id, setIngredients, ingredients)}
               />
               <label
                 htmlFor={ingredient}

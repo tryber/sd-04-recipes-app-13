@@ -59,7 +59,8 @@ function FoodProgress() {
             <div>
               <RenderInput
                 type="checkbox" id={ingredient} value={ingredient} key={ingredient}
-                data-testid={`${id}-ingredient-step`} onClick={() => completedStep(id)}
+                data-testid={`${id}-ingredient-step`}
+                onClick={() => completedStep(id, setIngredients, ingredients)}
               />
               <label
                 htmlFor={ingredient} style={{ textDecoration: isCompleted ? 'line-through' : '' }}
