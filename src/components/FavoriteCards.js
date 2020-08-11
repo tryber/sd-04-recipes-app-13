@@ -12,8 +12,8 @@ function FavoriteCards({ favoriteRecipe, from }) {
 
   const Tags = (recipe, index) => {
     const TagRecipe = recipe.tags.split(',');
-    (recipe.type === 'comida') (
-      TagRecipe.map((tag) => <p data-testid={`${index}-${tag}-horizontal-tag`}>tag</p>)
+    (recipe.type === 'comida')(
+      TagRecipe.map((tag) => <p data-testid={`${index}-${tag}-horizontal-tag`}>tag</p>),
     );
   };
 
@@ -45,6 +45,7 @@ function FavoriteCards({ favoriteRecipe, from }) {
 
 FavoriteCards.propTypes = {
   favoriteRecipe: PropTypes.objectOf(PropTypes.string).isRequired,
+  from: PropTypes.string.isRequired,
 };
 
 export default FavoriteCards;
