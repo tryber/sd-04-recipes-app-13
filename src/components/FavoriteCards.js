@@ -22,9 +22,9 @@ function FavoriteCards({ favoriteRecipe }) {
           />
         </div>
       ))}
-      {favoriteDrinks.map((recipe,index) => (
+      {favoriteDrinks.map((recipe, index) => (
         <div key={recipe.id}>
-          <img data-testid={`${index}-horizontal-image`} src={recipe.image} alt={recipe.name} />
+          <img data-testid={`${index}-horizontal-image`} src={recipe.image} alt={index} />
           <h3 data-testid={`${index}-horizontal-name`}>{recipe.name}</h3>
           <p data-testid={`${index}-horizontal-top-text`}>{recipe.alcoholicOrNot}</p>
           <ShareAndFavorite

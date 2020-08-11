@@ -15,11 +15,11 @@ function RecipesFavorites() {
   }, []);
 
   useEffect(() => {
-    console.log("filter", filter)
-    console.log(favoriteStorage)
+    console.log('filter', filter);
+    console.log(favoriteStorage);
     if (filter === 'All') {
       const salvandoGeral = favoriteStorage;
-      console.log('filter geral', salvandoGeral)
+      console.log('filter geral', salvandoGeral);
       setstorageFilter(salvandoGeral);
     }
     if (filter.length > 0) {

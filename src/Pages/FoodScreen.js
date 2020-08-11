@@ -53,7 +53,7 @@ const FoodScreen = () => {
           </RenderButton>
         ))}
       </div>
-      <FoodAndDrinkCard data={data} info="food" test1="recipe-card" test2="card-img" test3="card-name" />
+      <FoodAndDrinkCard data={data} info="food" />
       <Footer />
     </div>
   );

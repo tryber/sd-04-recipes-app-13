@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const FoodAndDrinkCard = ({ data, info, slice = 12, test1, test2, test3 }) => {
+const FoodAndDrinkCard = ({ data, info, slice, test1, test2, test3 }) => {
   if (info === 'food') {
     return (
       <div className="card-general-container">
@@ -60,9 +60,17 @@ const FoodAndDrinkCard = ({ data, info, slice = 12, test1, test2, test3 }) => {
 FoodAndDrinkCard.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
   info: PropTypes.string.isRequired,
-  slice: PropTypes.string.isRequired,
-  test: PropTypes.string.isRequired,
-  geralTest: PropTypes.string.isRequired,
+  slice: PropTypes.string,
+  test1: PropTypes.string,
+  test2: PropTypes.string,
+  test3: PropTypes.string,
+};
+
+FoodAndDrinkCard.defaultProps = {
+  test1: 'recipe-card',
+  test2: 'card-img',
+  test3: 'card-name',
+  slice: 12,
 };
 
 export default FoodAndDrinkCard;

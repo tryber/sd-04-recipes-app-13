@@ -53,7 +53,10 @@ function FoodDetails() {
       </div>
       <div>
         <h1 className="titles">Recomended</h1>
-        <FoodAndDrinkCard data={Drink} info="drink" slice="6" test1="recomendation-card" test2="recomendation-img" test3="recomendation-title" />
+        <FoodAndDrinkCard
+          data={Drink} info="drink" slice="6" test1="recomendation-card"
+          test2="recomendation-img" test3="recomendation-title"
+        />
       </div>
       <RecipeButton type="meals" recipe="food" path={path} />
     </div>
