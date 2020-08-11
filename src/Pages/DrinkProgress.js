@@ -33,11 +33,7 @@ function DrinkProgress() {
     <div>
       <HeaderDetails recipe={recipe} />
       <ShareAndFavorite
-        food={recipe}
-        path={path}
-        copied={copied}
-        setCopied={setCopied}
-        Type="bebida"
+        food={recipe} path={path} copied={copied} setCopied={setCopied} Type="bebida"
       />
       <div>
         <div>
@@ -45,10 +41,7 @@ function DrinkProgress() {
           {ingredients.map(({ ingredient, id, measure, isCompleted }) => (
             <div>
               <RenderInput
-                type="checkbox"
-                id={ingredient}
-                value={ingredient}
-                key={ingredient}
+                type="checkbox" id={ingredient} value={ingredient} key={ingredient}
                 data-testid={`${id}-ingredient-step`}
                 onClick={() => completedStep(id, setIngredients, ingredients)}
               />
