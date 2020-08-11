@@ -23,7 +23,9 @@ const FoodScreen = () => {
     getCategoryFilter(name).then((categoryData) => setData(categoryData));
   }, [name]);
 
-  const changeCategory = (strCategory) => name === strCategory ? setName('') : setName(strCategory);
+  const changeCategory = (strCategory) => {
+   return name === strCategory ? setName('') : setName(strCategory);
+  };
 
   if (!data) {
     return (
