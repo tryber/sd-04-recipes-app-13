@@ -3,9 +3,9 @@ import ReactPlayer from 'react-player';
 import { getById } from '../services/foodApi';
 import FoodAndDrinkCard from '../components/FoodAndDrinkCard';
 import { getByName } from '../services/drinkApi';
-import HeaderDetails from '../components/HeaderDetails';
 import ShareAndFavorite from '../components/ShareAndFavorite';
 import RecipeButton from '../components/utils/RecipeButton';
+import HeaderDetails from '../components/HeaderDetails';
 // import '../styles/DetailsPage.css';
 
 const listIngredients = (food) => (
@@ -38,6 +38,7 @@ function FoodDetails() {
       />
       <h1 data-testid="recipe-title" className="details-title">{food.strMeal}</h1>
       <h4 data-testid="recipe-category" className="details-sub">{food.strCategory}</h4>
+      <HeaderDetails recipe={food} />
       <ShareAndFavorite food={food} path={path} Type="comida" />
 
       <div className="ingredients">
