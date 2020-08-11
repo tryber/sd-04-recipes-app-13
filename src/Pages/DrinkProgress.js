@@ -58,9 +58,7 @@ function DrinkProgress() {
         </div>
         <div>
           <Link to="/receitas-feitas">
-            <RenderButton type="button" isDisabled={isDisabled}>
-              Finalizar receita
-            </RenderButton>
+            <RenderButton type="button" children='Finalizar Receita' isDisabled={isDisabled} />
           </Link>
         </div>
       </div>
