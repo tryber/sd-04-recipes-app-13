@@ -8,7 +8,7 @@ import { saveStorage, loadStorage } from '../services/localStorage';
 
 const searchFavoriteFood = (favoriteStorage, food) => {
   const foodIsFavorite = favoriteStorage
-    .filter((fav) => fav.id === (food.idMeal || food.idDrink));
+    .filter((fav) => fav.id === (food.idMeal || food.idDrink || food.id));
   if (foodIsFavorite.length > 0) return true;
   return false;
 };
@@ -26,24 +26,25 @@ const HandleFavoriteClick = (favoriteStorage, isFavorite, recipe, setFavoriteSto
   }
 };
 
-const ShareAndFavorite = ({ food, path, copied, setCopied, Type }) => {
+const ShareAndFavorite = ({ food, path, Type, favid, shareid }) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const [favoriteStorage, setFavoriteStorage] = useState([]);
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     const favorite = JSON.parse(loadStorage('favoriteRecipes')) || [];
     setFavoriteStorage(favorite);
-    setIsFavorite(searchFavoriteFood(favoriteStorage, food));
+    setIsFavorite(searchFavoriteFood(favorite, food));
   }, [food]);
 
   const recipe = {
-    id: food.idMeal || food.idDrink,
-    type: Type,
-    area: food.strArea || ' ',
-    category: food.strCategory,
-    name: food.strMeal || food.strDrink,
-    image: food.strMealThumb || food.strDrinkThumb,
-    alcoholicOrNot: food.strAlcoholic || ' ',
+    id: food.idMeal || food.idDrink || food.id,
+    type: Type || food.type,
+    area: food.strArea || food.area || ' ',
+    category: food.strCategory || food.category,
+    name: food.strMeal || food.strDrink || food.name,
+    image: food.strMealThumb || food.strDrinkThumb || food.image,
+    alcoholicOrNot: food.strAlcoholic || food.alcoholicOrNot || ' ',
   };
 
   const handleFavorite = () => {
@@ -60,13 +61,13 @@ const ShareAndFavorite = ({ food, path, copied, setCopied, Type }) => {
     <div>
       <button onClick={() => handleFavorite()} type="button">
         <img
-          data-testid="favorite-btn"
+          data-testid={favid}
           src={isFavorite ? blackHeartIcon : whiteHeartIcon}
           alt="whiteHeart"
         />
       </button>
 
-      <button data-testid="share-btn" type="button" onClick={() => ShareClick()}>
+      <button data-testid={shareid} type="button" onClick={() => ShareClick()}>
         <img src={shareIcon} alt="share-icon" />
       </button>
       {copied && <span>Link copiado!</span>}
@@ -77,9 +78,14 @@ const ShareAndFavorite = ({ food, path, copied, setCopied, Type }) => {
 ShareAndFavorite.propTypes = {
   food: PropTypes.objectOf(PropTypes.string).isRequired,
   path: PropTypes.string.isRequired,
-  copied: PropTypes.bool.isRequired,
-  setCopied: PropTypes.func.isRequired,
+  favid: PropTypes.string,
+  shareid: PropTypes.string,
   Type: PropTypes.string.isRequired,
+};
+
+ShareAndFavorite.defaultProps = {
+  favid: 'favorite-btn',
+  shareid: 'share-btn',
 };
 
 export default ShareAndFavorite;
