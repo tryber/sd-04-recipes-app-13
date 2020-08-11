@@ -13,9 +13,11 @@ function FavoriteCards({ favoriteRecipe, from }) {
 
   const Tags = (recipe, index) => {
     if (recipe.type === 'comida') {
-      recipe.tags.slice(0, 2).map((tag) => <p data-testid={`${index}-${tag}-horizontal-tag`}>tag</p>);
+      return (
+        recipe.tags.map((tag) => <p key={tag} data-testid={`${index}-${tag}-horizontal-tag`}>{tag}</p>)
+      );
     }
-    console.log(recipe);
+    return <fragment> </fragment>;
   };
 
   return (
