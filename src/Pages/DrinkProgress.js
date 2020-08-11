@@ -7,6 +7,8 @@ import ShareAndFavorite from '../components/ShareAndFavorite';
 import RenderButton from '../components/utils/Button';
 import completedStep from '../components/utils/completeStep';
 import effectProgress from '../components/utils/effectProgress';
+import effectProgress2 from '../components/utils/effectProgress2';
+import effectProgress3 from '../components/utils/effectProgress3';
 
 function DrinkProgress() {
   const [path, setPath] = useState('');
@@ -16,10 +18,7 @@ function DrinkProgress() {
   const [ingredients, setIngredients] = useState([]);
 
   useEffect(() => {
-    const pathName = window.location.pathname.slice(9);
-    const id = pathName.replace(/\D/g, '');
-    getById(id).then((data) => setRecipe(data[0]));
-    setPath(window.location.href);
+    effectProgress2(getById, setRecipe, setPath);
   }, []);
 
   useEffect(() => {
@@ -27,19 +26,18 @@ function DrinkProgress() {
   }, [recipe]);
 
   useEffect(() => {
-    const disabled = ingredients.length
-      ? ingredients.every(({ isCompleted }) => isCompleted)
-      : false;
-    if (disabled) {
-      setIsDisabled(false);
-    }
+    effectProgress3(ingredients, setIsDisabled);
   }, [ingredients]);
 
   return (
     <div>
       <HeaderDetails recipe={recipe} />
       <ShareAndFavorite
-        food={recipe} path={path} copied={copied} setCopied={setCopied} Type="bebida"
+        food={recipe}
+        path={path}
+        copied={copied}
+        setCopied={setCopied}
+        Type="bebida"
       />
       <div>
         <div>
@@ -47,7 +45,10 @@ function DrinkProgress() {
           {ingredients.map(({ ingredient, id, measure, isCompleted }) => (
             <div>
               <RenderInput
-                type="checkbox" id={ingredient} value={ingredient} key={ingredient}
+                type="checkbox"
+                id={ingredient}
+                value={ingredient}
+                key={ingredient}
                 data-testid={`${id}-ingredient-step`}
                 onClick={() => completedStep(id, setIngredients, ingredients)}
               />
@@ -64,9 +65,7 @@ function DrinkProgress() {
         </div>
         <div>
           <Link to="/receitas-feitas">
-            <RenderButton
-              type="button" isDisabled={isDisabled}
-            >
+            <RenderButton type="button" isDisabled={isDisabled}>
               Finalizar receita
             </RenderButton>
           </Link>

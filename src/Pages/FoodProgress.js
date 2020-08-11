@@ -7,6 +7,8 @@ import ShareAndFavorite from '../components/ShareAndFavorite';
 import RenderButton from '../components/utils/Button';
 import completedStep from '../components/utils/completeStep';
 import effectProgress from '../components/utils/effectProgress';
+import effectProgress2 from '../components/utils/effectProgress2';
+import effectProgress3 from '../components/utils/effectProgress3';
 
 function FoodProgress() {
   const [path, setPath] = useState('');
@@ -16,10 +18,11 @@ function FoodProgress() {
   const [ingredients, setIngredients] = useState([]);
 
   useEffect(() => {
-    const pathName = window.location.pathname.slice(9);
-    const id = pathName.replace(/\D/g, '');
-    getById(id).then((data) => setRecipe(data[0]));
-    setPath(window.location.href);
+    effectProgress2(getById, setRecipe, setPath);
+    // const pathName = window.location.pathname.slice(9);
+    // const id = pathName.replace(/\D/g, '');
+    // getById(id).then((data) => setRecipe(data[0]));
+    // setPath(window.location.href);
   }, []);
 
   useEffect(() => {
@@ -40,12 +43,13 @@ function FoodProgress() {
   }, [recipe]);
 
   useEffect(() => {
-    const disabled = ingredients.length
-      ? ingredients.every(({ isCompleted }) => isCompleted)
-      : false;
-    if (disabled) {
-      setIsDisabled(false);
-    }
+    effectProgress3(ingredients, setIsDisabled);
+    // const disabled = ingredients.length
+    //   ? ingredients.every(({ isCompleted }) => isCompleted)
+    //   : false;
+    // if (disabled) {
+    //   setIsDisabled(false);
+    // }
   }, [ingredients]);
 
   return (
