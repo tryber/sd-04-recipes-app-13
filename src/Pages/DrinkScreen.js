@@ -49,7 +49,7 @@ const DrinkScreen = () => {
           >{strCategory}</RenderButton>
         ))}
       </div>
-      <FoodAndDrinkCard data={data} info="drink" test="card" geralTest="recipe" />
+      <FoodAndDrinkCard data={data} info="drink" />
       <Footer />
     </div>
   );
