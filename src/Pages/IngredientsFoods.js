@@ -16,7 +16,7 @@ const IngredientsFoods = () => {
       <Header title="Explorar Ingredientes" />
       {ingred.slice(0, 12).map((ing, index) => (
         <Link data-testid={`${index}-ingredient-card`} key={ing.idMeal}>
-          <h2 data-testid={`${index}-card-name`}>{ing.strMeal}</h2>
+          <h4 data-testid={`${index}-card-name`}>{ing.strMeal}</h4>
           <img
             data-testid={`${index}-card-img`}
             src={ing.strMealThumb}

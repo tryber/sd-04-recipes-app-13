@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { getDrinkByIngredients } from '../services/drinkApi';
+import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Header from '../components/Header/Header';
 
-function IngredientsDrinks() {
+const IngredientsDrinks = () => {
   const [ingred, setIngred] = useState([]);
   useEffect(() => {
-    getDrinkByIngredients().then((resp) => setDrink(resp));
+    getDrinkByIngredients().then((resp) => setIngred(resp));
   }, []);
   return (
     <div>
@@ -25,6 +26,6 @@ function IngredientsDrinks() {
       <Footer />
     </div>
   );
-}
+};
 
 export default IngredientsDrinks;
