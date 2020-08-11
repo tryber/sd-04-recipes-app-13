@@ -12,6 +12,7 @@ const FoodScreen = () => {
   const { data, setData } = useContext(RecipeContext);
   const [categories, setCategories] = useState([]);
   const [name, setName] = useState('');
+
   useEffect(() => {
     listAllCategories().then((Data) => setCategories(Data));
   }, []);
