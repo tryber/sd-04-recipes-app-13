@@ -64,8 +64,7 @@ export async function getAllFoodByArea() {
   return area.meals;
 }
 
-// List all ingredients
-export async function getFoodByIngredients() {
-  const ingred = await fetch(`${URL}/filter.php?i=`).then((r) => r.json());
+export async function listFoodIngredients() {
+  const ingred = await fetch(`${URL}/list.php?i=list`).then((r) => r.json());
   return ingred.meals;
 }

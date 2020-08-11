@@ -13,12 +13,12 @@ const IngredientsDrinks = () => {
     <div>
       <Header title="Explorar Ingredientes" />
       {ingred.slice(0, 12).map((ing, index) => (
-        <Link data-testid={`${index}-ingredient-card`} key={ing.strIngredient1}>
+        <Link to="/bebidas" data-testid={`${index}-ingredient-card`} key={ing.strIngredient1}>
           <h2 data-testid={`${index}-card-name`}>{ing.strIngredient1}</h2>
           <img
             data-testid={`${index}-card-img`}
-            src={ing.strDrinkThumb}
-            alt={ing.strDrink}
+            src={`https://www.thecocktaildb.com/images/ingredients/${ing.strIngredient1}-Small.png`}
+            alt={ing.strIngredient1}
             width="80px"
           />
         </Link>

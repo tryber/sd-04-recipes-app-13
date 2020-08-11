@@ -14,11 +14,11 @@ const IngredientsFoods = () => {
     <div>
       <Header title="Explorar Ingredientes" />
       {ingred.slice(0, 12).map((ing, index) => (
-        <Link data-testid={`${index}-ingredient-card`} key={ing.idIngredient}>
+        <Link to="/comidas" data-testid={`${index}-ingredient-card`} key={ing.idIngredient}>
           <h4 data-testid={`${index}-card-name`}>{ing.strIngredient}</h4>
           <img
             data-testid={`${index}-card-img`}
-            src={`https://www.themealdb.com/images/ingredients/${ing.strIngredient}.png`}
+            src={`https://www.themealdb.com/images/ingredients/${ing.strIngredient}-Small.png`}
             alt={ing.strMeal}
             width="80px"
           />
