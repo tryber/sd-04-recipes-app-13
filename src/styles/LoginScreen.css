@@ -11,7 +11,7 @@
 }
 
 .div-inputs-login {
-  background-color: #66666642;
+  background: var(--box-container-gradient);
   border-radius: 5px;
   box-shadow: -3px 4px 13px rgb(22, 26, 22);
   height: 40%;
@@ -22,7 +22,7 @@
 }
 
 .title-container {
-  color: white;
+  color: var(--text-color);
   font-family: 'Rubik', sans-serif;
   font-size: 33px;
   font-weight: 400;

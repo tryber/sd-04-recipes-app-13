@@ -17,30 +17,32 @@ function ProfileScreen() {
       </div>
       <div className="box-container">
         <h2 data-testid="profile-email">{loadStorage('user').email}</h2>
-        <Link to="/receitas-favoritas">
-          <button
-            type="button"
-            data-testid="profile-favorite-btn"
-            className="profile-btn"
-          >
-            Receitas Favoritas
-          </button>
-        </Link>
-        <Link to="/receitas-feitas">
-          <button type="button" data-testid="profile-done-btn" className="profile-btn">
-            Receitas Feitas
-          </button>
-        </Link>
-        <Link to="/">
-          <button
-            type="button"
-            data-testid="profile-logout-btn"
-            className="profile-btn"
-            onClick={() => cleanAndBack()}
-          >
-            Sair
-          </button>
-        </Link>
+        <div className="container-buttons">
+          <Link to="/receitas-favoritas">
+            <button
+              type="button"
+              data-testid="profile-favorite-btn"
+              className="profile-btn"
+            >
+              Receitas Favoritas
+            </button>
+          </Link>
+          <Link to="/receitas-feitas">
+            <button type="button" data-testid="profile-done-btn" className="profile-btn">
+              Receitas Feitas
+            </button>
+          </Link>
+          <Link to="/">
+            <button
+              type="button"
+              data-testid="profile-logout-btn"
+              className="profile-btn"
+              onClick={() => cleanAndBack()}
+            >
+              Sair
+            </button>
+          </Link>
+        </div>
       </div>
       <div style={{ display: 'none' }}>
         <Footer />
