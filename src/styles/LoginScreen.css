@@ -1,30 +1,27 @@
 .div-body {
-  /*   background-image: url('https://images.pexels.com/photos/4409250/pexels-photo-4409250.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
- */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.603), rgba(128, 128, 128, 0.226)),
+  align-items: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.651), rgba(128, 128, 128, 0.226)),
     url('https://images.pexels.com/photos/4409250/pexels-photo-4409250.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-  background-size: cover;
   background-repeat: no-repeat;
-  width: 100%;
+  background-size: cover;
+  display: flex;
   height: 100%;
   position: absolute;
-  display: flex;
-  align-items: center;
+  width: 100%;
 }
 
 .div-inputs-login {
   background-color: #66666642;
-  margin: 10% auto;
-  text-align: center;
-  height: 40%;
-  width: 50%;
-  padding-bottom: 40px;
   border-radius: 5px;
   box-shadow: -3px 4px 13px rgb(22, 26, 22);
+  height: 40%;
+  margin: 10% auto;
+  padding-bottom: 40px;
+  text-align: center;
+  width: 50%;
 }
 
 .title-container {
-  text-align: center;
   color: white;
   font-family: 'Rubik', sans-serif;
   font-size: 33px;
@@ -32,36 +29,60 @@
   line-height: 46px;
   padding-bottom: 20px;
   padding-top: 20px;
+  text-align: center;
+  text-shadow: 2px 3px 4px rgba(0, 0, 0, 0.781);
 }
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  transition: background-color 5000s ease-in-out 0s;
   -webkit-text-fill-color: white !important;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 input {
-  border: 1px solid black;
-  box-sizing: border-box;
-  margin: 8px 0;
+  background-color: rgba(127, 255, 212, 0.144);
   border-radius: 50px;
+  border: 1px solid black;
+  border: none;
+  box-sizing: border-box;
+  color: black;
+  margin: 8px 0;
   padding: 6px 15px;
   width: 90%;
-  background-color: rgba(127, 255, 212, 0.144);
-  color: black;
-  border: none;
 }
 
 .btn-login {
-  background: #6ce34f;
-  color: aliceblue;
+  background: var(--button-background-gradient);
   border-radius: 50px;
-  width: 90%;
-  padding: 6px 6px;
+  color: aliceblue;
   font-size: 20px;
-  margin-top: 10px;
+  margin-top: 40px;
+  padding: 10px;
+  text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.63);
+  width: 90%;
+}
+
+.icons {
+  padding-left: 5em;
+  padding-right: 5em;
+  padding-top: 20px;
+  width: 40px;
+}
+
+@media (max-width: 1300px) {
+  .icons {
+    padding-left: 4em;
+    padding-right: 4em;
+  }
+}
+
+@media (max-width: 1000px) {
+  .icons {
+    padding-left: 2em;
+    padding-right: 2em;
+  }
 }
 
 @media (max-width: 600px) {
@@ -72,9 +93,13 @@ input {
     text-align: center;
   }
   .btn-login {
-    width: 75%;
-    height: 30px;
     font-size: 17px;
+    height: 30px;
     padding: 0;
+    width: 75%;
+  }
+  .icons {
+    padding-left: 1em;
+    padding-right: 1em;
   }
 }

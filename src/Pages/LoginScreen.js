@@ -79,6 +79,21 @@ function LoginScreen() {
             Login
           </RenderButton>
         </Link>
+        <br />
+        <div className="container-icons">
+          <img
+            className="icons"
+            src="https://download.seaicons.com/download/i97515/sicons/basic-round-social/sicons-basic-round-social-facebook.ico"
+          />
+          <img
+            className="icons"
+            src="https://lh3.googleusercontent.com/proxy/hYLaRtLCwitj7wFHMqOHd-qh9rodOKzv8_4KEtikpZHRH-Uk9Yvff-DibQLfqRkhZTKBWUyyYbch_mqdKRsPLIlhp8Ma_b2P4dfdE0Gev0Ath11tkzeF710-AjRMQzn8KhWibjzPrxlVt1wU9Y77rgVOqMCn5riT82kj"
+          />
+          <img
+            className="icons"
+            src="https://icon-library.com/images/twiter-icon/twiter-icon-29.jpg"
+          />
+        </div>
       </div>
     </div>
   );

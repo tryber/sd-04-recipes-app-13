@@ -1,0 +1,5 @@
+:root {
+    --button-background: #64AAFA;
+    --button-background-gradient: linear-gradient(#64aafa, #6aecb465);
+    --button-background-gradient-deg: linear-gradient(#64aafa, #6aecb4);
+}

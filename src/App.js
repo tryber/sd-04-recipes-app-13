@@ -2,6 +2,7 @@ import React from 'react';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import * as Pg from './Pages/index';
 import './styles/Body.css';
+import './styles/Colors.css';
 
 
 function App() {
