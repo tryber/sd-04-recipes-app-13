@@ -36,7 +36,7 @@ async function getByIngredients(ingredient) {
 
 // Pega todos os ingredientes
 export async function getDrinkByIngredients() {
-  const ingred = await fetch(`${URL}/filter.php?i=`).then((r) => r.json());
+  const ingred = await fetch(`${URL}/list.php?i=list`).then((r) => r.json());
   return ingred.drinks;
 }
 
