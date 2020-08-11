@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import copy from 'clipboard-copy';
+import { RecipeContext } from '../context/index';
 import shareIcon from '../images/shareIcon.svg';
 import whiteHeartIcon from '../images/whiteHeartIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
@@ -18,7 +19,6 @@ const HandleFavoriteClick = (favoriteStorage, isFavorite, recipe, setFavoriteSto
     saveStorage('favoriteRecipes', [...favoriteStorage, recipe]);
   } else saveStorage('favoriteRecipes', [recipe]);
 
-  console.log(isFavorite);
   if (isFavorite) {
     const favoriteFilter = favoriteStorage.filter((fav) => fav.id !== recipe.id);
     saveStorage('favoriteRecipes', favoriteFilter);
@@ -30,6 +30,7 @@ const ShareAndFavorite = ({ food, path, Type, favid, shareid }) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const [favoriteStorage, setFavoriteStorage] = useState([]);
   const [copied, setCopied] = useState(false);
+  const { track, setTrack } = useContext(RecipeContext);
 
   useEffect(() => {
     const favorite = JSON.parse(loadStorage('favoriteRecipes')) || [];
@@ -50,6 +51,7 @@ const ShareAndFavorite = ({ food, path, Type, favid, shareid }) => {
   const handleFavorite = () => {
     HandleFavoriteClick(favoriteStorage, isFavorite, recipe, setFavoriteStorage);
     setIsFavorite(!isFavorite);
+    setTrack(!track);
   };
 
   const ShareClick = () => {
@@ -67,8 +69,8 @@ const ShareAndFavorite = ({ food, path, Type, favid, shareid }) => {
         />
       </button>
 
-      <button data-testid={shareid} type="button" onClick={() => ShareClick()}>
-        <img src={shareIcon} alt="share-icon" />
+      <button type="button" onClick={() => ShareClick()}>
+        <img src={shareIcon} data-testid={shareid} alt="share-icon" />
       </button>
       {copied && <span>Link copiado!</span>}
     </div>
