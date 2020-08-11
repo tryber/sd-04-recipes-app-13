@@ -10,7 +10,6 @@ const IngredientsFoods = () => {
     getFoodByIngredients().then((resp) => setIngred(resp));
   }, []);
 
-  console.log(ingred.slice(0, 12));
   return (
     <div>
       <Header title="Explorar Ingredientes" />

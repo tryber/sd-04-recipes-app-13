@@ -12,7 +12,6 @@ const IngredientsDrinks = () => {
   return (
     <div>
       <Header title="Explorar Ingredientes" />
-      {!ingred && <h2>Loading...</h2>}
       {ingred.slice(0, 12).map((ing, index) => (
         <Link data-testid={`${index}-ingredient-card`} key={ing.idDrink}>
           <h2 data-testid={`${index}-card-name`}>{ing.strCategory}</h2>
