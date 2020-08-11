@@ -1,7 +1,11 @@
 import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
 
+
+// separar o recipe e o foods em componentes
+
 const HeaderDetails = ({ recipe, foods }) => {
+  console.log('Procopio Rules!');
   return foods ? (
     <Fragment>
       <img
