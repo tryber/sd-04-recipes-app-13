@@ -12,3 +12,5 @@ const effectProgress = (recipe, setIngredients) =>
         },
       ]),
   );
+
+export default effectProgress;

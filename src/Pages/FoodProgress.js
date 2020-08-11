@@ -23,7 +23,7 @@ function FoodProgress() {
   }, []);
 
   useEffect(() => {
-    effectProgress(recipe, setIngredients)
+    effectProgress(recipe, setIngredients);
     // Object.keys(recipe).map(
     //   (_, index) =>
     //     recipe[`strIngredient${index + 1}`] &&
@@ -77,7 +77,8 @@ function FoodProgress() {
         <div>
           <Link to="/receitas-feitas">
             <RenderButton
-              type="button" isDisabled={isDisabled}>
+              type="button" isDisabled={isDisabled}
+            >
               Finalizar receita
             </RenderButton>
           </Link>
