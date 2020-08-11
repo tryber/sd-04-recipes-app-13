@@ -5,6 +5,7 @@ import HeaderDetails from '../components/HeaderDetails';
 import RenderInput from '../components/utils/Input';
 import ShareAndFavorite from '../components/ShareAndFavorite';
 import RenderButton from '../components/utils/Button';
+import completedStep from '../components/utils/completeStep';
 
 function DrinkProgress() {
   const [path, setPath] = useState('');
@@ -45,12 +46,6 @@ function DrinkProgress() {
     }
   }, [ingredients]);
 
-  const completedStep = (id) => {
-    const newIngredients = [...ingredients];
-    newIngredients[id].isCompleted = true;
-    setIngredients(newIngredients);
-  };
-
   return (
     <div>
       <HeaderDetails recipe={recipe} />
@@ -80,7 +75,8 @@ function DrinkProgress() {
         <div>
           <Link to="/receitas-feitas">
             <RenderButton
-              type="button" isDisabled={isDisabled}>
+              type="button" isDisabled={isDisabled}
+            >
               Finalizar receita
             </RenderButton>
           </Link>
