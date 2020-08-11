@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { getDrinkByIngredients } from '../services/drinkApi';
 import { Link } from 'react-router-dom';
+import { listAllCategories } from '../services/drinkApi';
 import Footer from '../components/Footer';
 import Header from '../components/Header/Header';
 
 const IngredientsDrinks = () => {
   const [ingred, setIngred] = useState([]);
   useEffect(() => {
-    getDrinkByIngredients().then((resp) => setIngred(resp));
+    listAllCategories().then((resp) => setIngred(resp));
   }, []);
   return (
     <div>
