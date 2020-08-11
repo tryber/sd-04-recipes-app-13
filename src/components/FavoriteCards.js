@@ -11,10 +11,10 @@ function FavoriteCards({ favoriteRecipe, from }) {
   };
 
   const Tags = (recipe, index) => {
-    const TagRecipe = recipe.tags.split(',');
-    (recipe.type === 'comida')(
-      TagRecipe.map((tag) => <p data-testid={`${index}-${tag}-horizontal-tag`}>tag</p>),
-    );
+  //  const TagRecipe = recipe.tags.split(',');
+  //  (recipe.type === 'comida')(
+  //    TagRecipe.map((tag) => <p data-testid={`${index}-${tag}-horizontal-tag`}>tag</p>),
+  //  );
   };
 
   return (
@@ -22,7 +22,7 @@ function FavoriteCards({ favoriteRecipe, from }) {
       {favoriteRecipe.map((recipe, index) => (
         <div key={recipe.id}>
           <Link to={() => RouteGeneration(recipe)}>
-            <img data-testid={`${index}-horizontal-image`} src={recipe.image} alt={recipe.name} />
+            <img data-testid={`${index}-horizontal-image`} width="60px" src={recipe.image} alt={recipe.name} />
             <h3 data-testid={`${index}-horizontal-name`}>{recipe.name}</h3>
           </Link>
           <p data-testid={`${index}-horizontal-top-text`}>

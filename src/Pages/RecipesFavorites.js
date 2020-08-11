@@ -18,7 +18,6 @@ function RecipesFavorites() {
   }, [track]);
 
   useEffect(() => {
-//    console.log(favoriteStorage);
     if (filter.length > 0) {
       setstorageFilter(favoriteStorage.filter((recipe) => recipe.type === filter));
     } else setTrack(!track);
