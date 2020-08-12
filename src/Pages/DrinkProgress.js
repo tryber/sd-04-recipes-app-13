@@ -36,33 +36,26 @@ function DrinkProgress() {
         food={recipe} path={path} copied={copied} setCopied={setCopied} Type="bebida"
       />
       <div>
-        <div>
-          <h1>Ingredientes</h1>
+        <h1>Ingredientes</h1>
+        <ul>
           {ingredients.map(({ ingredient, id, measure, isCompleted }) => (
-            <div>
-              <RenderInput
-                type="checkbox" id={ingredient} value={ingredient} key={ingredient}
-                data-testid={`${id}-ingredient-step`}
-                onClick={() => completedStep(id, setIngredients, ingredients)}
-              />
-              <label
-                htmlFor={ingredient}
-                style={{ textDecoration: isCompleted ? 'line-through' : '' }}
-              >{`${ingredient} - ${measure}`}</label>
-            </div>
+            <li data-testid={`${id}-ingredient-step`}>
+              <label htmlFor={ingredient}
+                style={{ textDecoration: isCompleted ? 'line-through' : '' }}>
+                <RenderInput
+                  type="checkbox" id={ingredient} value={ingredient} key={ingredient}
+                  onClick={() => completedStep(id, setIngredients, ingredients)}
+                />{`${ingredient} - ${measure}`}</label>
+            </li>
           ))}
-        </div>
-        <div>
-          <h1>Instruções</h1>
-          <p data-testid="instructions">{recipe.strInstructions}</p>
-        </div>
-        <div>
-          <Link to="/receitas-feitas">
-            <RenderButton type="button" isDisabled={isDisabled}>
-              Finalizar Receita
-              </RenderButton>
-          </Link>
-        </div>
+        </ul>
+        <h1>Instruções</h1>
+        <p data-testid="instructions">{recipe.strInstructions}</p>
+        <Link to="/receitas-feitas">
+          <RenderButton
+            data-testid="finish-recipe-btn" type="button" isDisabled={isDisabled}
+          > Finalizar Receita</RenderButton>
+        </Link>
       </div>
     </div>
   );

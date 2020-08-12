@@ -6,17 +6,8 @@ import { getByName } from '../services/drinkApi';
 import ShareAndFavorite from '../components/ShareAndFavorite';
 import RecipeButton from '../components/utils/RecipeButton';
 import HeaderDetails from '../components/HeaderDetails';
+import listIngredients from '../components/utils/listIngredients';
 // import '../styles/DetailsPage.css';
-
-const listIngredients = (food) => (
-  Object.keys(food).map((ing, index) => (
-    (food[`strIngredient${index + 1}`]) && (
-      <li key={ing} data-testid={`${index}-ingredient-name-and-measure`}>
-        {`${food[`strIngredient${index + 1}`]} - ${food[`strMeasure${index + 1}`]}`}
-      </li>
-    )
-  ))
-);
 
 function FoodDetails() {
   const [food, setFood] = useState('');

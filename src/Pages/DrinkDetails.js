@@ -5,6 +5,7 @@ import { getById } from '../services/drinkApi';
 import HeaderDetails from '../components/HeaderDetails';
 import ShareAndFavorite from '../components/ShareAndFavorite';
 import RecipeButton from '../components/utils/RecipeButton';
+import listIngredients from '../components/utils/listIngredients';
 
 function DrinkDetails() {
   const [food, setFood] = useState([]);
@@ -28,13 +29,7 @@ function DrinkDetails() {
       <div>
         <h1>Ingredients</h1>
         <ul>
-          {Object.keys(drink).map((ing, index) => (
-            (drink[`strIngredient${index + 1}`]) && (
-              <li key={ing} data-testid={`${index}-ingredient-name-and-measure`}>
-                {`${drink[`strIngredient${index + 1}`]} - ${drink[`strMeasure${index + 1}`]}`}
-              </li>
-            )
-          ))}
+          {listIngredients(drink)}
         </ul>
       </div>
       <div>

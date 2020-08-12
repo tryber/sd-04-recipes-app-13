@@ -4,7 +4,6 @@ import Header from '../components/Header/Header';
 import Footer from '../components/Footer';
 import { loadStorage } from '../services/localStorage';
 
-
 function ProfileScreen() {
   const cleanAndBack = () => {
     localStorage.clear();
@@ -12,7 +11,6 @@ function ProfileScreen() {
 
   return (
     <Fragment>
-      {console.log(loadStorage('user'))}
       <Header title="Perfil" />
       <div>
         <h2 data-testid="profile-email">{loadStorage('user').email}</h2>

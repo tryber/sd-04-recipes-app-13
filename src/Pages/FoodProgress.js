@@ -19,74 +19,59 @@ function FoodProgress() {
 
   useEffect(() => {
     effectProgress2(getById, setRecipe, setPath);
-    // const pathName = window.location.pathname.slice(9);
-    // const id = pathName.replace(/\D/g, '');
-    // getById(id).then((data) => setRecipe(data[0]));
-    // setPath(window.location.href);
   }, []);
 
   useEffect(() => {
     effectProgress(recipe, setIngredients);
-    // Object.keys(recipe).map(
-    //   (_, index) =>
-    //     recipe[`strIngredient${index + 1}`] &&
-    //     setIngredients((prevState) => [
-    //       ...prevState,
-    //       {
-    //         id: index,
-    //         ingredient: recipe[`strIngredient${index + 1}`],
-    //         measure: recipe[`strMeasure${index + 1}`],
-    //         isCompleted: false,
-    //       },
-    //     ]),
-    // );
   }, [recipe]);
 
   useEffect(() => {
     effectProgress3(ingredients, setIsDisabled);
-    // const disabled = ingredients.length
-    //   ? ingredients.every(({ isCompleted }) => isCompleted)
-    //   : false;
-    // if (disabled) {
-    //   setIsDisabled(false);
-    // }
   }, [ingredients]);
 
   return (
     <div>
       <HeaderDetails recipe={recipe} foods />
       <ShareAndFavorite
-        food={recipe} path={path} copied={copied} setCopied={setCopied} Type="comida"
+        food={recipe}
+        path={path}
+        copied={copied}
+        setCopied={setCopied}
+        Type="comida"
       />
       <div>
-        <div>
-          <h1>Ingredientes</h1>
+        <h1>Ingredientes</h1>
+        <ul>
           {ingredients.map(({ ingredient, id, measure, isCompleted }) => (
-            <div>
-              <RenderInput
-                type="checkbox" id={ingredient} value={ingredient} key={ingredient}
-                data-testid={`${id}-ingredient-step`}
-                onClick={() => completedStep(id, setIngredients, ingredients)}
-              />
+            <li data-testid={`${id}-ingredient-step`}>
               <label
-                htmlFor={ingredient} style={{ textDecoration: isCompleted ? 'line-through' : '' }}
-              >{`${ingredient} - ${measure}`}</label>
-            </div>
+                htmlFor={ingredient}
+                style={{ textDecoration: isCompleted ? 'line-through' : '' }}
+              >
+                <RenderInput
+                  type="checkbox"
+                  id={ingredient}
+                  value={ingredient}
+                  key={ingredient}
+                  data-testid={`${id}-ingredient-step`}
+                  onClick={() => completedStep(id, setIngredients, ingredients)}
+                />
+                {`${ingredient} - ${measure}`}
+              </label>
+            </li>
           ))}
-        </div>
-        <div>
-          <h1>Instruções</h1>
-          <p data-testid="instructions">{recipe.strInstructions}</p>
-        </div>
-        <div>
-          <Link to="/receitas-feitas">
-            <RenderButton
-              type="button" isDisabled={isDisabled}
-            >
-              Finalizar receita
-            </RenderButton>
-          </Link>
-        </div>
+        </ul>
+        <h1>Instruções</h1>
+        <p data-testid="instructions">{recipe.strInstructions}</p>
+        <Link to="/receitas-feitas">
+          <RenderButton
+            data-testid="finish-recipe-btn"
+            type="button"
+            isDisabled={isDisabled}
+          >
+            Finalizar receita
+          </RenderButton>
+        </Link>
       </div>
     </div>
   );
