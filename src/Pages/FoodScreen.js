@@ -7,6 +7,7 @@ import Loading from '../components/Loading';
 import FoodAndDrinkCard from '../components/FoodAndDrinkCard';
 import '../styles/FoodAndDrinkCards.css';
 import RenderButton from '../components/utils/Button';
+import createButtonSearch from '../components/utils/createButtonSearch';
 
 const FoodScreen = () => {
   const { data, setData, ingredients } = useContext(RecipeContext);
@@ -38,12 +39,7 @@ const FoodScreen = () => {
     <div className="general-container">
       <Header title="Comidas" search />
       <div className="category-btn-div">
-        <RenderButton
-          type="button" className="category-btn" onClick={() => changeCategory('')}
-          data-testid="All-category-filter"
-        >
-          All
-        </RenderButton>
+      {createButtonSearch(RenderButton, changeCategory)}
         {categories.slice(0, 5).map(({ strCategory }) => (
           <RenderButton
             type="button"
