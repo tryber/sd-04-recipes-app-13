@@ -1,19 +1,34 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { getDrinkByIngredients } from '../services/drinkApi';
+import React, { useState, useEffect, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
+import { getDrinkByIngredients, getByIngredients } from '../services/drinkApi';
 import Footer from '../components/Footer';
 import Header from '../components/Header/Header';
+import { RecipeContext } from '../context';
 
 const IngredientsDrinks = () => {
+  const { setIngredients, ingredients } = useContext(RecipeContext);
+  const history = useHistory();
   const [ingred, setIngred] = useState([]);
   useEffect(() => {
     getDrinkByIngredients().then((resp) => setIngred(resp));
   }, []);
+
+  const handleIngredientes = async (ingredient) => {
+    await getByIngredients(ingredient).then((resp) => {
+      setIngredients(resp);
+    });
+    history.push('/bebidas');
+  };
+
   return (
     <div>
       <Header title="Explorar Ingredientes" />
       {ingred.slice(0, 12).map((ing, index) => (
-        <Link to="/bebidas" data-testid={`${index}-ingredient-card`} key={ing.strIngredient1}>
+        <div
+          onClick={() => handleIngredientes(ing.strIngredient1)}
+          data-testid={`${index}-ingredient-card`}
+          key={ing.strIngredient1}
+        >
           <h2 data-testid={`${index}-card-name`}>{ing.strIngredient1}</h2>
           <img
             data-testid={`${index}-card-img`}
@@ -21,7 +36,7 @@ const IngredientsDrinks = () => {
             alt={ing.strIngredient1}
             width="80px"
           />
-        </Link>
+        </div>
       ))}
       <Footer />
     </div>

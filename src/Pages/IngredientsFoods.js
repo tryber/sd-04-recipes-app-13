@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { listFoodIngredients, getByIngredientsFood } from '../services/foodApi';
 import Footer from '../components/Footer';
 import Header from '../components/Header/Header';
@@ -13,8 +13,8 @@ const IngredientsFoods = () => {
     listFoodIngredients().then((resp) => setIngred(resp));
   }, []);
 
-  const handleIngredientes = (ingredient) => {
-    getByIngredientsFood(ingredient).then((resp) => {
+  const handleIngredientes = async (ingredient) => {
+    await getByIngredientsFood(ingredient).then((resp) => {
       setIngredients(resp);
     });
     history.push('/comidas');
@@ -25,16 +25,14 @@ const IngredientsFoods = () => {
     <div>
       <Header title="Explorar Ingredientes" />
       {ingred.slice(0, 12).map((ing, index) => (
-        <div data-testid={`${index}-ingredient-card`} key={ing.idIngredient}>
-          <h4
-            onClick={() => {
-              handleIngredientes(ing.strIngredient);
-              console.log('fui clicado');
-            }}
-            data-testid={`${index}-card-name`}
-          >
-            {ing.strIngredient}
-          </h4>
+        <div
+          onClick={() => {
+            handleIngredientes(ing.strIngredient);
+          }}
+          data-testid={`${index}-ingredient-card`}
+          key={ing.idIngredient}
+        >
+          <h4 data-testid={`${index}-card-name`}>{ing.strIngredient}</h4>
           <img
             data-testid={`${index}-card-img`}
             src={`https://www.themealdb.com/images/ingredients/${ing.strIngredient}-Small.png`}

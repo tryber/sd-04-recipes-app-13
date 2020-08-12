@@ -46,21 +46,31 @@ const FoodScreen = () => {
       <Header title="Comidas" search />
       <div className="category-btn-div">
         <RenderButton
-          type="button" className="category-btn" onClick={() => changeCategory('')}
+          type="button"
+          className="category-btn"
+          onClick={() => changeCategory('')}
           data-testid="All-category-filter"
         >
           All
         </RenderButton>
         {categories.slice(0, 5).map(({ strCategory }) => (
           <RenderButton
-            type="button" onClick={() => changeCategory(strCategory)} key={strCategory}
-            className="category-btn" data-testid={`${strCategory}-category-filter`}
+            type="button"
+            onClick={() => changeCategory(strCategory)}
+            key={strCategory}
+            className="category-btn"
+            data-testid={`${strCategory}-category-filter`}
           >
             {strCategory}
           </RenderButton>
         ))}
       </div>
-      <FoodAndDrinkCard data={data} info="food" test="card" geralTest="recipe" />
+      <FoodAndDrinkCard
+        data={ingredients.length === 0 ? data : ingredients}
+        info="food"
+        test="card"
+        geralTest="recipe"
+      />
       <Footer />
     </div>
   );
