@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { listFoodIngredients, getByIngredientsFood } from '../services/foodApi';
+import { RecipeContext } from '../context';
 import Footer from '../components/Footer';
 import Header from '../components/Header/Header';
-import { RecipeContext } from '../context';
 
 const IngredientsFoods = () => {
   const { setIngredients } = useContext(RecipeContext);
