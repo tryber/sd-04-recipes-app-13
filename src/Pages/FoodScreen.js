@@ -21,10 +21,6 @@ const FoodScreen = () => {
       getByName('').then((Datafoods) => setData(Datafoods));
     }
     getCategoryFilter(name).then((categoryData) => setData(categoryData));
-    console.log(
-      'tentando acessar os ingredients q foram salvos no context da tela de ingredientes',
-      ingredients,
-    );
   }, [name]);
 
   const changeCategory = (strCategory) => {
