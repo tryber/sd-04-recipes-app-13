@@ -20,18 +20,10 @@ const IngredientsFoods = () => {
     history.push('/comidas');
   };
 
-const IngredientsFoods = () => {
-  const [ingred, setIngred] = useState([]);
-  useEffect(() => {
-    listFoodIngredients().then((resp) => setIngred(resp));
-  }, []);
-
-
   return (
     <div>
       <Header title="Explorar Ingredientes" />
       {ingred.slice(0, 12).map((ing, index) => (
-
         <div data-testid={`${index}-ingredient-card`} key={ing.idIngredient}>
           <button
             style={{ width: '100%' }}
@@ -48,7 +40,6 @@ const IngredientsFoods = () => {
             />
           </button>
         </div>
-
       ))}
       <Footer />
     </div>
