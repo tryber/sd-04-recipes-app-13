@@ -15,27 +15,17 @@ const FoodScreen = () => {
   useEffect(() => {
     listAllCategories().then((Data) => setCategories(Data));
   }, []);
-
   useEffect(() => {
     if (name.length === 0) {
       getByName('').then((Datafoods) => setData(Datafoods));
     }
     getCategoryFilter(name).then((categoryData) => setData(categoryData));
   }, [name]);
-
   const changeCategory = (strCategory) => {
     console.log('Procopio Rules!');
     return name === strCategory ? setName('') : setName(strCategory);
   };
-
-  if (!data) {
-    return (
-      <div>
-        <Header title="Comidas" search />
-        <Footer />
-      </div>
-    );
-  }
+  if (!data) return alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
   if (data.length === 0) return <Loading />;
   return (
     <div className="general-container">
