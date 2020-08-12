@@ -29,7 +29,7 @@ const FoodScreen = () => {
 
   const changeCategory = (strCategory) => {
     console.log('Procopio Rules!');
-    name === strCategory ? setName('') : setName(strCategory);
+    return name === strCategory ? setName('') : setName(strCategory);
   };
 
   if (!data) {

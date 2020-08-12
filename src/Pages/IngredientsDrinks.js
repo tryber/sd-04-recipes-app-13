@@ -6,7 +6,7 @@ import Header from '../components/Header/Header';
 import { RecipeContext } from '../context';
 
 const IngredientsDrinks = () => {
-  const { setIngredients, ingredients } = useContext(RecipeContext);
+  const { setIngredients } = useContext(RecipeContext);
   const history = useHistory();
   const [ingred, setIngred] = useState([]);
   useEffect(() => {
