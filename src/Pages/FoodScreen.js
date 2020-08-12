@@ -25,7 +25,14 @@ const FoodScreen = () => {
     console.log('Procopio Rules!');
     return name === strCategory ? setName('') : setName(strCategory);
   };
-  if (!data) return alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
+  if (!data) {
+    return (
+      <div>
+        <Header title="Comidas" search />
+        <Footer />
+      </div>
+    );
+  }
   if (data.length === 0) return <Loading />;
   return (
     <div className="general-container">
