@@ -1,5 +1,5 @@
-const effectProgress = (recipe, setIngredients) =>
-  Object.keys(recipe).map(
+const effectProgress = (recipe, setIngredients) => {
+  return Object.keys(recipe).map(
     (_, index) =>
       recipe[`strIngredient${index + 1}`] &&
       setIngredients((prevState) => [
@@ -12,5 +12,6 @@ const effectProgress = (recipe, setIngredients) =>
         },
       ]),
   );
+};
 
 export default effectProgress;

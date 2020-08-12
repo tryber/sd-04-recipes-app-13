@@ -9,6 +9,7 @@ import completedStep from '../components/utils/completeStep';
 import effectProgress from '../components/utils/effectProgress';
 import effectProgress2 from '../components/utils/effectProgress2';
 import effectProgress3 from '../components/utils/effectProgress3';
+import inProgressStorage from '../components/utils/inProgressStorage';
 
 function DrinkProgress() {
   const [path, setPath] = useState('');
@@ -27,6 +28,7 @@ function DrinkProgress() {
 
   useEffect(() => {
     effectProgress3(ingredients, setIsDisabled);
+    inProgressStorage(ingredients, recipe);
   }, [ingredients]);
 
   return (

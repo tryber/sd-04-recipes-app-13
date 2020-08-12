@@ -9,12 +9,15 @@ import completedStep from '../components/utils/completeStep';
 import effectProgress from '../components/utils/effectProgress';
 import effectProgress2 from '../components/utils/effectProgress2';
 import effectProgress3 from '../components/utils/effectProgress3';
+import inProgressStorage from '../components/utils/inProgressStorage';
+import { firstRead } from '../components/utils/inProgressStorage';
 
 function FoodProgress() {
   const [path, setPath] = useState('');
   const [copied, setCopied] = useState(false);
   const [isDisabled, setIsDisabled] = useState(true);
   const [recipe, setRecipe] = useState('');
+  const [readStorage, setReadStorage] = useState(false);
   const [ingredients, setIngredients] = useState([]);
 
   useEffect(() => {
@@ -23,10 +26,12 @@ function FoodProgress() {
 
   useEffect(() => {
     effectProgress(recipe, setIngredients);
+    setReadStorage(true);
   }, [recipe]);
 
   useEffect(() => {
     effectProgress3(ingredients, setIsDisabled);
+    inProgressStorage(ingredients, recipe);
   }, [ingredients]);
 
   return (
@@ -37,6 +42,7 @@ function FoodProgress() {
       />
       <h1>Ingredientes</h1>
       <ul>
+        {(readStorage) && firstRead(setIngredients, ingredients, recipe, setReadStorage)}
         {ingredients.map(({ ingredient, id, measure, isCompleted }) => (
           <li data-testid={`${id}-ingredient-step`}>
             <label
@@ -46,6 +52,7 @@ function FoodProgress() {
               <RenderInput
                 type="checkbox" id={ingredient} value={ingredient} key={ingredient}
                 onClick={() => completedStep(id, setIngredients, ingredients)}
+                checked={((isCompleted) && 'checked')}
               />{`${ingredient} - ${measure}`}</label>
           </li>
         ))}
