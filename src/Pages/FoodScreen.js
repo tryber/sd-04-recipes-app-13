@@ -9,7 +9,7 @@ import '../styles/FoodAndDrinkCards.css';
 import RenderButton from '../components/utils/Button';
 
 const FoodScreen = () => {
-  const { data, setData } = useContext(RecipeContext);
+  const { data, setData, ingredients } = useContext(RecipeContext);
   const [categories, setCategories] = useState([]);
   const [name, setName] = useState('');
   useEffect(() => {
@@ -21,6 +21,10 @@ const FoodScreen = () => {
       getByName('').then((Datafoods) => setData(Datafoods));
     }
     getCategoryFilter(name).then((categoryData) => setData(categoryData));
+    console.log(
+      'tentando acessar os ingredients q foram salvos no context da tela de ingredientes',
+      ingredients,
+    );
   }, [name]);
 
   const changeCategory = (strCategory) => {

@@ -5,10 +5,13 @@ export const RecipeContext = createContext();
 
 const ProviderRecipe = ({ children }) => {
   const [data, setData] = useState([]);
+  const [ingredients, setIngredients] = useState([]);
 
   const context = {
     data,
     setData,
+    ingredients,
+    setIngredients,
   };
 
   return <RecipeContext.Provider value={context}>{children}</RecipeContext.Provider>;
