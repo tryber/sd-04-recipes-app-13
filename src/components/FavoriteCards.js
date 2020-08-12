@@ -9,16 +9,14 @@ const RouteGeneration = (recipe) => {
   if (recipe.type === 'bebida') return `bebidas/${recipe.id}`;
   return '/notfound';
 };
-
 function FavoriteCards({ favoriteRecipe, from }) {
-
   const Tags = (recipe, index) => {
     if (recipe.type === 'comida') {
       return (
         recipe.tags.map((tag) => <p key={tag} data-testid={`${index}-${tag}-horizontal-tag`}>{tag}</p>)
       );
     }
-    return <fragment> </fragment>;
+    return <fragment />;
   };
 
   return (
