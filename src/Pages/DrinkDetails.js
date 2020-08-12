@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { getByName } from '../services/foodApi';
 import FoodAndDrinkCard from '../components/FoodAndDrinkCard';
 import { getById } from '../services/drinkApi';
+import HeaderDetails from '../components/HeaderDetails';
 import ShareAndFavorite from '../components/ShareAndFavorite';
 import RecipeButton from '../components/utils/RecipeButton';
+import listIngredients from '../components/utils/listIngredients';
 
 function DrinkDetails() {
   const [food, setFood] = useState([]);
@@ -20,22 +22,14 @@ function DrinkDetails() {
 
   return (
     <div>
-      <img data-testid="recipe-photo" src={drink.strDrinkThumb} alt="drink-img" />
-      <h1 data-testid="recipe-title" className="drink-title">{drink.strDrink}</h1>
-      <h4 data-testid="recipe-category">{drink.strAlcoholic}</h4>
+      <HeaderDetails recipe={drink} />
       <ShareAndFavorite
         food={drink} path={path} copied={copied} setCopied={setCopied} Type="bebida"
       />
       <div>
         <h1>Ingredients</h1>
         <ul>
-          {Object.keys(drink).map((ing, index) => (
-            (drink[`strIngredient${index + 1}`]) && (
-              <li key={ing} data-testid={`${index}-ingredient-name-and-measure`}>
-                {`${drink[`strIngredient${index + 1}`]} - ${drink[`strMeasure${index + 1}`]}`}
-              </li>
-            )
-          ))}
+          {listIngredients(drink)}
         </ul>
       </div>
       <div>

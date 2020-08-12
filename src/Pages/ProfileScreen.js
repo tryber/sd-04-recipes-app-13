@@ -4,18 +4,18 @@ import Header from '../components/Header/Header';
 import Footer from '../components/Footer';
 import { loadStorage } from '../services/localStorage';
 
-
 function ProfileScreen() {
   const cleanAndBack = () => {
     localStorage.clear();
   };
 
+  const searchUser = loadStorage('user');
+
   return (
     <Fragment>
-      {console.log(loadStorage('user'))}
       <Header title="Perfil" />
       <div>
-        <h2 data-testid="profile-email">{loadStorage('user').email}</h2>
+        <h2 data-testid="profile-email">{searchUser ? searchUser.email : ''}</h2>
         <Link to="/receitas-favoritas">
           <button type="button" data-testid="profile-favorite-btn">Receitas Favoritas</button>
         </Link>
