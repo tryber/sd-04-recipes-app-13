@@ -25,7 +25,10 @@ const IngredientsDrinks = () => {
       <Header title="Explorar Ingredientes" />
       {ingred.slice(0, 12).map((ing, index) => (
         <div data-testid={`${index}-ingredient-card`} key={ing.strIngredient1}>
-          <button onClick={() => handleIngredientes(ing.strIngredient1)}>
+          <button
+            style={{ width: '100%' }}
+            onClick={() => handleIngredientes(ing.strIngredient1)}
+          >
             <h2 data-testid={`${index}-card-name`}>{ing.strIngredient1}</h2>
             <img
               data-testid={`${index}-card-img`}

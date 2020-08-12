@@ -6,7 +6,7 @@ import Header from '../components/Header/Header';
 import { RecipeContext } from '../context';
 
 const IngredientsFoods = () => {
-  const { ingredients, setIngredients } = useContext(RecipeContext);
+  const { setIngredients } = useContext(RecipeContext);
   const [ingred, setIngred] = useState([]);
   const history = useHistory();
   useEffect(() => {
@@ -19,7 +19,6 @@ const IngredientsFoods = () => {
     });
     history.push('/comidas');
   };
-  console.log('essas são as receitas do ingrediente escolhido: ', ingredients);
 
   return (
     <div>
@@ -27,6 +26,7 @@ const IngredientsFoods = () => {
       {ingred.slice(0, 12).map((ing, index) => (
         <div data-testid={`${index}-ingredient-card`} key={ing.idIngredient}>
           <button
+            style={{ width: '100%' }}
             onClick={() => {
               handleIngredientes(ing.strIngredient);
             }}
