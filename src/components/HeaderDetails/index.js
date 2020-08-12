@@ -1,11 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
 
-// separar o recipe e o foods em componentes
-
-const HeaderDetails = ({ recipe, foods }) => {
-  console.log('Procopio Rules!');
-  return foods ? (
+const HeaderDetails = ({ recipe, foods }) => (
+  foods ? (
     <Fragment>
       <img
         data-testid="recipe-photo"
@@ -30,8 +27,8 @@ const HeaderDetails = ({ recipe, foods }) => {
         {recipe.strAlcoholic}
       </h4>
     </Fragment>
-  );
-};
+  )
+);
 
 HeaderDetails.propTypes = {
   foods: PropTypes.bool.isRequired,

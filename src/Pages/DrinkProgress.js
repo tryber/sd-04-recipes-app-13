@@ -35,30 +35,28 @@ function DrinkProgress() {
       <ShareAndFavorite
         food={recipe} path={path} copied={copied} setCopied={setCopied} Type="bebida"
       />
-      <div>
-        <h1>Ingredientes</h1>
-        <ul>
-          {ingredients.map(({ ingredient, id, measure, isCompleted }) => (
-            <li data-testid={`${id}-ingredient-step`}>
-              <label
-                htmlFor={ingredient}
-                style={{ textDecoration: isCompleted ? 'line-through' : '' }}
-              >
-                <RenderInput
-                  type="checkbox" id={ingredient} value={ingredient} key={ingredient}
-                  onClick={() => completedStep(id, setIngredients, ingredients)}
-                />{`${ingredient} - ${measure}`}</label>
-            </li>
-          ))}
-        </ul>
-        <h1>Instruções</h1>
-        <p data-testid="instructions">{recipe.strInstructions}</p>
-        <Link to="/receitas-feitas">
-          <RenderButton
-            data-testid="finish-recipe-btn" type="button" isDisabled={isDisabled}
-          >Finalizar Receita</RenderButton>
-        </Link>
-      </div>
+      <h1>Ingredientes</h1>
+      <ul>
+        {ingredients.map(({ ingredient, id, measure, isCompleted }) => (
+          <li data-testid={`${id}-ingredient-step`}>
+            <label
+              htmlFor={ingredient}
+              style={{ textDecoration: isCompleted ? 'line-through' : '' }}
+            >
+              <RenderInput
+                type="checkbox" id={ingredient} value={ingredient} key={ingredient}
+                onClick={() => completedStep(id, setIngredients, ingredients)}
+              />{`${ingredient} - ${measure}`}</label>
+          </li>
+        ))}
+      </ul>
+      <h1>Instruções</h1>
+      <p data-testid="instructions">{recipe.strInstructions}</p>
+      <Link to="/receitas-feitas">
+        <RenderButton
+          data-testid="finish-recipe-btn" type="button" isDisabled={isDisabled}
+        >Finalizar Receita</RenderButton>
+      </Link>
     </div>
   );
 }
