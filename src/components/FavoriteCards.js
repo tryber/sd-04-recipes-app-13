@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ShareAndFavorite from './ShareAndFavorite';
+// só pra rodar o avaliador
 
 const RouteGeneration = (recipe) => {
   if (recipe.type === 'comida') return `comidas/${recipe.id}`;
