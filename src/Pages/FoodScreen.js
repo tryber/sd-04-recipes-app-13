@@ -39,7 +39,7 @@ const FoodScreen = () => {
     <div className="general-container">
       <Header title="Comidas" search />
       <div className="category-btn-div">
-      {createButtonSearch(RenderButton, changeCategory)}
+        {createButtonSearch(RenderButton, changeCategory)}
         {categories.slice(0, 5).map(({ strCategory }) => (
           <RenderButton
             type="button"
