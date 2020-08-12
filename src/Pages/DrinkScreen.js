@@ -45,10 +45,12 @@ const DrinkScreen = () => {
           createButtonCategories(RenderButton, changeCategory, strCategory)
         ))}
       </div>
+
       <FoodAndDrinkCard
         data={ingredients.length === 0 ? data : ingredients} geralTest="recipe" info="drink"
         test="card"
       />
+
       <Footer />
     </div>
   );

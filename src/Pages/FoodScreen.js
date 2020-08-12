@@ -14,6 +14,7 @@ const FoodScreen = () => {
   const { data, setData, ingredients } = useContext(RecipeContext);
   const [categories, setCategories] = useState([]);
   const [name, setName] = useState('');
+
   useEffect(() => {
     listAllCategories().then((Data) => setCategories(Data));
   }, []);
@@ -45,10 +46,12 @@ const FoodScreen = () => {
           createButtonCategories(RenderButton, changeCategory, strCategory)
         ))}
       </div>
+
       <FoodAndDrinkCard
         data={ingredients.length === 0 ? data : ingredients} info="food" test="card"
         geralTest="recipe"
       />
+
       <Footer />
     </div>
   );
