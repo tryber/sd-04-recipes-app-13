@@ -40,12 +40,6 @@ const DrinkScreen = () => {
       <Header title="Bebidas" search />
       <div className="category-btn-div">
         {createButtonSearch(RenderButton, changeCategory)}
-        {/* <RenderButton
-          type="button" className="category-btn" onClick={() => changeCategory('')}
-          data-testid="All-category-filter"
-        >
-          All
-        </RenderButton> */}
         {categories.slice(0, 5).map(({ strCategory }) => (
           <RenderButton
             type="button" className="category-btn" onClick={() => changeCategory(strCategory)}
@@ -56,8 +50,8 @@ const DrinkScreen = () => {
         ))}
       </div>
       <FoodAndDrinkCard
-        data={ingredients.length === 0 ? data : ingredients} geralTest="recipe"
-        info="drink" test="card"
+        data={ingredients.length === 0 ? data : ingredients} geralTest="recipe" info="drink"
+        test="card"
       />
       <Footer />
     </div>
