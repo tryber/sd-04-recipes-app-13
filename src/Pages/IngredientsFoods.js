@@ -1,11 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { listFoodIngredients, getByIngredientsFood } from '../services/foodApi';
-<<<<<<< HEAD
 import { RecipeContext } from '../context';
-=======
-
->>>>>>> e443e78a67b624e7fe6eb977a9df7c4b57165cb1
 import Footer from '../components/Footer';
 import Header from '../components/Header/Header';
 
