@@ -25,8 +25,9 @@ const CaseIng = async (inputValue, history, text) => {
   return foods;
 };
 
-const CaseLetter = async (inputValue, history) => {
+const CaseLetter = async (inputValue, history, text) => {
   const foods = await getByFirstLetterFood(inputValue).then((food) => food);
+  if (!foods) return alert(text);
   if (foods.length === 1) {
     history.push(`/comidas/${foods[0].idMeal}`);
   }
@@ -45,7 +46,7 @@ const changeData = async (history, setData, data, radio, inputValue) => {
       break;
     case 'primeira-letra':
       if (inputValue.length > 1) return alert('Sua busca deve conter somente 1 (um) caracter');
-      foods = await CaseLetter(inputValue, history);
+      foods = await CaseLetter(inputValue, history, text);
       break;
     default:
       setData(data);
