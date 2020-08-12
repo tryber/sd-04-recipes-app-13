@@ -33,11 +33,7 @@ function FoodProgress() {
     <div>
       <HeaderDetails recipe={recipe} foods />
       <ShareAndFavorite
-        food={recipe}
-        path={path}
-        copied={copied}
-        setCopied={setCopied}
-        Type="comida"
+        food={recipe} path={path} copied={copied} setCopied={setCopied} Type="comida"
       />
       <div>
         <h1>Ingredientes</h1>
@@ -49,15 +45,9 @@ function FoodProgress() {
                 style={{ textDecoration: isCompleted ? 'line-through' : '' }}
               >
                 <RenderInput
-                  type="checkbox"
-                  id={ingredient}
-                  value={ingredient}
-                  key={ingredient}
-                  data-testid={`${id}-ingredient-step`}
+                  type="checkbox" id={ingredient} value={ingredient} key={ingredient}
                   onClick={() => completedStep(id, setIngredients, ingredients)}
-                />
-                {`${ingredient} - ${measure}`}
-              </label>
+                />{`${ingredient} - ${measure}`}</label>
             </li>
           ))}
         </ul>
@@ -65,12 +55,8 @@ function FoodProgress() {
         <p data-testid="instructions">{recipe.strInstructions}</p>
         <Link to="/receitas-feitas">
           <RenderButton
-            data-testid="finish-recipe-btn"
-            type="button"
-            isDisabled={isDisabled}
-          >
-            Finalizar receita
-          </RenderButton>
+            data-testid="finish-recipe-btn" type="button" isDisabled={isDisabled}
+          >Finalizar receita</RenderButton>
         </Link>
       </div>
     </div>

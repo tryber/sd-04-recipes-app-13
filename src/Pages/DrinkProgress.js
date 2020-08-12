@@ -40,8 +40,10 @@ function DrinkProgress() {
         <ul>
           {ingredients.map(({ ingredient, id, measure, isCompleted }) => (
             <li data-testid={`${id}-ingredient-step`}>
-              <label htmlFor={ingredient}
-                style={{ textDecoration: isCompleted ? 'line-through' : '' }}>
+              <label
+                htmlFor={ingredient}
+                style={{ textDecoration: isCompleted ? 'line-through' : '' }}
+              >
                 <RenderInput
                   type="checkbox" id={ingredient} value={ingredient} key={ingredient}
                   onClick={() => completedStep(id, setIngredients, ingredients)}
@@ -54,7 +56,7 @@ function DrinkProgress() {
         <Link to="/receitas-feitas">
           <RenderButton
             data-testid="finish-recipe-btn" type="button" isDisabled={isDisabled}
-          > Finalizar Receita</RenderButton>
+          >Finalizar Receita</RenderButton>
         </Link>
       </div>
     </div>
