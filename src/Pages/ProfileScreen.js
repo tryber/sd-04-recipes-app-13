@@ -9,11 +9,13 @@ function ProfileScreen() {
     localStorage.clear();
   };
 
+  const searchUser = loadStorage('user');
+
   return (
     <Fragment>
       <Header title="Perfil" />
       <div>
-        <h2 data-testid="profile-email">{loadStorage('user').email}</h2>
+        <h2 data-testid="profile-email">{searchUser ? searchUser.email : ''}</h2>
         <Link to="/receitas-favoritas">
           <button type="button" data-testid="profile-favorite-btn">Receitas Favoritas</button>
         </Link>
