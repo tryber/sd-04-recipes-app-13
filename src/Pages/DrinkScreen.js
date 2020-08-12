@@ -25,14 +25,14 @@ const DrinkScreen = () => {
   const changeCategory = (strCategory) => {
     console.log('Procopio Rules');
     return name === strCategory ? setName('') : setName(strCategory);
-  }
+  };
   if (!data) {
-    return (
-      <div>
-        <Header title="Bebidas" search />
-        <Footer />
-      </div>
-    );
+    return
+      alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
+      // <div>
+      //   <Header title="Bebidas" search />
+      //   <Footer />
+      // </div>
   }
   if (data.length === 0) return <Loading />;
   return (
