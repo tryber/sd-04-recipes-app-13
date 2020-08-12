@@ -5,14 +5,15 @@ import { loadStorage } from '../../services/localStorage';
 
 const searchtypebutton = (doingRecipe, doneRecipe, recipe, setVisible, setMessage, type) => {
   const isDoingArray = doingRecipe[type] || [];
-  const isDone = doneRecipe
+  console.log(recipe)
+  const isDone = Object.keys(doneRecipe)
     .filter((done) => done.id === (recipe.idMeal || recipe.idDrink));
 
-  const isDoing = isDoingArray
-    .filter((doing) => doing === (recipe.idMeal || recipe.idDrink)) || [];
+  const isDoing = Object.keys(isDoingArray)
+    .filter((doing) => doing === (recipe.idMeal || recipe.idDrink));
 
-  if (isDone.lengh > 0) setVisible(false);
-  if (isDoing.lengh > 0) setMessage('Continuar Receita');
+  if (isDone.length > 0) setVisible(false);
+  if (isDoing.length > 0) setMessage('Continuar Receita');
 };
 
 function RecipeButton({ type, recipe, path }) {
@@ -24,14 +25,20 @@ function RecipeButton({ type, recipe, path }) {
   useEffect(() => {
     setDoneRecipe(JSON.parse(loadStorage('doneRecipes')) || []);
     setDoingRecipe(JSON.parse(loadStorage('inProgressRecipes')) || { cocktails: [], meals: [] });
-    searchtypebutton(doingRecipe, doneRecipe, recipe, setVisible, setMessage, type);
   }, []);
 
+  useEffect(() => {
+    searchtypebutton(doingRecipe, doneRecipe, recipe, setVisible, setMessage, type);
+  }, [doingRecipe, recipe]);
+  console.log(message)
   return (
     <div>
       {visible && (
         <Link to={`${path.slice(21)}/in-progress`}>
-          <button type="button" data-testid="start-recipe-btn">{message}</button>
+          <button
+            type="button" data-testid="start-recipe-btn" visibility={visible ? 'visible' : 'hidden'}
+            style={{ position: 'fixed', bottom: 0 }}
+          >{message}</button>
         </Link>
       )}
     </div>

@@ -2,15 +2,35 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getById } from '../services/foodApi';
 import HeaderDetails from '../components/HeaderDetails';
-import RenderInput from '../components/utils/Input';
+//import ListIngredientsProgress from '../components/utils/ListIngredientsProgress';
 import ShareAndFavorite from '../components/ShareAndFavorite';
 import RenderButton from '../components/utils/Button';
-import completedStep from '../components/utils/completeStep';
 import effectProgress from '../components/utils/effectProgress';
 import effectProgress2 from '../components/utils/effectProgress2';
 import effectProgress3 from '../components/utils/effectProgress3';
-import inProgressStorage from '../components/utils/inProgressStorage';
-import { firstRead } from '../components/utils/inProgressStorage';
+import inProgressStorage, { firstRead } from '../components/utils/inProgressStorage';
+import RenderInput from '../components/utils/Input';
+import completedStep from '../components/utils/completeStep';
+
+function ListIngredientsProgress(ingredients, setIngredients) {
+  return (
+    <ul>
+      {ingredients.map(({ ingredient, id, measure, isCompleted }) => (
+        <li data-testid={`${id}-ingredient-step`}>
+          <label
+            htmlFor={ingredient}
+            style={{ textDecoration: isCompleted ? 'line-through' : '' }}
+          >
+            <RenderInput
+              type="checkbox" id={ingredient} value={ingredient} key={ingredient}
+              onClick={() => completedStep(id, setIngredients, ingredients)}
+              checked={((isCompleted) && 'checked')}
+            />{`${ingredient} - ${measure}`}</label>
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 function FoodProgress() {
   const [path, setPath] = useState('');
@@ -33,30 +53,16 @@ function FoodProgress() {
     effectProgress3(ingredients, setIsDisabled);
     inProgressStorage(ingredients, recipe);
   }, [ingredients]);
-
+console.log(ingredients)
   return (
     <div>
       <HeaderDetails recipe={recipe} foods />
       <ShareAndFavorite
         food={recipe} path={path} copied={copied} setCopied={setCopied} Type="comida"
       />
+      {(readStorage) && firstRead(setIngredients, ingredients, recipe, setReadStorage)}
       <h1>Ingredientes</h1>
-      <ul>
-        {(readStorage) && firstRead(setIngredients, ingredients, recipe, setReadStorage)}
-        {ingredients.map(({ ingredient, id, measure, isCompleted }) => (
-          <li data-testid={`${id}-ingredient-step`}>
-            <label
-              htmlFor={ingredient}
-              style={{ textDecoration: isCompleted ? 'line-through' : '' }}
-            >
-              <RenderInput
-                type="checkbox" id={ingredient} value={ingredient} key={ingredient}
-                onClick={() => completedStep(id, setIngredients, ingredients)}
-                checked={((isCompleted) && 'checked')}
-              />{`${ingredient} - ${measure}`}</label>
-          </li>
-        ))}
-      </ul>
+      {ListIngredientsProgress(ingredients, setIngredients)}
       <h1>Instruções</h1>
       <p data-testid="instructions">{recipe.strInstructions}</p>
       <Link to="/receitas-feitas">
