@@ -7,6 +7,7 @@ import FoodAndDrinkCard from '../components/FoodAndDrinkCard';
 import '../styles/FoodAndDrinkCards.css';
 import { RecipeContext } from '../context';
 import RenderButton from '../components/utils/Button';
+import createButtonSearch from '../components/utils/createButtonSearch';
 
 const DrinkScreen = () => {
   const { data, setData, ingredients } = useContext(RecipeContext);
@@ -21,7 +22,6 @@ const DrinkScreen = () => {
       getCategoryFilter(name).then((categoryData) => setData(categoryData));
     }
   }, [name]);
-
   const changeCategory = (strCategory) => {
     console.log('Procopio Rules');
     return name === strCategory ? setName('') : setName(strCategory);
@@ -39,12 +39,13 @@ const DrinkScreen = () => {
     <div className="general-container">
       <Header title="Bebidas" search />
       <div className="category-btn-div">
-        <RenderButton
+        {createButtonSearch(RenderButton, changeCategory)}
+        {/* <RenderButton
           type="button" className="category-btn" onClick={() => changeCategory('')}
           data-testid="All-category-filter"
         >
           All
-        </RenderButton>
+        </RenderButton> */}
         {categories.slice(0, 5).map(({ strCategory }) => (
           <RenderButton
             type="button" className="category-btn" onClick={() => changeCategory(strCategory)}
