@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import '../styles/FoodAndDrinkCards.css';
 
 const FoodAndDrinkCard = ({ data, info, slice = 12, test, geralTest }) => {
   if (info === 'food') {
@@ -37,9 +38,7 @@ const FoodAndDrinkCard = ({ data, info, slice = 12, test, geralTest }) => {
           key={drink.idDrink}
           className="card-container"
         >
-          <Link
-            to={`/bebidas/${drink.idDrink}`}
-          >
+          <Link to={`/bebidas/${drink.idDrink}`}>
             <img
               className="card-img"
               src={drink.strDrinkThumb}

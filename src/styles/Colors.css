@@ -4,4 +4,7 @@
     --button-background-hover: linear-gradient(#64aafa, #6aecb4);
     --text-color: rgb(228, 228, 228);
     --box-container-gradient: linear-gradient(#bdc3c760, #97a6b6a6);
+    --main-screen-background: white;
+    /* linear-gradient(to top, #ee9ca7, #ffdde1); */
+    --footer-background: #bdc3c7ad;
 }
