@@ -1,33 +1,75 @@
 .footer {
+  display: flex;
+  justify-content: space-between;
   background: #c4c4c4;
   bottom: 0;
-  height: 58px;
-  left: 0.1px;
+  height: 100px;
   position: fixed;
   width: 100%;
 }
 
-.footer-drink {
-  height: 40px;
-  left: 16px;
-  position: absolute;
-  top: 9px;
-  width: 40px;
-}
-
 .footer-explore {
   height: 40px;
-  left: 160px;
-  position: absolute;
+  flex-grow: 3;
+  position: relative;
+  left: 10px;
   top: 12px;
   width: 40px;
+  /* opacity: 0 */
 }
 
 .footer-meal {
+  flex-grow: 2;
   height: 40px;
-  left: 302px;
-  position: absolute;
+  margin-right: 20px;
+  position: relative;
   top: 12px;
   width: 40px;
 }
 
+.footer-drink {
+  flex-grow: 2;
+  height: 100%;
+  margin-left: 20px;
+  position: relative;
+  top: 9px;
+  cursor: pointer;
+}
+
+.footer-drink img:hover, .footer-meal img:hover {
+  opacity: 0;
+}
+
+.footer-drink a:hover::after {
+  opacity: 1;
+  transition: opacity 300ms linear;
+}
+
+.footer-meal a:hover::before {
+  opacity: 1;
+  transition: opacity 300ms linear;
+}
+
+.footer-meal a::before {
+  content: url("../assets/icons/Comida-hover.png");
+  display: inline-block;
+  height: 100%;
+  opacity: 0;
+  transform: translateX(100%) translateY(-17%);
+  transition: opacity 500ms linear;
+}
+
+.footer-drink a::after {
+  content: url("../assets/icons/Bebida-hover.png");
+  display: inline-block;
+  height: 100%;
+  opacity: 0;
+  transform: translateX(-116%);
+  transition: opacity 500ms linear;
+}
+
+@media (max-width: 600px) {
+  .footer {
+    max-width: 600px;
+  }
+}

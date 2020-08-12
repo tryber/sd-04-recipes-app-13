@@ -1,0 +1,25 @@
+.header-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 15px 0;
+}
+
+.profileIcon {
+  width: 65px;
+}
+
+.searchIcon {
+  border: none;
+  background: none;
+  width: 10px;
+  margin-right: 30px;
+}
+
+.pageTitle {
+  font-size: 35px;
+}
+
+@media (max-width: 600px) {
+
+}

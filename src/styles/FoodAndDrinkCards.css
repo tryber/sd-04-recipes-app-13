@@ -1,11 +1,11 @@
 .general-container {
-  height: 582px;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
 }
 
 .category-btn-div {
   display: flex;
-  flex-flow: row wrap;
   justify-content: space-around;
 }
 
@@ -25,6 +25,7 @@
 
 .card-general-container {
   display: flex;
+  justify-content: space-around;
   flex-wrap: wrap;
   margin-top: 30px;
 }
@@ -46,4 +47,10 @@
   line-height: 21px;
   text-decoration: none;
   width: 110px;
+}
+
+@media (max-width: 600px) {
+  .general-container {
+    max-width: 600px;
+  }
 }
