@@ -12,7 +12,7 @@
 }
 
 .category-btn {
-  background: ;
+  background: var(--btn-category-background);
   height: 28px;
 }
 

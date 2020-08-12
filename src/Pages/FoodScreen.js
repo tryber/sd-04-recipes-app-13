@@ -7,11 +7,26 @@ import Loading from '../components/Loading';
 import FoodAndDrinkCard from '../components/FoodAndDrinkCard';
 import '../styles/FoodAndDrinkCards.css';
 import RenderButton from '../components/utils/Button';
+import All from '../assets/icons/All1.png';
+import BeefIcon from '../assets/icons/Beef.png';
+import BreakfastIcon from '../assets/icons/breakfast.png';
+import ChickenIcon from '../assets/icons/Chicken.png';
+import DessertIcon from '../assets/icons/dessert1.png';
+import GoatIcon from '../assets/icons/goat.png';
+
+const iconsFood = {
+  Beef: BeefIcon,
+  Breakfast: BreakfastIcon,
+  Chicken: ChickenIcon,
+  Dessert: DessertIcon,
+  Goat: GoatIcon,
+};
 
 const FoodScreen = () => {
   const { data, setData } = useContext(RecipeContext);
   const [categories, setCategories] = useState([]);
   const [name, setName] = useState('');
+
   useEffect(() => {
     listAllCategories().then((Data) => setCategories(Data));
   }, []);
@@ -45,6 +60,7 @@ const FoodScreen = () => {
           onClick={() => changeCategory('')}
           data-testid="All-category-filter"
         >
+          <img src={All} alt={All} />
           All
         </RenderButton>
         {categories.slice(0, 5).map(({ strCategory }) => (
@@ -55,11 +71,16 @@ const FoodScreen = () => {
             className="category-btn"
             data-testid={`${strCategory}-category-filter`}
           >
+            {Object.keys(iconsFood)
+              .filter((icon) => icon === strCategory)
+              .map((category) => (
+                <img src={iconsFood[category]} alt={category} />
+              ))}
             {strCategory}
           </RenderButton>
         ))}
       </div>
-      <FoodAndDrinkCard data={data} info="food" test="card" geralTest="recipe" />
+      <FoodAndDrinkCard data={data} info="food" />
       <Footer />
     </div>
   );
