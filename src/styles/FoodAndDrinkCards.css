@@ -38,6 +38,13 @@
   width: 150px;
 }
 
+.card-container a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+}
+
 .card-general-container {
   display: flex;
   justify-content: space-around;
@@ -52,7 +59,7 @@
 }
 
 .card-name {
-  align-items: flex-end;
+  text-align: center;
   color: black;
   font-family: Roboto, sans-serif;
   font-size: 18px;
@@ -62,6 +69,7 @@
   line-height: 21px;
   text-decoration: none;
   width: 110px;
+  padding-top: 20px; 
 }
 
 @media (max-width: 600px) {
