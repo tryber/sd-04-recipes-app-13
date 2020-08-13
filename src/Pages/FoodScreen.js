@@ -13,6 +13,7 @@ import BreakfastIcon from '../assets/icons/breakfast.png';
 import ChickenIcon from '../assets/icons/Chicken.png';
 import DessertIcon from '../assets/icons/dessert1.png';
 import GoatIcon from '../assets/icons/goat.png';
+// import { FoodIcon } from '../services/icons';
 
 const iconsFood = {
   Beef: BeefIcon,
@@ -60,8 +61,8 @@ const FoodScreen = () => {
           onClick={() => changeCategory('')}
           data-testid="All-category-filter"
         >
+          <span className="food-title">All</span>
           <img src={All} alt={All} />
-          All
         </RenderButton>
         {categories.slice(0, 5).map(({ strCategory }) => (
           <RenderButton
@@ -71,12 +72,12 @@ const FoodScreen = () => {
             className="category-btn"
             data-testid={`${strCategory}-category-filter`}
           >
+            <span className="food-title">{strCategory}</span>
             {Object.keys(iconsFood)
               .filter((icon) => icon === strCategory)
               .map((category) => (
                 <img src={iconsFood[category]} alt={category} />
               ))}
-            {strCategory}
           </RenderButton>
         ))}
       </div>

@@ -7,12 +7,13 @@ import FoodAndDrinkCard from '../components/FoodAndDrinkCard';
 import '../styles/FoodAndDrinkCards.css';
 import { RecipeContext } from '../context';
 import RenderButton from '../components/utils/Button';
+import All from '../assets/icons/shot.png';
+// import { DrinkIcon } from '../services/icons';
 import OrdinaryIcon from '../assets/icons/Ordinary-Drink.png';
 import CocktailIcon from '../assets/icons/cocktail.png';
 import MilkIcon from '../assets/icons/milk-shake.png';
 import OtherIcon from '../assets/icons/Other.png';
 import CocoaIcon from '../assets/icons/cocoa.png';
-import All from '../assets/icons/shot.png';
 
 const iconsDrink = {
   'Ordinary Drink': OrdinaryIcon,
@@ -57,8 +58,8 @@ const DrinkScreen = () => {
           onClick={() => changeCategory('')}
           data-testid="All-category-filter"
         >
-          <img src={All} alt={All} />
           <span className="drink-title">All</span>
+          <img src={All} alt={All} />
         </RenderButton>
         {categories.slice(0, 5).map(({ strCategory }) => (
           <RenderButton
@@ -68,12 +69,12 @@ const DrinkScreen = () => {
             data-testid={`${strCategory}-category-filter`}
             key={strCategory}
           >
+            <span className="drink-title">{strCategory}</span>
             {Object.keys(iconsDrink)
               .filter((icon) => icon === strCategory)
               .map((category) => (
                 <img src={iconsDrink[category]} alt={category} />
               ))}
-            <span className="drink-title">{strCategory}</span>
           </RenderButton>
         ))}
       </div>
