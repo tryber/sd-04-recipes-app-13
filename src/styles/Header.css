@@ -27,7 +27,37 @@
   font-size: 35px;
   text-shadow: 2px 3px 3px rgba(51, 48, 48, 0.89);
 }
-/* 
-@media (max-width: 600px) {
 
-} */
+.search-container {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  width: 200px;
+  background: rgb(163, 67, 67);
+  position: absolute;
+  right: 100px;
+}
+
+.radio-container {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  margin: auto;
+}
+
+.input-container {
+  margin: auto;
+}
+
+
+.radio {
+  font-size: 16px;
+}
+
+@media (max-width: 600px) {
+  .search-container {
+    position: relative;
+    margin: auto;
+    right: 0;
+  }
+}

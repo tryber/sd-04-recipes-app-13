@@ -9,6 +9,8 @@ import {
 } from '../../services/foodApi';
 import RenderInput from '../utils/Input';
 
+import '../../styles/Header.css';
+
 const CaseName = async (inputValue, history, text) => {
   const foods = await getByName(inputValue).then((food) => food);
   if (!foods) alert(text);
@@ -61,38 +63,38 @@ const FoodBarSearch = () => {
   const [inputValue, setInputValue] = useState('');
 
   return (
-    <div>
-      <div>
+    <div className="search-container">
+      <div className="input-container">
         <RenderInput
           type="text" data-testid="search-input" placeholder="Buscar Receita"
           onChange={(e) => setInputValue(e.target.value)} name="food-search"
         />
       </div>
-      <div>
-        <label htmlFor="ingredient-search-radio">
+      <div className="radio-container">
+        <label className="radio" htmlFor="ingredient-search-radio">
           <RenderInput
             data-testid="ingredient-search-radio" type="radio" value="ingrediente"
             onChange={(e) => setRadio(e.target.value)} name="radioBtn"
           />
-          Ingrediente
+          <span className="radio-span">Ingrediente</span>
         </label>
-        <label htmlFor="name-search-radio">
+        <label className="radio" htmlFor="name-search-radio">
           <RenderInput
             data-testid="name-search-radio" type="radio" value="nome"
             onChange={(e) => setRadio(e.target.value)} name="radioBtn"
           />
-          Nome
+          <span className="radio-span">Nome</span>
         </label>
-        <label htmlFor="first-letter-search-radio">
+        <label className="radio" htmlFor="first-letter-search-radio">
           <RenderInput
             data-testid="first-letter-search-radio" type="radio" value="primeira-letra"
             onChange={(e) => setRadio(e.target.value)} name="radioBtn"
           />
-          Primeira letra
+          <span className="radio-span">Primeira Letra</span>
         </label>
       </div>
       <RenderButton
-        type="button" data-testid="exec-search-btn"
+        type="button" data-testid="exec-search-btn" className='btn-search'
         onClick={() => changeData(history, setData, data, radio, inputValue)}
       >
         Buscar
