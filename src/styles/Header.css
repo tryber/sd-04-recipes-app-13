@@ -2,7 +2,13 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  background-image: linear-gradient(rgba(128, 128, 128, 0.582), rgba(128, 128, 128, 0.199)),
+    url('https://images.pexels.com/photos/3471790/pexels-photo-3471790.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
   padding: 15px 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 4px 3px 3px rgb(51, 55, 56);
+  margin-bottom: 10px;
 }
 
 .profileIcon {
@@ -17,9 +23,11 @@
 }
 
 .pageTitle {
+  color: rgb(247, 243, 243);
   font-size: 35px;
+  text-shadow: 2px 3px 3px rgba(51, 48, 48, 0.89);
 }
-
+/* 
 @media (max-width: 600px) {
 
-}
+} */
