@@ -17,13 +17,21 @@ function ProfileScreen() {
       <div>
         <h2 data-testid="profile-email">{searchUser ? searchUser.email : ''}</h2>
         <Link to="/receitas-favoritas">
-          <button type="button" data-testid="profile-favorite-btn">Receitas Favoritas</button>
+          <button type="button" data-testid="profile-favorite-btn">
+            Receitas Favoritas
+          </button>
         </Link>
         <Link to="/receitas-feitas">
-          <button type="button" data-testid="profile-done-btn">Receitas Feitas</button>
+          <button type="button" data-testid="profile-done-btn">
+            Receitas Feitas
+          </button>
         </Link>
         <Link to="/">
-          <button type="button" data-testid="profile-logout-btn" onClick={() => cleanAndBack()}>
+          <button
+            type="button"
+            data-testid="profile-logout-btn"
+            onClick={() => cleanAndBack()}
+          >
             Sair
           </button>
         </Link>
