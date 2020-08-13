@@ -5,7 +5,7 @@ import { loadStorage } from '../../services/localStorage';
 
 const searchtypebutton = (doingRecipe, doneRecipe, recipe, setVisible, setMessage, type) => {
   const isDoingArray = doingRecipe[type] || [];
-  console.log(recipe)
+
   const isDone = Object.keys(doneRecipe)
     .filter((done) => done.id === (recipe.idMeal || recipe.idDrink));
 
@@ -30,7 +30,7 @@ function RecipeButton({ type, recipe, path }) {
   useEffect(() => {
     searchtypebutton(doingRecipe, doneRecipe, recipe, setVisible, setMessage, type);
   }, [doingRecipe, recipe]);
-  console.log(message)
+
   return (
     <div>
       {visible && (

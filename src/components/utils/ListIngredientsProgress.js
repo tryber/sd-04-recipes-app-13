@@ -1,7 +1,8 @@
 import React from 'react';
+import RenderInput from './Input';
+import completedStep from './completeStep';
 
-function listIngredientsProgress(ingredients, setIngredients, RenderInput, completedStep) {
-  console.log(ingredients);
+function listIngredientsProgress(ingredients, setIngredients) {
   return (
     <ul>
       {ingredients.map(({ ingredient, id, measure, isCompleted }) => (
@@ -21,4 +22,4 @@ function listIngredientsProgress(ingredients, setIngredients, RenderInput, compl
   );
 }
 
-export default listIngredientsProgress.js
+export default listIngredientsProgress;

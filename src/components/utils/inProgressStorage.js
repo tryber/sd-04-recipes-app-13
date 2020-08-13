@@ -23,29 +23,6 @@ const StorageDrink = (id, recipeIds, loadIngStorage) => {
   }
 };
 
-export const firstRead = (setIngredients, ingredients, recipe, setReadStorage) => {
-  const recipeId = recipe.idMeal || recipe.idDrink;
-  const loadIngStorage = JSON.parse(loadStorage('inProgressRecipes')) || [];
-  const newIngredients = [...ingredients];
-  console.log(newIngredients);
-  let usedIngredients = [];
-  if (recipe.idMeal) {
-    const ingredientKey = Object.keys(loadIngStorage.meals).filter((meal) => meal === recipeId);
-    usedIngredients = loadIngStorage.meals[ingredientKey];
-  } else {
-    const ingredientKey = Object.keys(loadIngStorage.cocktails).filter((drink) => (
-      drink === recipeId));
-    usedIngredients = loadIngStorage.cocktails[ingredientKey];
-  }
-  if (usedIngredients && usedIngredients.length > 0) {
-    usedIngredients.map((numb) => {
-      newIngredients[numb].isCompleted = true;
-    });
-  }
-  setIngredients(newIngredients);
-  setReadStorage(false);
-};
-
 function inProgressStorage(ingredients, recipe) {
   const id = recipe.idMeal || recipe.idDrink;
   const doneIngredients = ingredients.filter(({ isCompleted }) => (isCompleted === true));
