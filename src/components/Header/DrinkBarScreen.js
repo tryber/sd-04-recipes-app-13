@@ -24,7 +24,6 @@ const CaseIng = async (inputValue, history, text) => {
 };
 
 const CaseLetter = async (inputValue, history, text) => {
-  if (inputValue.length > 1) alert('Sua busca deve conter somente 1 (um) caracter');
   const Drinks = await getByFirstLetter(inputValue).then((drink) => drink);
   if (!Drinks) return alert(text);
   if (Drinks.length === 1) {
