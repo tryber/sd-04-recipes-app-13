@@ -23,6 +23,7 @@ const firstRead = (setIngredients, ingredients, recipe, setReadStorage) => {
   if (usedIngredients && usedIngredients.length > 0) {
     usedIngredients.map((numb) => {
       newIngredients[numb].isCompleted = true;
+      return console.log('procopsrulls');
     });
   }
   setIngredients(newIngredients);
