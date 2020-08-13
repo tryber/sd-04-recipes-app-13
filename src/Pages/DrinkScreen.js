@@ -7,6 +7,20 @@ import FoodAndDrinkCard from '../components/FoodAndDrinkCard';
 import '../styles/FoodAndDrinkCards.css';
 import { RecipeContext } from '../context';
 import RenderButton from '../components/utils/Button';
+import OrdinaryIcon from '../assets/icons/Ordinary-Drink.png';
+import CocktailIcon from '../assets/icons/cocktail.png';
+import MilkIcon from '../assets/icons/milk-shake.png';
+import OtherIcon from '../assets/icons/Other.png';
+import CocoaIcon from '../assets/icons/cocoa.png';
+import All from '../assets/icons/shot.png';
+
+const iconsDrink = {
+  'Ordinary Drink': OrdinaryIcon,
+  Cocktail: CocktailIcon,
+  'Milk / Float / Shake': MilkIcon,
+  'Other/Unknown': OtherIcon,
+  Cocoa: CocoaIcon,
+};
 
 const DrinkScreen = () => {
   const { data, setData } = useContext(RecipeContext);
@@ -22,9 +36,8 @@ const DrinkScreen = () => {
     }
   }, [name]);
 
-  const changeCategory = (strCategory) => (
-    name === strCategory ? setName('') : setName(strCategory)
-  );
+  const changeCategory = (strCategory) =>
+    name === strCategory ? setName('') : setName(strCategory);
   if (!data) {
     return (
       <div>
@@ -39,17 +52,32 @@ const DrinkScreen = () => {
       <Header title="Bebidas" search />
       <div className="category-btn-div">
         <RenderButton
-          type="button" className="category-btn"
-          onClick={() => changeCategory('')} data-testid="All-category-filter"
-        >All</RenderButton>
+          type="button"
+          className="category-btn"
+          onClick={() => changeCategory('')}
+          data-testid="All-category-filter"
+        >
+          <img src={All} alt={All} />
+          <span className="drink-title">All</span>
+        </RenderButton>
         {categories.slice(0, 5).map(({ strCategory }) => (
           <RenderButton
-            type="button" className="category-btn" onClick={() => changeCategory(strCategory)}
-            data-testid={`${strCategory}-category-filter`} key={strCategory}
-          >{strCategory}</RenderButton>
+            type="button"
+            className="category-btn"
+            onClick={() => changeCategory(strCategory)}
+            data-testid={`${strCategory}-category-filter`}
+            key={strCategory}
+          >
+            {Object.keys(iconsDrink)
+              .filter((icon) => icon === strCategory)
+              .map((category) => (
+                <img src={iconsDrink[category]} alt={category} />
+              ))}
+            <span className="drink-title">{strCategory}</span>
+          </RenderButton>
         ))}
       </div>
-      <FoodAndDrinkCard data={data} info="drink" test="card" geralTest="recipe" />
+      <FoodAndDrinkCard data={data} info="drink" />
       <Footer />
     </div>
   );

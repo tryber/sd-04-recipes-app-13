@@ -75,6 +75,22 @@ input:focus {
   outline: none;
 }
 
+::-webkit-input-placeholder {
+  color: white;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  color: white;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  color: white;  
+}
+
+:-ms-input-placeholder {  
+  color: white;  
+}
+
 .btn-login {
   background: var(--button-background-gradient);
   border-radius: 50px;
@@ -89,7 +105,7 @@ input:focus {
 }
 
 .btn-login:hover {
-  background: var(--button-background-gradient-deg);
+  background: var(--button-background-hover);
   transition: transform 100ms linear;
   transform: scale(1.1);
 }

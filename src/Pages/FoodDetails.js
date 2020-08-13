@@ -3,40 +3,39 @@ import ReactPlayer from 'react-player';
 import { getById } from '../services/foodApi';
 import FoodAndDrinkCard from '../components/FoodAndDrinkCard';
 import { getByName } from '../services/drinkApi';
-// import ShareAndFavorite from '../components/ShareAndFavorite';
+import ShareAndFavorite from '../components/ShareAndFavorite';
+import RecipeButton from '../components/utils/RecipeButton';
+import HeaderDetails from '../components/HeaderDetails';
+import listIngredients from '../components/utils/listIngredients';
 // import '../styles/DetailsPage.css';
 
 function FoodDetails() {
   const [food, setFood] = useState('');
   const [Drink, setDrink] = useState([]);
-  // const [path, setPath] = useState('');
-  // const [copied, setCopied] = useState(false);
+  const [path, setPath] = useState('');
 
   useEffect(() => {
     const foodId = window.location.pathname.slice(9);
     getById(foodId).then((Datafood) => setFood(Datafood[0]));
     getByName('').then((resp) => setDrink(resp));
-    // setPath(window.location.pathname);
+    setPath(window.location.href);
   }, []);
 
-  console.log(food);
   return (
     <div className="details-container">
+
       <img
         data-testid="recipe-photo" className="details-img" src={food.strMealThumb} alt="food-img"
       />
       <h1 data-testid="recipe-title" className="details-title">{food.strMeal}</h1>
       <h4 data-testid="recipe-category" className="details-sub">{food.strCategory}</h4>
+      <HeaderDetails recipe={food} />
+      <ShareAndFavorite food={food} path={path} Type="comida" />
+
       <div className="ingredients">
         <h1>Ingredients</h1>
         <ul>
-          {Object.keys(food).map((ing, index) => (
-            (food[`strIngredient${index + 1}`]) && (
-              <li key={ing} data-testid={`${index}-ingredient-name-and-measure`}>
-                {`${food[`strIngredient${index + 1}`]} - ${food[`strMeasure${index + 1}`]}`}
-              </li>
-            )
-          ))}
+          {listIngredients(food)}
         </ul>
       </div>
       <div className="ingredients">
@@ -49,9 +48,12 @@ function FoodDetails() {
       </div>
       <div>
         <h1 className="titles">Recomended</h1>
-        <FoodAndDrinkCard data={Drink} info="drink" slice="6" test="recomendation" />
+        <FoodAndDrinkCard
+          data={Drink} info="drink" slice="6" test1="recomendation-card"
+          test2="recomendation-img" test3="recomendation-title"
+        />
       </div>
-      <button type="button" data-testid="start-recipe-btn">Iniciar Receita</button>
+      <RecipeButton type="meals" recipe="food" path={path} />
     </div>
   );
 }

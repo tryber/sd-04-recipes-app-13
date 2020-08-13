@@ -47,7 +47,7 @@
 }
 
 .profile-btn:hover {
-  background: var(--button-background-gradient-deg);
+  background: var(--button-background-hover);
   transition: transform 100ms linear;
   transform: scale(1.1);
 }
