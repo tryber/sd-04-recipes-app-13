@@ -17,7 +17,7 @@ function DrinkProgress() {
   const [isDisabled, setIsDisabled] = useState(true);
   const [recipe, setRecipe] = useState('');
   const [ingredients, setIngredients] = useState([]);
-  const [readStorage, setReadStorage] = useState(false);
+//  const [readStorage, setReadStorage] = useState(false);
 
   useEffect(() => {
     effectProgress2(getById, setRecipe, setPath);
@@ -25,7 +25,7 @@ function DrinkProgress() {
 
   useEffect(() => {
     effectProgress(recipe, setIngredients);
-    setReadStorage(true);
+//    setReadStorage(true);
   }, [recipe]);
 
   useEffect(() => {
@@ -39,7 +39,7 @@ function DrinkProgress() {
       <ShareAndFavorite
         food={recipe} path={path} copied={copied} setCopied={setCopied} Type="bebida"
       />
-      {/*{(readStorage) && firstRead(setIngredients, ingredients, recipe, setReadStorage)}*/}
+      {/* {(readStorage) && firstRead(setIngredients, ingredients, recipe, setReadStorage)} */}
       <h1>Ingredientes</h1>
       {ListIngredientsProgress(ingredients, setIngredients)}
       <h1>Instruções</h1>
