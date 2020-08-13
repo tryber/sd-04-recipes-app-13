@@ -7,9 +7,11 @@ import FoodAndDrinkCard from '../components/FoodAndDrinkCard';
 import '../styles/FoodAndDrinkCards.css';
 import { RecipeContext } from '../context';
 import RenderButton from '../components/utils/Button';
+import createButtonSearch from '../components/utils/createButtonSearch';
+import createButtonCategories from '../components/utils/createButtonCategories';
 
 const DrinkScreen = () => {
-  const { data, setData } = useContext(RecipeContext);
+  const { data, setData, ingredients } = useContext(RecipeContext);
   const [name, setName] = useState('');
   const [categories, setCategories] = useState([]);
   useEffect(() => {
@@ -21,10 +23,10 @@ const DrinkScreen = () => {
       getCategoryFilter(name).then((categoryData) => setData(categoryData));
     }
   }, [name]);
-
-  const changeCategory = (strCategory) => (
-    name === strCategory ? setName('') : setName(strCategory)
-  );
+  const changeCategory = (strCategory) => {
+    console.log('Procopio Rules');
+    return name === strCategory ? setName('') : setName(strCategory);
+  };
   if (!data) {
     return (
       <div>
@@ -38,18 +40,17 @@ const DrinkScreen = () => {
     <div className="general-container">
       <Header title="Bebidas" search />
       <div className="category-btn-div">
-        <RenderButton
-          type="button" className="category-btn"
-          onClick={() => changeCategory('')} data-testid="All-category-filter"
-        >All</RenderButton>
+        {createButtonSearch(RenderButton, changeCategory)}
         {categories.slice(0, 5).map(({ strCategory }) => (
-          <RenderButton
-            type="button" className="category-btn" onClick={() => changeCategory(strCategory)}
-            data-testid={`${strCategory}-category-filter`} key={strCategory}
-          >{strCategory}</RenderButton>
+          createButtonCategories(RenderButton, changeCategory, strCategory)
         ))}
       </div>
-      <FoodAndDrinkCard data={data} info="drink" />
+
+      <FoodAndDrinkCard
+        data={ingredients.length === 0 ? data : ingredients} geralTest="recipe" info="drink"
+        test="card"
+      />
+
       <Footer />
     </div>
   );
