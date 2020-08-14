@@ -14,7 +14,7 @@ function listIngredientsProgress(ingredients, setIngredients) {
             <RenderInput
               type="checkbox" id={ingredient} value={ingredient} key={ingredient}
               onClick={() => completedStep(id, setIngredients, ingredients)}
-              checked={((isCompleted) && 'checked')}
+              checked={((isCompleted))}
             />{`${ingredient} - ${measure}`}</label>
         </li>
       ))}
