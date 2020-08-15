@@ -7,7 +7,6 @@ import ShareAndFavorite from '../components/ShareAndFavorite';
 import RecipeButton from '../components/utils/RecipeButton';
 import HeaderDetails from '../components/HeaderDetails';
 import listIngredients from '../components/utils/listIngredients';
-// import '../styles/DetailsPage.css';
 
 function FoodDetails() {
   const [food, setFood] = useState('');
@@ -24,9 +23,8 @@ function FoodDetails() {
   return (
     <div className="details-container">
       <HeaderDetails recipe={food} foods />
+      <ShareAndFavorite food={food} path={path} Type="comida" />
       <div className="container-details">
-        <ShareAndFavorite food={food} path={path} Type="comida" />
-
         <div className="container-ingredient">
           <h1>Ingredients</h1>
           <ul>{listIngredients(food)}</ul>

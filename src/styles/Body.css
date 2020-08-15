@@ -21,18 +21,3 @@ button:focus {
 input:focus {
     outline: none;
 }
-
-.general-container {
-  display: flex;
-  flex-direction: column;
-  max-width: 830px;
-  height: 100%;
-  margin: 0 auto;
-  background: var(--main-screen-background);
-}
-
-@media (max-width: 600px) {
-  .general-container {
-    max-width: 600px;
-  }
-}

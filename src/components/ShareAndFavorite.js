@@ -61,7 +61,7 @@ const ShareAndFavorite = ({ food, path, Type, favid, shareid }) => {
   };
 
   return (
-    <div>
+    <div className="container-share">
       <button onClick={() => handleFavorite()} type="button">
         <img
           data-testid={favid}
