@@ -1,0 +1,16 @@
+.header-details {
+  margin: 0 auto;
+}
+
+.header-details img {
+  width: 100vw;
+}
+
+.header-details-title {
+  position: absolute;
+  top: 10px;
+}
+
+.container-details {
+  background: white;
+}
