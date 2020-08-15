@@ -37,16 +37,13 @@ const Header = ({ title, search }) => {
         ) : (
           <div />
         )}
-      </header>
-      {!isHidden && (
-        <div>
-          {history.location.pathname === '/comidas' ? (
+        {!isHidden &&
+          (history.location.pathname === '/comidas' ? (
             <FoodBarSearch />
           ) : (
             <DrinkBarSearch />
-          )}
-        </div>
-      )}
+          ))}
+      </header>
     </Fragment>
   );
 };
