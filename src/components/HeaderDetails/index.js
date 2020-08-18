@@ -21,14 +21,19 @@ const HeaderDetails = ({ recipe, foods }) => (
     </div>
   ) : (
     <div className="header-details">
-      <img data-testid="recipe-photo" src={recipe.strDrinkThumb} alt="drink-img" />
+      <img
+        className="details-img"
+        data-testid="recipe-photo"
+        src={recipe.strDrinkThumb}
+        alt="drink-img"
+      />
       <div className="header-details-title">
-      <h1 data-testid="recipe-title" className="details-title">
-        {recipe.strDrink}
-      </h1>
-      <h4 data-testid="recipe-category" className="details-sub">
-        {recipe.strAlcoholic}
-      </h4>
+        <h1 data-testid="recipe-title" className="details-title">
+          {recipe.strDrink}
+        </h1>
+        <h4 data-testid="recipe-category" className="details-sub">
+          {recipe.strAlcoholic}
+        </h4>
       </div>
     </div>
   )

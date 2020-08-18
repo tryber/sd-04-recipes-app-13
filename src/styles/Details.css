@@ -12,6 +12,7 @@
 
 .details-img {
   width: 100vw;
+  opacity: 0.8;
 }
 
 .header-details-title {
@@ -19,6 +20,7 @@
   top: 10px;
   left: 20px;
   color: var(--title-details-header);
+  text-shadow: 1px 2px 5px black
 }
 
 .container-details {
@@ -33,6 +35,10 @@
   width: 100px;
   align-items: center;
   justify-content: space-evenly;
+}
+
+[alt="share-icon"] {
+  width: 47px;
 }
 
 .container-ingredient,.intructions-container , .video-container, .recomment-container {
@@ -65,3 +71,26 @@
   width: 100vw;
 }
 
+.button-start {
+  width: 100vw;
+  padding: 10px 20px;
+}
+
+.button-start a, .button-start button {
+  font-size: 16px;
+  color: aliceblue;
+  text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.63);
+  background: var(--button-background-gradient);
+  border-radius: 50px;
+  width: 100%;
+  padding: 10px 0;
+  transform: scale(1);
+  border: 2px solid rgba(27, 75, 105, 0.37);
+  transition: transform 100ms linear;
+}
+
+.button-start button:hover {
+  background: var(--button-background-hover);
+  transition: transform 100ms linear;
+  transform: scale(1.1);
+}

@@ -11,6 +11,11 @@ body, html {
   overflow: scroll;
 }
 
+button {
+  border: none;
+  background: none;
+}
+
 button, a {
   cursor: pointer;
 }

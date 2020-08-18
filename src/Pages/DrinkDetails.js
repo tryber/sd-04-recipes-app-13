@@ -22,9 +22,8 @@ function DrinkDetails() {
   }, []);
 
   return (
-    <div className="general-container">
+    <div className="details-container">
       <HeaderDetails recipe={drink} />
-      <div className="container-details">
         <ShareAndFavorite
           food={drink}
           path={path}
@@ -32,16 +31,17 @@ function DrinkDetails() {
           setCopied={setCopied}
           Type="bebida"
         />
+                  <div className="container-details">
         <div className="container-ingredient">
-          <h1>Ingredients</h1>
+          <h1 className="titles">Ingredients</h1>
           <ul>{listIngredients(drink)}</ul>
         </div>
-        <div>
-          <h1>Instructions</h1>
+        <div className="intructions-container">
+          <h1 className="titles">Instructions</h1>
           <p data-testid="instructions">{drink.strInstructions}</p>
         </div>
-        <div>
-          <h1>Recomended</h1>
+        <div className="recomment-container">
+          <h1 className="titles">Recomended</h1>
           <FoodAndDrinkCard
             data={food}
             info="food"
