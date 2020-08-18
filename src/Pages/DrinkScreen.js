@@ -7,13 +7,15 @@ import FoodAndDrinkCard from '../components/FoodAndDrinkCard';
 import '../styles/FoodAndDrinkCards.css';
 import { RecipeContext } from '../context';
 import RenderButton from '../components/utils/Button';
-import All from '../assets/icons/shot.png';
-// import { DrinkIcon } from '../services/icons';
+import AllIcon from '../assets/icons/shot.png';
 import OrdinaryIcon from '../assets/icons/Ordinary-Drink.png';
 import CocktailIcon from '../assets/icons/cocktail.png';
 import MilkIcon from '../assets/icons/milk-shake.png';
 import OtherIcon from '../assets/icons/Other.png';
 import CocoaIcon from '../assets/icons/cocoa.png';
+
+import createButtonSearch from '../components/utils/createButtonSearch';
+import createButtonCategories from '../components/utils/createButtonCategories';
 
 const iconsDrink = {
   'Ordinary Drink': OrdinaryIcon,
@@ -24,7 +26,7 @@ const iconsDrink = {
 };
 
 const DrinkScreen = () => {
-  const { data, setData } = useContext(RecipeContext);
+  const { data, setData, ingredients } = useContext(RecipeContext);
   const [name, setName] = useState('');
   const [categories, setCategories] = useState([]);
   useEffect(() => {
@@ -36,9 +38,9 @@ const DrinkScreen = () => {
       getCategoryFilter(name).then((categoryData) => setData(categoryData));
     }
   }, [name]);
-
-  const changeCategory = (strCategory) =>
-    name === strCategory ? setName('') : setName(strCategory);
+  const changeCategory = (strCategory) => {
+    return name === strCategory ? setName('') : setName(strCategory);
+  };
   if (!data) {
     return (
       <div>
@@ -52,33 +54,17 @@ const DrinkScreen = () => {
     <div className="general-container">
       <Header title="Bebidas" search />
       <div className="category-btn-div">
-        <RenderButton
-          type="button"
-          className="category-btn"
-          onClick={() => changeCategory('')}
-          data-testid="All-category-filter"
-        >
-          <span className="drink-title">All</span>
-          <img src={All} alt={All} />
-        </RenderButton>
+        {createButtonSearch(RenderButton, changeCategory, AllIcon)}
         {categories.slice(0, 5).map(({ strCategory }) => (
-          <RenderButton
-            type="button"
-            className="category-btn"
-            onClick={() => changeCategory(strCategory)}
-            data-testid={`${strCategory}-category-filter`}
-            key={strCategory}
-          >
-            <span className="drink-title">{strCategory}</span>
-            {Object.keys(iconsDrink)
-              .filter((icon) => icon === strCategory)
-              .map((category) => (
-                <img src={iconsDrink[category]} alt={category} />
-              ))}
-          </RenderButton>
+          createButtonCategories(RenderButton, changeCategory, strCategory, iconsDrink)
         ))}
       </div>
-      <FoodAndDrinkCard data={data} info="drink" />
+
+      <FoodAndDrinkCard
+        data={ingredients.length === 0 ? data : ingredients} geralTest="recipe" info="drink"
+        test="card"
+      />
+
       <Footer />
     </div>
   );

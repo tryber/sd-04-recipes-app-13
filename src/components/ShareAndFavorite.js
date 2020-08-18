@@ -42,11 +42,11 @@ const ShareAndFavorite = ({ food, path, Type, favid, shareid }) => {
   const recipe = {
     id: food.idMeal || food.idDrink || food.id,
     type: Type || food.type,
-    area: food.strArea || food.area || ' ',
+    area: food.strArea || food.area || '',
     category: food.strCategory || food.category,
     name: food.strMeal || food.strDrink || food.name,
     image: food.strMealThumb || food.strDrinkThumb || food.image,
-    alcoholicOrNot: food.strAlcoholic || food.alcoholicOrNot || ' ',
+    alcoholicOrNot: food.strAlcoholic || food.alcoholicOrNot || '',
   };
 
   const handleFavorite = () => {

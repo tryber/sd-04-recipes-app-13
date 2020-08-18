@@ -24,14 +24,14 @@ function DrinkDetails() {
   return (
     <div className="details-container">
       <HeaderDetails recipe={drink} />
-        <ShareAndFavorite
-          food={drink}
-          path={path}
-          copied={copied}
-          setCopied={setCopied}
-          Type="bebida"
-        />
-                  <div className="container-details">
+      <ShareAndFavorite
+        food={drink}
+        path={path}
+        copied={copied}
+        setCopied={setCopied}
+        Type="bebida"
+      />
+      <div className="container-details">
         <div className="container-ingredient">
           <h1 className="titles">Ingredients</h1>
           <ul>{listIngredients(drink)}</ul>

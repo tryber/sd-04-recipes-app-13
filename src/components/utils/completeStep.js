@@ -1,6 +1,6 @@
 const completedStep = (id, setIngredients, ingredients) => {
   const newIngredients = [...ingredients];
-  newIngredients[id].isCompleted = true;
+  newIngredients[id].isCompleted = !ingredients[id].isCompleted;
   setIngredients(newIngredients);
 };
 
