@@ -35,7 +35,7 @@ const Header = ({ title, search }) => {
             <img data-testid="search-top-btn" src={SearchIcon} alt="Ícone de Pesquisa" />
           </RenderButton>
         ) : (
-          <div />
+          <div className="searchIcon" />
         )}
         {!isHidden &&
           (history.location.pathname === '/comidas' ? (

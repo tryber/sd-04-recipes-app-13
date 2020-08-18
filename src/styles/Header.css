@@ -12,14 +12,16 @@
 }
 
 .profileIcon {
-  width: 65px;
+  width: 50px;
 }
 
 .searchIcon {
   border: none;
   background: none;
-  width: 10px;
-  margin-right: 30px;
+}
+
+.searchIcon img {
+  width: 50px;
 }
 
 .pageTitle {

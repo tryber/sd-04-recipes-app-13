@@ -1,6 +1,7 @@
 .footer {
   display: flex;
   justify-content: space-evenly;
+  align-content: center;
   background: var(--footer-background);
   bottom: 0;
   margin-top: 10%;
@@ -8,6 +9,10 @@
   width: 100%;
   position: inherit;
   padding: 12px;
+}
+
+.footer img {
+  width: 50px;
 }
 
 .footer-explore {
@@ -28,7 +33,7 @@
   position: relative;
 }
 
-.footer-drink img:hover, .footer-meal img:hover {
+/* .footer-drink img:hover, .footer-meal img:hover {
   opacity: 0;
 }
 
@@ -49,6 +54,7 @@
   opacity: 0;
   transform: translateX(100%) translateY(-11%);
   transition: opacity 500ms linear;
+  width: 50px;
 }
 
 .footer-drink a::after {
@@ -56,9 +62,9 @@
   display: inline-block;
   height: 64px;
   opacity: 0;
-  transform: translateX(-116%);
+  transform: scale(-0.8) rotate(-180deg);
   transition: opacity 500ms linear;
-}
+} */
 
 /* @media (max-width: 600px) {
   .footer {
