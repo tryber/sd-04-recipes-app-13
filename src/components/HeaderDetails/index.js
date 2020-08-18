@@ -11,12 +11,12 @@ const HeaderDetails = ({ recipe, foods }) => (
         alt="food-img"
       />
       <div className="header-details-title">
-      <h1 data-testid="recipe-title" className="details-title">
-        {recipe.strMeal}
-      </h1>
-      <h4 data-testid="recipe-category" className="details-sub">
-        {recipe.strCategory}
-      </h4>
+        <h1 data-testid="recipe-title" className="details-title">
+          {recipe.strMeal}
+        </h1>
+        <h4 data-testid="recipe-category" className="details-sub">
+          {recipe.strCategory}
+        </h4>
       </div>
     </div>
   ) : (

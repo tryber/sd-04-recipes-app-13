@@ -1,7 +1,7 @@
 .general-container {
   display: flex;
   flex-direction: column;
-  max-width: 830px;
+  max-width: 600px;
   height: 100%;
   margin: 0 auto;
   background: var(--main-screen-background);

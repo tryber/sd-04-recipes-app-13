@@ -2,9 +2,9 @@ import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import copy from 'clipboard-copy';
 import { RecipeContext } from '../context/index';
-import shareIcon from '../assets/images/shareIcon.svg';
-import whiteHeartIcon from '../assets/images/whiteHeartIcon.svg';
-import blackHeartIcon from '../assets/images/blackHeartIcon.svg';
+import shareIcon from '../assets/images/shareIcon.png';
+import whiteHeartIcon from '../assets/images/whiteHeartIcon.png';
+import blackHeartIcon from '../assets/images/blackHeartIcon.png';
 import { saveStorage, loadStorage } from '../services/localStorage';
 
 const searchFavoriteFood = (favoriteStorage, food) => {

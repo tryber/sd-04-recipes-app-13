@@ -2,12 +2,13 @@
   margin: 0;
   padding: 0;
   border: 0;
+  box-sizing: border-box;
 }
 
 body, html {
   width: 100vw;
-  height: 100vh; 
-  box-sizing: border-box;
+  height: 100vh;
+  overflow: scroll;
 }
 
 button, a {
@@ -15,7 +16,7 @@ button, a {
 }
 
 button:focus {
-  outline:none;
+  outline: none;
 }
 
 input:focus {

@@ -26,18 +26,23 @@ function FoodDetails() {
       <ShareAndFavorite food={food} path={path} Type="comida" />
       <div className="container-details">
         <div className="container-ingredient">
-          <h1>Ingredients</h1>
+          <h1 className="titles">Ingredients</h1>
           <ul>{listIngredients(food)}</ul>
         </div>
-        <div className="ingredients">
+        <div className="intructions-container">
           <h1 className="titles">Instructions</h1>
           <p data-testid="instructions">{food.strInstructions}</p>
         </div>
-        <div>
+        <div className="video-container">
           <h1 className="titles">Video</h1>
-          <ReactPlayer className="video" url={food.strYoutube} data-testid="video" />
+          <ReactPlayer
+            width="90vw"
+            height="90%"
+            url={food.strYoutube}
+            data-testid="video"
+          />
         </div>
-        <div>
+        <div className="recomment-container">
           <h1 className="titles">Recomended</h1>
           <FoodAndDrinkCard
             data={Drink}
