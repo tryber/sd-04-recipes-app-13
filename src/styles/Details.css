@@ -94,3 +94,16 @@
   transition: transform 100ms linear;
   transform: scale(1.1);
 }
+
+@media (min-width: 500px) {
+  .card-general-container {
+    max-width: 500px;
+  }
+  .button-start {
+    width: 100vw;
+    padding: 10px 60px;
+  }
+  .button-start a, .button-start button {
+    font-size: 18px;
+  }
+}
