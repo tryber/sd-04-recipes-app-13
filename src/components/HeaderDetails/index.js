@@ -11,12 +11,8 @@ const HeaderDetails = ({ recipe, foods }) => (
         alt="food-img"
       />
       <div className="header-details-title">
-        <h1 data-testid="recipe-title" className="details-title">
-          {recipe.strMeal}
-        </h1>
-        <h4 data-testid="recipe-category" className="details-sub">
-          {recipe.strCategory}
-        </h4>
+        <h1 data-testid="recipe-title">{recipe.strMeal}</h1>
+        <h4 data-testid="recipe-category">{recipe.strCategory}</h4>
       </div>
     </div>
   ) : (
@@ -28,12 +24,8 @@ const HeaderDetails = ({ recipe, foods }) => (
         alt="drink-img"
       />
       <div className="header-details-title">
-        <h1 data-testid="recipe-title" className="details-title">
-          {recipe.strDrink}
-        </h1>
-        <h4 data-testid="recipe-category" className="details-sub">
-          {recipe.strAlcoholic}
-        </h4>
+        <h1 data-testid="recipe-title">{recipe.strDrink}</h1>
+        <h4 data-testid="recipe-category">{recipe.strAlcoholic}</h4>
       </div>
     </div>
   )

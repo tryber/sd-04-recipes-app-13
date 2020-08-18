@@ -99,11 +99,18 @@
   .card-general-container {
     max-width: 500px;
   }
+
   .button-start {
     width: 100vw;
     padding: 10px 60px;
   }
+
   .button-start a, .button-start button {
     font-size: 18px;
   }
+
+  .header-details-title {
+    font-size: 25px;
+  }
+
 }
