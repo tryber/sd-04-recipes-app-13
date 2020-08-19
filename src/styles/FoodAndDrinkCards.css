@@ -7,16 +7,11 @@
   background: var(--main-screen-background);
 }
 
-@media (max-width: 600px) {
-  .general-container {
-    max-width: 600px;
-  }
-}
-
 .category-btn-div {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  margin-bottom: 5%;
 }
 
 /* .category-btn {
@@ -84,6 +79,12 @@
   justify-content: space-around;
   flex-wrap: wrap;
   margin-top: 30px;
+}
+
+@media (min-width: 500px) {
+  .card-general-container {
+    margin: 0 auto;
+  }
 }
 
 .card-img {
