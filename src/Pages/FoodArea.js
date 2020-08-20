@@ -4,6 +4,8 @@ import Header from '../components/Header/Header';
 import { getAllFoodByArea, getByArea, getByName } from '../services/foodApi';
 import FoodAndDrinkCard from '../components/FoodAndDrinkCard';
 
+import '../styles/Select.css';
+
 function FoodArea() {
   const [dropDown, setDropDown] = useState([]);
   const [dropDownChoosen, setDropDownChoosen] = useState('All');
@@ -27,26 +29,30 @@ function FoodArea() {
   console.log(dataArea);
 
   return (
-    <div>
+    <div className="general-container">
       <Header title="Explorar Origem" search />
-      <select onChange={(e) => handleSelect(e)} data-testid="explore-by-area-dropdown">
-        <option data-testid={'All-option'} value="All">
-          All
-        </option>
-        {isDropDown &&
-          dropDown.map((area, index) => (
-            <option
-              data-testid={`${area.strArea}-option`}
-              key={`dropDown${index + 1}-${area.strArea}`}
-            >
-              {area.strArea}
-            </option>
-          ))}
-      </select>
-
-      {dataArea && (
-        <FoodAndDrinkCard data={dataArea} info="food" test="card" geralTest="recipe" />
-      )}
+      <div>
+      <div className='select'>
+        <select onChange={(e) => handleSelect(e)} data-testid="explore-by-area-dropdown">
+          <option data-testid="All-option" value="All">
+            All
+          </option>
+          {isDropDown &&
+            dropDown.map((area, index) => (
+              <option
+                data-testid={`${area.strArea}-option`}
+                key={`dropDown${index + 1}-${area.strArea}`}
+              >
+                {area.strArea}
+              </option>
+            ))}
+        </select>
+        <span class="focus"></span>
+</div>
+        {dataArea && (
+          <FoodAndDrinkCard data={dataArea} info="food" test="card" geralTest="recipe" />
+        )}
+      </div>
       <Footer />
     </div>
   );

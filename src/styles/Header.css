@@ -11,7 +11,7 @@
   margin-bottom: 10px;
 }
 
-.profileIcon {
+.profileIcon, .searchIcon img {
   width: 50px;
 }
 
@@ -20,19 +20,18 @@
   background: none;
 }
 
-.searchIcon img {
-  width: 50px;
-}
-
 .pageTitle {
   color: rgb(247, 243, 243);
-  font-size: 35px;
+  font-size: 30px;
   text-shadow: 2px 3px 3px rgba(51, 48, 48, 0.89);
 }
 
 @media (max-width: 400px) {
   .pageTitle {
-    font-size: 30px;
+    font-size: 27px;
+  }
+  .profileIcon, .searchIcon img {
+    width: 45px;
   }
 }
 
