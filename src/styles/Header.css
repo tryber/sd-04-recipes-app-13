@@ -30,6 +30,12 @@
   text-shadow: 2px 3px 3px rgba(51, 48, 48, 0.89);
 }
 
+@media (max-width: 400px) {
+  .pageTitle {
+    font-size: 30px;
+  }
+}
+
 .search-container {
   display: flex;
   box-sizing: border-box;

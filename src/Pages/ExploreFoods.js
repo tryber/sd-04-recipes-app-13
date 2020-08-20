@@ -6,37 +6,29 @@ import '../styles/ExploreScreen.css';
 
 function ExploreFoods() {
   return (
-    <div>
+    <div className="general-container">
       <Header title="Explorar Comidas" />
-      <Link to="/explorar/comidas/ingredientes">
-        <button
-          type="button"
-          data-testid="explore-by-ingredient"
-          className="btn-explore-by-ingredient"
-        >
-          Por Ingredientes
-        </button>
-      </Link>
-
-      <Link to="/explorar/comidas/area">
-        <button
-          type="button"
-          data-testid="explore-by-area"
-          className="btn-explore-by-area"
-        >
-          Por Local de Origem
-        </button>
-      </Link>
-
-      <Link to="/comidas/52771">
-        <button
-          type="button"
-          data-testid="explore-surprise"
-          className="btn-explore-surprise"
-        >
-          Me Surpreenda!
-        </button>
-      </Link>
+      <div className="conteiner-btn">
+        <Link to="/explorar/comidas/ingredientes">
+          <button
+            type="button"
+            data-testid="explore-by-ingredient"
+            className="button-explore"
+          >
+            Por Ingredientes
+          </button>
+        </Link>
+        <Link to="/explorar/comidas/area">
+          <button type="button" data-testid="explore-by-area" className="button-explore">
+            Por Local de Origem
+          </button>
+        </Link>
+        <Link to="/comidas/52771">
+          <button type="button" data-testid="explore-surprise" className="button-explore">
+            Me Surpreenda!
+          </button>
+        </Link>
+      </div>
       <Footer />
     </div>
   );
