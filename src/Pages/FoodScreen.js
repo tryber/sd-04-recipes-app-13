@@ -63,14 +63,12 @@ const FoodScreen = () => {
             createButtonCategories(RenderButton, changeCategory, strCategory, iconsFood),
           )}
       </div>
-
       <FoodAndDrinkCard
         data={ingredients.length === 0 ? data : ingredients}
         info="food"
         test="card"
         geralTest="recipe"
       />
-
       <Footer />
     </div>
   );
