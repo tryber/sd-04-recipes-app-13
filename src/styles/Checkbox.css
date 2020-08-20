@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: min-content auto;
   grid-gap: 0.5em;
-  font-size: 1.25em;
+  font-size: 1.20em;
 }
 
 .checkbox__input input {

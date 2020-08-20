@@ -73,7 +73,7 @@ const ShareAndFavorite = ({ food, path, Type, favid, shareid }) => {
       <button type="button" onClick={() => ShareClick()}>
         <img src={shareIcon} data-testid={shareid} alt="share-icon" />
       </button>
-      {copied && <span>Link copiado!</span>}
+      {copied && <span className="copied">Link copiado!</span>}
     </div>
   );
 };
