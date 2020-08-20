@@ -11,6 +11,8 @@ import effectProgress3 from '../components/utils/effectProgress3';
 import inProgressStorage from '../components/utils/inProgressStorage';
 import firstRead from '../components/utils/FirstRead';
 
+import '../styles/Details-InProgress.css';
+
 function DrinkProgress() {
   const [path, setPath] = useState('');
   const [copied, setCopied] = useState(false);
@@ -37,18 +39,32 @@ function DrinkProgress() {
     <div>
       <HeaderDetails recipe={recipe} />
       <ShareAndFavorite
-        food={recipe} path={path} copied={copied} setCopied={setCopied} Type="bebida"
+        food={recipe}
+        path={path}
+        copied={copied}
+        setCopied={setCopied}
+        Type="bebida"
       />
-      {(readStorage) && firstRead(setIngredients, ingredients, recipe, setReadStorage)}
-      <h1>Ingredientes</h1>
-      {ListIngredientsProgress(ingredients, setIngredients)}
-      <h1>Instruções</h1>
-      <p data-testid="instructions">{recipe.strInstructions}</p>
-      <Link to="/receitas-feitas">
-        <RenderButton
-          data-testid="finish-recipe-btn" type="button" isDisabled={isDisabled}
-        >Finalizar Receita</RenderButton>
-      </Link>
+      {readStorage && firstRead(setIngredients, ingredients, recipe, setReadStorage)}
+      <div className="container-ingredient">
+        <h1 className="titles">Ingredientes</h1>
+        {ListIngredientsProgress(ingredients, setIngredients)}
+      </div>
+      <div className="intructions-container">
+        <h1 className="titles">Instruções</h1>
+        <p data-testid="instructions">{recipe.strInstructions}</p>
+      </div>
+      <div className="button-start">
+        <Link to="/receitas-feitas">
+          <RenderButton
+            data-testid="finish-recipe-btn"
+            type="button"
+            isDisabled={isDisabled}
+          >
+            Finalizar Receita
+          </RenderButton>
+        </Link>
+      </div>
     </div>
   );
 }

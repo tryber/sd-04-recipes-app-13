@@ -8,6 +8,8 @@ import RecipeButton from '../components/utils/RecipeButton';
 import HeaderDetails from '../components/HeaderDetails';
 import listIngredients from '../components/utils/listIngredients';
 
+import '../styles/Details-InProgress.css';
+
 function FoodDetails() {
   const [food, setFood] = useState('');
   const [Drink, setDrink] = useState([]);

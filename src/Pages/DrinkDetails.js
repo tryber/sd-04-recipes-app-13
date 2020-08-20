@@ -6,7 +6,7 @@ import HeaderDetails from '../components/HeaderDetails';
 import ShareAndFavorite from '../components/ShareAndFavorite';
 import RecipeButton from '../components/utils/RecipeButton';
 import listIngredients from '../components/utils/listIngredients';
-import '../styles/Details.css';
+import '../styles/Details-InProgress.css';
 
 function DrinkDetails() {
   const [food, setFood] = useState([]);
