@@ -4,10 +4,7 @@ import * as Pg from './Pages/index';
 import './styles/Body.css';
 import './styles/Colors.css';
 
-
 function App() {
-  // const { data } = useContext(RecipeContext);
-  // console.log(data);
   return (
     <BrowserRouter>
       <Switch>

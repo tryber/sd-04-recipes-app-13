@@ -27,3 +27,14 @@ button:focus {
 input:focus {
     outline: none;
 }
+
+.general-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width: 600px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding-bottom: 120px;
+  background: var(--main-screen-background);
+}
