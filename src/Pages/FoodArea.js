@@ -32,23 +32,26 @@ function FoodArea() {
     <div className="general-container">
       <Header title="Explorar Origem" search />
       <div>
-      <div className='select'>
-        <select onChange={(e) => handleSelect(e)} data-testid="explore-by-area-dropdown">
-          <option data-testid="All-option" value="All">
-            All
-          </option>
-          {isDropDown &&
-            dropDown.map((area, index) => (
-              <option
-                data-testid={`${area.strArea}-option`}
-                key={`dropDown${index + 1}-${area.strArea}`}
-              >
-                {area.strArea}
-              </option>
-            ))}
-        </select>
-        <span class="focus"></span>
-</div>
+        <div className="select">
+          <select
+            onChange={(e) => handleSelect(e)}
+            data-testid="explore-by-area-dropdown"
+          >
+            <option data-testid="All-option" value="All">
+              All
+            </option>
+            {isDropDown &&
+              dropDown.map((area, index) => (
+                <option
+                  data-testid={`${area.strArea}-option`}
+                  key={`dropDown${index + 1}-${area.strArea}`}
+                >
+                  {area.strArea}
+                </option>
+              ))}
+          </select>
+          <span className="focus" />
+        </div>
         {dataArea && (
           <FoodAndDrinkCard data={dataArea} info="food" test="card" geralTest="recipe" />
         )}

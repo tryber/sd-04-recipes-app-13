@@ -21,26 +21,34 @@ const IngredientsFoods = () => {
   };
 
   return (
-    <div>
+    <div className="general-container">
       <Header title="Explorar Ingredientes" />
-      {ingred.slice(0, 12).map((ing, index) => (
-        <div data-testid={`${index}-ingredient-card`} key={ing.idIngredient}>
-          <button
-            style={{ width: '100%' }}
-            onClick={() => {
-              handleIngredientes(ing.strIngredient);
-            }}
+      <div className="card-general-container">
+        {ingred.slice(0, 12).map((ing, index) => (
+          <div
+            className="card-container"
+            data-testid={`${index}-ingredient-card`}
+            key={ing.idIngredient}
           >
-            <h4 data-testid={`${index}-card-name`}>{ing.strIngredient}</h4>
-            <img
-              data-testid={`${index}-card-img`}
-              src={`https://www.themealdb.com/images/ingredients/${ing.strIngredient}-Small.png`}
-              alt={ing.strMeal}
-              width="80px"
-            />
-          </button>
-        </div>
-      ))}
+            <button
+              type="button"
+              onClick={() => {
+                handleIngredientes(ing.strIngredient);
+              }}
+            >
+              <img
+                className="card-img"
+                data-testid={`${index}-card-img`}
+                src={`https://www.themealdb.com/images/ingredients/${ing.strIngredient}-Small.png`}
+                alt={ing.strMeal}
+              />
+              <h4 className="card-name" data-testid={`${index}-card-name`}>
+                {ing.strIngredient}
+              </h4>
+            </button>
+          </div>
+        ))}
+      </div>
       <Footer />
     </div>
   );

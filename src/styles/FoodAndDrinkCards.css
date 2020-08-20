@@ -66,9 +66,13 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   text-decoration: none;
   justify-content: space-between;
+}
+
+.card-container button {
+  height: 100%;
+  width: 100%;
 }
 
 .card-general-container {
@@ -92,6 +96,8 @@
   height: 109px;
   width: 100%;
 }
+
+.card-img img {}
 
 .card-name {
   color: black;

@@ -19,7 +19,6 @@ const FoodAndDrinkCard = ({ data, info, slice, test1, test2, test3 }) => {
                 data-testid={`${index}-${test2}`}
                 src={food.strMealThumb}
                 alt={food.strMeal}
-                width="60px"
               />
               <h3 className="card-name" data-testid={`${index}-${test3}`}>
                 {food.strMeal}
