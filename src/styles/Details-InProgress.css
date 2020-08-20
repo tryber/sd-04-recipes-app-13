@@ -42,11 +42,15 @@
   width: 47px;
 }
 
-.container-ingredient,.intructions-container , .video-container, .recomment-container {
+.container-ingredient, .intructions-container , .video-container, .recomment-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100vw;
+}
+
+label~li {
+  text-decoration: none;
 }
 
 .intructions-container p {
@@ -61,7 +65,7 @@
   letter-spacing: 0.03em;
   line-height: 30px;
   top: 242px;
-  margin: 20px 0 10px; 
+  margin: 5% 0 3%; 
 }
 
 .video-container {
@@ -75,6 +79,7 @@
 .button-start {
   width: 100vw;
   padding: 10px 20px;
+  margin-top: 5%;
 }
 
 .button-start a, .button-start button {
