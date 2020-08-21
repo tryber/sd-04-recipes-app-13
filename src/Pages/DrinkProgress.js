@@ -22,7 +22,7 @@ const saveDone = (recipe) => {
     name: recipe.strMeal || recipe.StrDrink,
     image: recipe.strMealThumb || recipe.strDrinkThumb,
     doneDate: `${now.getDay()}/${now.getMonth()}/${now.getFullYear()}`,
-    tags: recipe.strTags || [],
+    tags: recipe.strTags.split(',') || [],
   };
   const oldState = loadStorage('doneRecipes') ? JSON.parse(loadStorage('doneRecipes')) : [];
   if (oldState.length > 0) {

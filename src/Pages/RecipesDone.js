@@ -15,7 +15,6 @@ function RecipesDone() {
     const doneRecipeStorage = JSON.parse(loadStorage('doneRecipes')) || [];
     setDoneRecipe(doneRecipeStorage);
     setstorageFilter(doneRecipeStorage);
-    console.log(doneRecipeStorage);
   }, [track]);
 
   useEffect(() => {
