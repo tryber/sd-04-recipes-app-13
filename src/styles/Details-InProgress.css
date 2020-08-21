@@ -1,9 +1,10 @@
 .details-container {
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
   position: relative;
   box-sizing: border-box;
   max-width: 600px;
+  min-width: 320px;
   min-height: 100vh;
   margin: 0 auto;
 }
@@ -28,7 +29,7 @@
 
 .container-details {
   position: relative;
-  width: 600px;
+  /* width: 600px; */
   background: white;
 }
 
