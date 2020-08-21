@@ -7,8 +7,23 @@ import FoodAndDrinkCard from '../components/FoodAndDrinkCard';
 import '../styles/FoodAndDrinkCards.css';
 import { RecipeContext } from '../context';
 import RenderButton from '../components/utils/Button';
+import AllIcon from '../assets/icons/shot.png';
+import OrdinaryIcon from '../assets/icons/Ordinary-Drink.png';
+import CocktailIcon from '../assets/icons/cocktail.png';
+import MilkIcon from '../assets/icons/milk-shake.png';
+import OtherIcon from '../assets/icons/Other.png';
+import CocoaIcon from '../assets/icons/cocoa.png';
+
 import createButtonSearch from '../components/utils/createButtonSearch';
 import createButtonCategories from '../components/utils/createButtonCategories';
+
+const iconsDrink = {
+  'Ordinary Drink': OrdinaryIcon,
+  Cocktail: CocktailIcon,
+  'Milk / Float / Shake': MilkIcon,
+  'Other/Unknown': OtherIcon,
+  Cocoa: CocoaIcon,
+};
 
 const DrinkScreen = () => {
   const { data, setData, ingredients } = useContext(RecipeContext);
@@ -24,7 +39,6 @@ const DrinkScreen = () => {
     }
   }, [name]);
   const changeCategory = (strCategory) => {
-    console.log('Procopio Rules');
     return name === strCategory ? setName('') : setName(strCategory);
   };
   if (!data) {
@@ -40,9 +54,9 @@ const DrinkScreen = () => {
     <div className="general-container">
       <Header title="Bebidas" search />
       <div className="category-btn-div">
-        {createButtonSearch(RenderButton, changeCategory)}
+        {createButtonSearch(RenderButton, changeCategory, AllIcon)}
         {categories.slice(0, 5).map(({ strCategory }) => (
-          createButtonCategories(RenderButton, changeCategory, strCategory)
+          createButtonCategories(RenderButton, changeCategory, strCategory, iconsDrink)
         ))}
       </div>
 

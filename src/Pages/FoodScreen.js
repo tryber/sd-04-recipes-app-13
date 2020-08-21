@@ -7,8 +7,23 @@ import Loading from '../components/Loading';
 import FoodAndDrinkCard from '../components/FoodAndDrinkCard';
 import '../styles/FoodAndDrinkCards.css';
 import RenderButton from '../components/utils/Button';
+import AllIcon from '../assets/icons/All1.png';
+import BeefIcon from '../assets/icons/Beef.png';
+import BreakfastIcon from '../assets/icons/breakfast.png';
+import ChickenIcon from '../assets/icons/Chicken.png';
+import DessertIcon from '../assets/icons/dessert1.png';
+import GoatIcon from '../assets/icons/goat.png';
+
 import createButtonSearch from '../components/utils/createButtonSearch';
 import createButtonCategories from '../components/utils/createButtonCategories';
+
+const iconsFood = {
+  Beef: BeefIcon,
+  Breakfast: BreakfastIcon,
+  Chicken: ChickenIcon,
+  Dessert: DessertIcon,
+  Goat: GoatIcon,
+};
 
 const FoodScreen = () => {
   const { data, setData, ingredients } = useContext(RecipeContext);
@@ -41,17 +56,19 @@ const FoodScreen = () => {
     <div className="general-container">
       <Header title="Comidas" search />
       <div className="category-btn-div">
-        {createButtonSearch(RenderButton, changeCategory)}
-        {categories.slice(0, 5).map(({ strCategory }) => (
-          createButtonCategories(RenderButton, changeCategory, strCategory)
-        ))}
+        {createButtonSearch(RenderButton, changeCategory, AllIcon)}
+        {categories
+          .slice(0, 5)
+          .map(({ strCategory }) =>
+            createButtonCategories(RenderButton, changeCategory, strCategory, iconsFood),
+          )}
       </div>
-
       <FoodAndDrinkCard
-        data={ingredients.length === 0 ? data : ingredients} info="food" test="card"
+        data={ingredients.length === 0 ? data : ingredients}
+        info="food"
+        test="card"
         geralTest="recipe"
       />
-
       <Footer />
     </div>
   );

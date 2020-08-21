@@ -6,18 +6,20 @@ import '../styles/ExploreScreen.css';
 
 function ExploreScreen() {
   return (
-    <div>
+    <div className="general-container">
       <Header title="Explorar" />
-      <Link to="/explorar/comidas">
-        <button type="button" data-testid="explore-food" className="btn-explore-food">
-          Explorar Comidas
-        </button>
-      </Link>
-      <Link to="/explorar/bebidas">
-        <button type="button" data-testid="explore-drinks" className="btn-explore-drinks">
-          Explorar Bebidas
-        </button>
-      </Link>
+      <div className="conteiner-btn">
+        <Link to="/explorar/comidas">
+          <button type="button" data-testid="explore-food" className="button-explore">
+            Explorar Comidas
+          </button>
+        </Link>
+        <Link to="/explorar/bebidas">
+          <button type="button" data-testid="explore-drinks" className="button-explore">
+            Explorar Bebidas
+          </button>
+        </Link>
+      </div>
       <Footer />
     </div>
   );

@@ -21,24 +21,29 @@ const IngredientsDrinks = () => {
   };
 
   return (
-    <div>
+    <div className="general-container">
       <Header title="Explorar Ingredientes" />
-      {ingred.slice(0, 12).map((ing, index) => (
-        <div data-testid={`${index}-ingredient-card`} key={ing.strIngredient1}>
-          <button
-            style={{ width: '100%' }}
-            onClick={() => handleIngredientes(ing.strIngredient1)}
+      <div className="card-general-container">
+        {ingred.slice(0, 12).map((ing, index) => (
+          <div
+            className="card-container"
+            data-testid={`${index}-ingredient-card`}
+            key={ing.strIngredient1}
           >
-            <h2 data-testid={`${index}-card-name`}>{ing.strIngredient1}</h2>
-            <img
-              data-testid={`${index}-card-img`}
-              src={`https://www.thecocktaildb.com/images/ingredients/${ing.strIngredient1}-Small.png`}
-              alt={ing.strIngredient1}
-              width="80px"
-            />
-          </button>
-        </div>
-      ))}
+            <button type="button" onClick={() => handleIngredientes(ing.strIngredient1)}>
+              <img
+                className="card-img"
+                data-testid={`${index}-card-img`}
+                src={`https://www.thecocktaildb.com/images/ingredients/${ing.strIngredient1}-Small.png`}
+                alt={ing.strIngredient1}
+              />
+              <h2 className="card-name" data-testid={`${index}-card-name`}>
+                {ing.strIngredient1}
+              </h2>
+            </button>
+          </div>
+        ))}
+      </div>
       <Footer />
     </div>
   );

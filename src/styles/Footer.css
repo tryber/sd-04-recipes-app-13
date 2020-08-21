@@ -1,0 +1,73 @@
+.footer {
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+  background: var(--footer-background);
+  bottom: 0;
+  margin-top: 5%;
+  box-sizing: border-box;
+  width: 100%;
+  position: absolute;
+  padding: 12px;
+}
+
+.footer img {
+  width: 50px;
+}
+
+.footer-explore {
+  height: 64px;
+  flex-grow: 3;
+  position: relative;
+}
+
+.footer-meal {
+  flex-grow: 0;
+  height: 64px;
+  position: relative;
+}
+
+.footer-drink {
+  flex-grow: 3;
+  height: 64px;
+  position: relative;
+}
+
+/* .footer-drink img:hover, .footer-meal img:hover {
+  opacity: 0;
+}
+
+.footer-drink a:hover::after {
+  opacity: 1;
+  transition: opacity 300ms linear;
+}
+
+.footer-meal a:hover::before {
+  opacity: 1;
+  transition: opacity 300ms linear;
+}
+
+.footer-meal a::before {
+  content: url("../assets/icons/Comida-hover.png");
+  display: inline-block;
+  height: 64px;
+  opacity: 0;
+  transform: translateX(100%) translateY(-11%);
+  transition: opacity 500ms linear;
+  width: 50px;
+}
+
+.footer-drink a::after {
+  content: url("../assets/icons/Bebida-hover.png");
+  display: inline-block;
+  height: 64px;
+  opacity: 0;
+  transform: scale(-0.8) rotate(-180deg);
+  transition: opacity 500ms linear;
+} */
+
+/* @media (max-width: 600px) {
+  .footer {
+    max-width: 600px;
+  }
+} */

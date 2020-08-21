@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100vw;
+  height: 100vh;
+  /* overflow: scroll; */
+}
+
+button {
+  border: none;
+  background: none;
+}
+
+button, a {
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
+
+input:focus {
+    outline: none;
+}
+
+.general-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width: 600px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding-bottom: 120px;
+  background: var(--main-screen-background);
+}

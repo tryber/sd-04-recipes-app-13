@@ -2,14 +2,15 @@ import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import copy from 'clipboard-copy';
 import { RecipeContext } from '../context/index';
-import shareIcon from '../images/shareIcon.svg';
-import whiteHeartIcon from '../images/whiteHeartIcon.svg';
-import blackHeartIcon from '../images/blackHeartIcon.svg';
+import shareIcon from '../assets/images/shareIcon.png';
+import whiteHeartIcon from '../assets/images/whiteHeartIcon.png';
+import blackHeartIcon from '../assets/images/blackHeartIcon.png';
 import { saveStorage, loadStorage } from '../services/localStorage';
 
 const searchFavoriteFood = (favoriteStorage, food) => {
-  const foodIsFavorite = favoriteStorage
-    .filter((fav) => fav.id === (food.idMeal || food.idDrink || food.id));
+  const foodIsFavorite = favoriteStorage.filter(
+    (fav) => fav.id === (food.idMeal || food.idDrink || food.id),
+  );
   if (foodIsFavorite.length > 0) return true;
   return false;
 };
@@ -60,7 +61,7 @@ const ShareAndFavorite = ({ food, path, Type, favid, shareid }) => {
   };
 
   return (
-    <div>
+    <div className="container-share">
       <button onClick={() => handleFavorite()} type="button">
         <img
           data-testid={favid}
@@ -72,7 +73,7 @@ const ShareAndFavorite = ({ food, path, Type, favid, shareid }) => {
       <button type="button" onClick={() => ShareClick()}>
         <img src={shareIcon} data-testid={shareid} alt="share-icon" />
       </button>
-      {copied && <span>Link copiado!</span>}
+      {copied && <span className="copied">Link copiado!</span>}
     </div>
   );
 };

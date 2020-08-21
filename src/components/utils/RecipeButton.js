@@ -3,7 +3,14 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { loadStorage } from '../../services/localStorage';
 
-const searchtypebutton = (doingRecipe, doneRecipe, recipe, setVisible, setMessage, type) => {
+const searchtypebutton = (
+  doingRecipe,
+  doneRecipe,
+  recipe,
+  setVisible,
+  setMessage,
+  type,
+) => {
   const isDoingArray = doingRecipe[type] || [];
 
   const isDone = Object.keys(doneRecipe)
@@ -32,12 +39,11 @@ function RecipeButton({ type, recipe, path }) {
   }, [doingRecipe, recipe]);
 
   return (
-    <div>
+    <div className="button-start">
       {visible && (
         <Link to={`${path.slice(21)}/in-progress`}>
           <button
             type="button" data-testid="start-recipe-btn" visibility={visible ? 'visible' : 'hidden'}
-            style={{ position: 'fixed', bottom: 0 }}
           >{message}</button>
         </Link>
       )}

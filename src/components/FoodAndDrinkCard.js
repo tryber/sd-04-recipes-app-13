@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import '../styles/FoodAndDrinkCards.css';
 
 const FoodAndDrinkCard = ({ data, info, slice, test1, test2, test3 }) => {
   if (info === 'food') {
@@ -18,7 +19,6 @@ const FoodAndDrinkCard = ({ data, info, slice, test1, test2, test3 }) => {
                 data-testid={`${index}-${test2}`}
                 src={food.strMealThumb}
                 alt={food.strMeal}
-                width="60px"
               />
               <h3 className="card-name" data-testid={`${index}-${test3}`}>
                 {food.strMeal}
@@ -37,9 +37,7 @@ const FoodAndDrinkCard = ({ data, info, slice, test1, test2, test3 }) => {
           key={drink.idDrink}
           className="card-container"
         >
-          <Link
-            to={`/bebidas/${drink.idDrink}`}
-          >
+          <Link to={`/bebidas/${drink.idDrink}`}>
             <img
               className="card-img"
               src={drink.strDrinkThumb}

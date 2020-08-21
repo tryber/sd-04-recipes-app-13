@@ -6,6 +6,7 @@ import HeaderDetails from '../components/HeaderDetails';
 import ShareAndFavorite from '../components/ShareAndFavorite';
 import RecipeButton from '../components/utils/RecipeButton';
 import listIngredients from '../components/utils/listIngredients';
+import '../styles/Details-InProgress.css';
 
 function DrinkDetails() {
   const [food, setFood] = useState([]);
@@ -21,29 +22,37 @@ function DrinkDetails() {
   }, []);
 
   return (
-    <div>
+    <div className="details-container">
       <HeaderDetails recipe={drink} />
       <ShareAndFavorite
-        food={drink} path={path} copied={copied} setCopied={setCopied} Type="bebida"
+        food={drink}
+        path={path}
+        copied={copied}
+        setCopied={setCopied}
+        Type="bebida"
       />
-      <div>
-        <h1>Ingredients</h1>
-        <ul>
-          {listIngredients(drink)}
-        </ul>
+      <div className="container-details">
+        <div className="container-ingredient">
+          <h1 className="titles">Ingredients</h1>
+          <ul>{listIngredients(drink)}</ul>
+        </div>
+        <div className="intructions-container">
+          <h1 className="titles">Instructions</h1>
+          <p data-testid="instructions">{drink.strInstructions}</p>
+        </div>
+        <div className="recomment-container">
+          <h1 className="titles">Recomended</h1>
+          <FoodAndDrinkCard
+            data={food}
+            info="food"
+            slice="6"
+            test1="recomendation-card"
+            test2="recomendation-img"
+            test3="recomendation-title"
+          />
+        </div>
+        <RecipeButton type="cocktails" recipe="drink" path={path} />
       </div>
-      <div>
-        <h1>Instructions</h1>
-        <p data-testid="instructions">{drink.strInstructions}</p>
-      </div>
-      <div>
-        <h1>Recomended</h1>
-        <FoodAndDrinkCard
-          data={food} info="food" slice="6" test1="recomendation-card"
-          test2="recomendation-img" test3="recomendation-title"
-        />
-      </div>
-      <RecipeButton type="cocktails" recipe={drink} path={path} />
     </div>
   );
 }

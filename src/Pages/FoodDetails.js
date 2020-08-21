@@ -7,7 +7,8 @@ import ShareAndFavorite from '../components/ShareAndFavorite';
 import RecipeButton from '../components/utils/RecipeButton';
 import HeaderDetails from '../components/HeaderDetails';
 import listIngredients from '../components/utils/listIngredients';
-// import '../styles/DetailsPage.css';
+
+import '../styles/Details-InProgress.css';
 
 function FoodDetails() {
   const [food, setFood] = useState('');
@@ -23,37 +24,39 @@ function FoodDetails() {
 
   return (
     <div className="details-container">
-
-      <img
-        data-testid="recipe-photo" className="details-img" src={food.strMealThumb} alt="food-img"
-      />
-      <h1 data-testid="recipe-title" className="details-title">{food.strMeal}</h1>
-      <h4 data-testid="recipe-category" className="details-sub">{food.strCategory}</h4>
-      <HeaderDetails recipe={food} />
+      <HeaderDetails recipe={food} foods />
       <ShareAndFavorite food={food} path={path} Type="comida" />
-
-      <div className="ingredients">
-        <h1>Ingredients</h1>
-        <ul>
-          {listIngredients(food)}
-        </ul>
+      <div className="container-details">
+        <div className="container-ingredient">
+          <h1 className="titles">Ingredients</h1>
+          <ul>{listIngredients(food)}</ul>
+        </div>
+        <div className="intructions-container">
+          <h1 className="titles">Instructions</h1>
+          <p data-testid="instructions">{food.strInstructions}</p>
+        </div>
+        <div className="video-container">
+          <h1 className="titles">Video</h1>
+          <ReactPlayer
+            width="90vw"
+            height="90%"
+            url={food.strYoutube}
+            data-testid="video"
+          />
+        </div>
+        <div className="recomment-container">
+          <h1 className="titles">Recomended</h1>
+          <FoodAndDrinkCard
+            data={Drink}
+            info="drink"
+            slice="6"
+            test1="recomendation-card"
+            test2="recomendation-img"
+            test3="recomendation-title"
+          />
+        </div>
+        <RecipeButton type="meals" recipe="food" path={path} />
       </div>
-      <div className="ingredients">
-        <h1 className="titles">Instructions</h1>
-        <p data-testid="instructions">{food.strInstructions}</p>
-      </div>
-      <div>
-        <h1 className="titles">Video</h1>
-        <ReactPlayer className="video" url={food.strYoutube} data-testid="video" />
-      </div>
-      <div>
-        <h1 className="titles">Recomended</h1>
-        <FoodAndDrinkCard
-          data={Drink} info="drink" slice="6" test1="recomendation-card"
-          test2="recomendation-img" test3="recomendation-title"
-        />
-      </div>
-      <RecipeButton type="meals" recipe={food} path={path} />
     </div>
   );
 }

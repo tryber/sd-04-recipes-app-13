@@ -1,13 +1,14 @@
 import React from 'react';
 
-const createButtonSearch = (RenderButton, changeCategory) => (
+const createButtonSearch = (RenderButton, changeCategory, AllIcon) => (
   <RenderButton
     type="button"
     className="category-btn"
     onClick={() => changeCategory('')}
     data-testid="All-category-filter"
   >
-    All
+    <span>All</span>
+    <img src={AllIcon} alt={AllIcon} />
   </RenderButton>
 );
 
