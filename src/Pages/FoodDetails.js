@@ -53,7 +53,7 @@ function FoodDetails() {
           test2="recomendation-img" test3="recomendation-title"
         />
       </div>
-      <RecipeButton type="meals" recipe="food" path={path} />
+      <RecipeButton type="meals" recipe={food} path={path} />
     </div>
   );
 }

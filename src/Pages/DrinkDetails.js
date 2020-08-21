@@ -43,7 +43,7 @@ function DrinkDetails() {
           test2="recomendation-img" test3="recomendation-title"
         />
       </div>
-      <RecipeButton type="cocktails" recipe="drink" path={path} />
+      <RecipeButton type="cocktails" recipe={drink} path={path} />
     </div>
   );
 }
