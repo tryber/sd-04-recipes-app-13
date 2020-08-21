@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getById } from '../services/drinkApi';
 import HeaderDetails from '../components/HeaderDetails';
-import RenderInput from '../components/utils/Input';
 import ShareAndFavorite from '../components/ShareAndFavorite';
 import RenderButton from '../components/utils/Button';
-import completedStep from '../components/utils/completeStep';
+import ListIngredientsProgress from '../components/utils/ListIngredientsProgress';
 import effectProgress from '../components/utils/effectProgress';
 import effectProgress2 from '../components/utils/effectProgress2';
 import effectProgress3 from '../components/utils/effectProgress3';
+import inProgressStorage from '../components/utils/inProgressStorage';
+import firstRead from '../components/utils/FirstRead';
 
 function DrinkProgress() {
   const [path, setPath] = useState('');
@@ -16,6 +17,7 @@ function DrinkProgress() {
   const [isDisabled, setIsDisabled] = useState(true);
   const [recipe, setRecipe] = useState('');
   const [ingredients, setIngredients] = useState([]);
+  const [readStorage, setReadStorage] = useState(false);
 
   useEffect(() => {
     effectProgress2(getById, setRecipe, setPath);
@@ -23,10 +25,12 @@ function DrinkProgress() {
 
   useEffect(() => {
     effectProgress(recipe, setIngredients);
+    setReadStorage(true);
   }, [recipe]);
 
   useEffect(() => {
     effectProgress3(ingredients, setIsDisabled);
+    inProgressStorage(ingredients, recipe);
   }, [ingredients]);
 
   return (
@@ -35,21 +39,9 @@ function DrinkProgress() {
       <ShareAndFavorite
         food={recipe} path={path} copied={copied} setCopied={setCopied} Type="bebida"
       />
+      {(readStorage) && firstRead(setIngredients, ingredients, recipe, setReadStorage)}
       <h1>Ingredientes</h1>
-      <ul>
-        {ingredients.map(({ ingredient, id, measure, isCompleted }) => (
-          <li data-testid={`${id}-ingredient-step`}>
-            <label
-              htmlFor={ingredient}
-              style={{ textDecoration: isCompleted ? 'line-through' : '' }}
-            >
-              <RenderInput
-                type="checkbox" id={ingredient} value={ingredient} key={ingredient}
-                onClick={() => completedStep(id, setIngredients, ingredients)}
-              />{`${ingredient} - ${measure}`}</label>
-          </li>
-        ))}
-      </ul>
+      {ListIngredientsProgress(ingredients, setIngredients)}
       <h1>Instruções</h1>
       <p data-testid="instructions">{recipe.strInstructions}</p>
       <Link to="/receitas-feitas">

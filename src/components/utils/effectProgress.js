@@ -1,4 +1,4 @@
-const effectProgress = (recipe, setIngredients) =>
+const effectProgress = (recipe, setIngredients) => (
   Object.keys(recipe).map(
     (_, index) =>
       recipe[`strIngredient${index + 1}`] &&
@@ -11,6 +11,7 @@ const effectProgress = (recipe, setIngredients) =>
           isCompleted: false,
         },
       ]),
-  );
+  )
+);
 
 export default effectProgress;
