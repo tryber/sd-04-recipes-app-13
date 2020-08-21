@@ -1,4 +1,3 @@
-import React from 'react';
 import { loadStorage, saveStorage } from '../services/localStorage';
 
 function DoneLocalStorage(recipe) {
@@ -16,10 +15,9 @@ function DoneLocalStorage(recipe) {
   };
   const oldState = loadStorage('doneRecipes') ? JSON.parse(loadStorage('doneRecipes')) : [];
   if (oldState.length > 0) {
-    saveStorage('doneRecipes', [...oldState, newState]);
-  } else {
-    saveStorage('doneRecipes', [newState]);
+    return saveStorage('doneRecipes', [...oldState, newState]);
   }
+  return saveStorage('doneRecipes', [newState]);
 }
 
 export default DoneLocalStorage;
