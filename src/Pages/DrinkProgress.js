@@ -8,8 +8,10 @@ import ListIngredientsProgress from '../components/utils/ListIngredientsProgress
 import effectProgress from '../components/utils/effectProgress';
 import effectProgress2 from '../components/utils/effectProgress2';
 import effectProgress3 from '../components/utils/effectProgress3';
+import DoneLocalStorage from '../components/DoneLocalStorage';
 import inProgressStorage from '../components/utils/inProgressStorage';
 import firstRead from '../components/utils/FirstRead';
+
 
 function DrinkProgress() {
   const [path, setPath] = useState('');
@@ -47,6 +49,7 @@ function DrinkProgress() {
       <Link to="/receitas-feitas">
         <RenderButton
           data-testid="finish-recipe-btn" type="button" isDisabled={isDisabled}
+          onClick={() => DoneLocalStorage(recipe)}
         >Finalizar Receita</RenderButton>
       </Link>
     </div>

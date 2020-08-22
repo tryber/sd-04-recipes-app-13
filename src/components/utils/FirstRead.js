@@ -1,12 +1,11 @@
 import { loadStorage } from '../../services/localStorage';
 
-const firstRead = (setIngredients, ingredients, recipe, setReadStorage, type) => {
+const firstRead = (setIngredients, ingredients, recipe, setReadStorage) => {
   const recipeId = recipe.idMeal || recipe.idDrink;
-  const loadIngStorage = JSON.parse(loadStorage('inProgressRecipes')) || [];
+  const loadIngStorage = JSON.parse(loadStorage('inProgressRecipes')) || { cocktails: [], meals: [] };
   const loadMealStorage = loadIngStorage.meals;
   const loadDrinkStorage = loadIngStorage.cocktails;
   const newIngredients = [...ingredients];
-  console.log(type);
   const usedIngredients = loadMealStorage[recipeId] || loadDrinkStorage[recipeId] || [];
   if (usedIngredients && usedIngredients.length > 0) {
     usedIngredients.map((numb) => {

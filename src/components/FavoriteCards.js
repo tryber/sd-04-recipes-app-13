@@ -11,14 +11,16 @@ const RouteGeneration = (recipe) => {
 };
 function FavoriteCards({ favoriteRecipe, from }) {
   const Tags = (recipe, index) => {
-    if (recipe.type === 'comida') {
+    if (typeof recipe.tags !== 'string') {
       return (
         recipe.tags.map((tag) => <p key={tag} data-testid={`${index}-${tag}-horizontal-tag`}>{tag}</p>)
       );
     }
+    if (typeof recipe.tags === 'string') {
+      return (<p>{recipe.tags}</p>);
+    }
     return <fragment />;
   };
-
   return (
     <div>
       {favoriteRecipe.map((recipe, index) => (

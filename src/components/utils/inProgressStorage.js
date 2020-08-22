@@ -3,7 +3,7 @@ import { loadStorage, saveStorage } from '../../services/localStorage';
 
 const StorageFood = (id, recipeIds, loadIngStorage) => {
   console.log(loadIngStorage);
-  if (loadIngStorage) {
+  if (loadIngStorage.length) {
     const saveMeals = { ...loadIngStorage.meals, [id]: recipeIds };
     console.log('saveMeals', saveMeals);
     saveStorage('inProgressRecipes', { cocktails: { ...loadIngStorage.cocktails }, meals: saveMeals });

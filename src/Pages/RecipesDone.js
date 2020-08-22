@@ -22,6 +22,7 @@ function RecipesDone() {
       setstorageFilter(doneRecipe.filter((recipe) => recipe.type === filter));
     } else setTrack(!track);
   }, [filter]);
+  console.log(storageFilter);
 
   return (
     <div>

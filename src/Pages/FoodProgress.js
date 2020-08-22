@@ -8,6 +8,7 @@ import RenderButton from '../components/utils/Button';
 import effectProgress from '../components/utils/effectProgress';
 import effectProgress2 from '../components/utils/effectProgress2';
 import effectProgress3 from '../components/utils/effectProgress3';
+import DoneLocalStorage from '../components/DoneLocalStorage';
 import inProgressStorage from '../components/utils/inProgressStorage';
 import firstRead from '../components/utils/FirstRead';
 
@@ -47,6 +48,7 @@ function FoodProgress() {
       <Link to="/receitas-feitas">
         <RenderButton
           data-testid="finish-recipe-btn" type="button" isDisabled={isDisabled}
+          onClick={() => DoneLocalStorage(recipe)}
         >Finalizar receita</RenderButton>
       </Link>
     </div>
