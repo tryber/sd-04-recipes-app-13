@@ -9,14 +9,12 @@ import effectProgress from '../components/utils/effectProgress';
 import effectProgress2 from '../components/utils/effectProgress2';
 import effectProgress3 from '../components/utils/effectProgress3';
 import inProgressStorage from '../components/utils/inProgressStorage';
-import firstRead from '../components/utils/FirstRead';
 
 function FoodProgress() {
   const [path, setPath] = useState('');
   const [copied, setCopied] = useState(false);
   const [isDisabled, setIsDisabled] = useState(true);
   const [recipe, setRecipe] = useState('');
-  const [readStorage, setReadStorage] = useState(false);
   const [ingredients, setIngredients] = useState([]);
 
   useEffect(() => {
@@ -25,7 +23,6 @@ function FoodProgress() {
 
   useEffect(() => {
     effectProgress(recipe, setIngredients);
-    setReadStorage(true);
   }, [recipe]);
 
   useEffect(() => {
@@ -39,7 +36,6 @@ function FoodProgress() {
       <ShareAndFavorite
         food={recipe} path={path} copied={copied} setCopied={setCopied} Type="comida"
       />
-      {(readStorage) && firstRead(setIngredients, ingredients, recipe, setReadStorage, 'meal')}
       <h1>Ingredientes</h1>
       {ListIngredientsProgress(ingredients, setIngredients)}
       <h1>Instruções</h1>
