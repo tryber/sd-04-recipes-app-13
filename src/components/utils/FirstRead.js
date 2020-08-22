@@ -2,8 +2,7 @@ import { loadStorage } from '../../services/localStorage';
 
 const firstRead = (setIngredients, ingredients, recipe, setReadStorage) => {
   const recipeId = recipe.idMeal || recipe.idDrink;
-  const loadIngStorage = JSON.parse(loadStorage('inProgressRecipes')) || [];
-  console.log(loadIngStorage);
+  const loadIngStorage = JSON.parse(loadStorage('inProgressRecipes')) || { cocktails: [], meals: [] };
   const loadMealStorage = loadIngStorage.meals;
   const loadDrinkStorage = loadIngStorage.cocktails;
   const newIngredients = [...ingredients];
