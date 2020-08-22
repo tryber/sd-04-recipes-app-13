@@ -6,8 +6,7 @@ import { loadStorage } from '../../services/localStorage';
 const searchtypebutton = (doingRecipe, doneRecipe, recipe, setVisible, setMessage, type) => {
   const isDoingArray = doingRecipe[type] || [];
 
-  const isDone = Object.keys(doneRecipe)
-    .filter((done) => done.id === (recipe.idMeal || recipe.idDrink));
+  const isDone = doneRecipe.filter((done) => done.id === (recipe.idMeal || recipe.idDrink));
 
   const isDoing = Object.keys(isDoingArray)
     .filter((doing) => doing === (recipe.idMeal || recipe.idDrink));

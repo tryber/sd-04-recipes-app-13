@@ -5,7 +5,6 @@ import FoodAndDrinkCard from '../components/FoodAndDrinkCard';
 import { getByName } from '../services/drinkApi';
 import ShareAndFavorite from '../components/ShareAndFavorite';
 import RecipeButton from '../components/utils/RecipeButton';
-import HeaderDetails from '../components/HeaderDetails';
 import listIngredients from '../components/utils/listIngredients';
 // import '../styles/DetailsPage.css';
 
@@ -29,7 +28,6 @@ function FoodDetails() {
       />
       <h1 data-testid="recipe-title" className="details-title">{food.strMeal}</h1>
       <h4 data-testid="recipe-category" className="details-sub">{food.strCategory}</h4>
-      <HeaderDetails recipe={food} />
       <ShareAndFavorite food={food} path={path} Type="comida" />
 
       <div className="ingredients">
